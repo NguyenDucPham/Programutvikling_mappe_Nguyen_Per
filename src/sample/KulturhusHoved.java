@@ -6,8 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class KulturhusMain extends Application {
-
+public class KulturhusHoved extends Application {
+//Pham sin del
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("hovedside.fxml"));
