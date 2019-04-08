@@ -106,7 +106,7 @@
 
                       <!-- Legge til Antall Plasser -->
                       <Label text="Antall Plasser : " GridPane.columnIndex="0"
-                             GridPane.rowIndex="2" >
+                             GridPane.rowIndex="3" >
                       </Label>
                       <!-- Add Email Text Field -->
                       <TextField fx:id="lokAntallPlasser" prefHeight="40"
