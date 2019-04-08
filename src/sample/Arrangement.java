@@ -9,8 +9,10 @@ public class Arrangement {
      String tidspunkt;
      double pris;
      String billetter;
+     String kontaktperson;
+     String lokale;
 
-    public Arrangement(String type, String navn, String artister, String program, String tidspunkt, double pris, String billetter) {
+    public Arrangement(String kontaktperson,String type, String navn, String artister, String program, String tidspunkt, double pris, String billetter, String lokale) {
         this.type = type;
         this.navn = navn;
         this.artister = artister;
@@ -18,6 +20,8 @@ public class Arrangement {
         this.tidspunkt = tidspunkt;
         this.pris = pris;
         this.billetter = billetter;
+        this.kontaktperson = kontaktperson;
+        this.lokale = lokale;
     }
 
     public String getType() {
