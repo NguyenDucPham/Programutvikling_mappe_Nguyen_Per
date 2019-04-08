@@ -75,11 +75,11 @@
                       </columnConstraints>
 
                       <!-- Add Header Label -->
-                      <Label text="Registrering av lokale (FXML)" GridPane.columnIndex="0"
+                      <Label text="Registrering av lokale" GridPane.columnIndex="0"
                              GridPane.rowIndex="0" GridPane.columnSpan="2"
                              GridPane.rowSpan="1" GridPane.halignment="CENTER" >
                           <font>
-                              <Font name="Arial" size="35" ></Font>
+                              <Font name="Arial" size="25" ></Font>
                           </font>
                           <GridPane.margin>
                               <Insets top="20" right="0" bottom="20" left="0"></Insets>
@@ -104,6 +104,13 @@
                       <TextField fx:id="lokType" prefHeight="40"
                                  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
+                      <!-- Legge til Antall Plasser -->
+                      <Label text="Antall Plasser : " GridPane.columnIndex="0"
+                             GridPane.rowIndex="2" >
+                      </Label>
+                      <!-- Add Email Text Field -->
+                      <TextField fx:id="lokAntallPlasser" prefHeight="40"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
 
                       <!-- Knapp for lagring -->
