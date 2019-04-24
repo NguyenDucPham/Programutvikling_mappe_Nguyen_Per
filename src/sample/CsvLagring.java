@@ -8,6 +8,7 @@ public class CsvLagring extends FilLagring{
     public void skriver(Object object, String filPlassering) throws IOException {
         PrintWriter skriver;
         skriver = new PrintWriter(filPlassering+".csv","UTF-8");
+        for(object)
         skriver.println(object);
 
         if(skriver != null){
