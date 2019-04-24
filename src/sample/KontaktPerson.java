@@ -9,6 +9,15 @@ public class KontaktPerson {
     private String Nettside;
     private String Firma;
 
+    public KontaktPerson(String navn, String telefonNummer, String email, String ekstraopplysning, String nettside, String firma) {
+        Navn = navn;
+        TelefonNummer = telefonNummer;
+        Email = email;
+        Ekstraopplysning = ekstraopplysning;
+        Nettside = nettside;
+        Firma = firma;
+    }
+
     public String getNavn() {
         return Navn;
     }

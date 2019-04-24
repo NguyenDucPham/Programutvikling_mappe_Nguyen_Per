@@ -1,43 +1,55 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 
+import static java.lang.String.valueOf;
+
 public class Controller {
-    @FXML
-    private TextField lokalNavn;
 
     @FXML
-    private TextField lokalType;
+    private TextField lokNavn;
 
     @FXML
-    private TextField antallPlasser;
+    private TextField lokType;
 
     @FXML
-    private Button registrer;
+    private TextField lokAntallPlasser;
 
     @FXML
-    protected void registrerTrykk(ActionEvent hendelse) {
-        Window owner = registrer.getScene().getWindow();
-        if(lokalNavn.getText().isEmpty()) {
+    private Button registrerLokaleKnapp;
+
+
+    @FXML
+    protected void regLok() {
+        Window owner = registrerLokaleKnapp.getScene().getWindow();
+        if (lokNavn.getText().isEmpty()) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn navn");
             return;
         }
-        if(lokalType.getText().isEmpty()) {
+        if (lokType.getText().isEmpty()) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn type lokale");
             return;
         }
-        if(antallPlasser.getText().isEmpty()) {
+        if (lokAntallPlasser.getText().isEmpty()) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn antall plasser");
             return;
         }
+        try {
+            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, owner, "Vellykket", "Lokalet er registrert");
+            Lokale sdfa = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
 
-        Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, owner, "Vellykket","Lokalet er registrert" );
+        } catch (Exception e) {
+
+        }
     }
+
+
 
 
 }
