@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 
+import java.util.Arrays;
+
 public class Lokale {
 
     private String LokalNavn;
@@ -32,7 +34,10 @@ public class Lokale {
     @FXML
     private Button registrerLokaleKnapp;
 
-
+    @Override
+    public String toString() {
+        return LokalNavn + ";" + LokalType + ";" + AntallPlasser;
+    }
 
     public String getLokalNavn() {
         return LokalNavn;

@@ -1,7 +1,6 @@
 package sample;
 
-public class
-Billett {
+public class Billett {
     String plass;
     double pris;
     String nummer;

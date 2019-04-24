@@ -27,24 +27,24 @@ public class LokaleKontroller {
 
     @FXML
     protected void regLok() {
-        Window owner = registrerLokaleKnapp.getScene().getWindow();
+        Window eier = registrerLokaleKnapp.getScene().getWindow();
         if (lokNavn.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn navn");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn navn");
             return;
         }
         if (lokType.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn type lokale");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type lokale");
             return;
         }
         if (lokAntallPlasser.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn antall plasser");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn antall plasser");
             return;
         }
         try {
-           // String test=lokNavn.getText();
-            Lokale test = new Lokale(lokNavn.getText(), lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
-            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, owner, "Vellykket", "Lokalet er registrert");
-
+            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Lokalet er registrert");
+            Lokale sdfa = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
+            CsvLagring fil = new CsvLagring();
+            fil.skriver(sdfa,"lokale");
         } catch (Exception e) {
 
         }
