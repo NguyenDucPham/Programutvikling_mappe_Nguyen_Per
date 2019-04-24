@@ -10,7 +10,7 @@ import javafx.stage.Window;
 
 import static java.lang.String.valueOf;
 
-public class Controller {
+public class LokaleKontroller {
 
     @FXML
     private TextField lokNavn;
@@ -41,8 +41,9 @@ public class Controller {
             return;
         }
         try {
+           // String test=lokNavn.getText();
+            Lokale test = new Lokale(lokNavn.getText(), lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, owner, "Vellykket", "Lokalet er registrert");
-            Lokale sdfa = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
 
         } catch (Exception e) {
 

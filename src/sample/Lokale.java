@@ -13,7 +13,7 @@ public class Lokale {
     //skal være kino, konsertsal, foredragssal, teatersal
     private String LokalType;
     private int AntallPlasser;
-    private String []Lokaler;
+
 
     public Lokale(String lokalNavn, String lokalType, int antallPlasser) {
         LokalNavn = lokalNavn;
@@ -56,10 +56,6 @@ public class Lokale {
 
     public void setAntallPlasser(int antallPlasser) {
         AntallPlasser = antallPlasser;
-    }
-
-    public String getLokaler(){
-      return Lokaler.toString();
     }
 
 

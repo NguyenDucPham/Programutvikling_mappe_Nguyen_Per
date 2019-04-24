@@ -12,7 +12,7 @@ public class Arrangement {
      String kontaktperson;
      String lokale;
      int []billettArray;
-     String []arrangementList;
+     String []billetter;
 
     public Arrangement(String kontaktperson,String type, String navn, String artister, String program, String tidspunkt, double pris, String billetter, String lokale) {
         this.type = type;
@@ -27,9 +27,6 @@ public class Arrangement {
 
     }
 
-    public void createArrangement(){
-
-    }
 
 
     public void lagBillett(int antallBilletter){
