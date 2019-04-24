@@ -1,145 +1,358 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.AnchorPane?>
-
-
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <TabPane layoutX="59.0" layoutY="73.0" prefHeight="543.0" prefWidth="701.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Arrangement">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <SplitPane dividerPositions="0.5004766444232602" layoutY="2.0" prefHeight="508.0" prefWidth="701.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                            <children>
+                                                <TableView layoutX="5.0" layoutY="8.0" prefHeight="491.0" prefWidth="340.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="82.66663599014282" text="C1" />
+                                                        <TableColumn prefWidth="76.0000228881836" text="C2" />
+                                                        <TableColumn prefWidth="85.99992370605469" text="Column X" />
+                                                        <TableColumn prefWidth="90.00001525878906" text="Column X" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                            <children>
+                                                <TextArea layoutX="14.0" layoutY="17.0" prefHeight="474.0" prefWidth="321.0" />
+                                            </children>
+                                        </AnchorPane>
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Registrering av arrangement">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="514.0" prefWidth="717.0" />
+                        <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
+                            <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="100" prefWidth="100">
+                                </ColumnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="200" prefWidth="200">
+                                </ColumnConstraints>
+                            </columnConstraints>
+
+                            <!-- Add Header Label -->
+                            <Label text="Registrering av lokale" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                                <font>
+                                    <Font name="Arial" size="25" />
+                                </font>
+                                <GridPane.margin>
+                                    <Insets bottom="20" left="0" right="0" top="20" />
+                                </GridPane.margin>
+                            </Label>
+
+                            <!-- legg til type  -->
+                            <Label text="Type : " GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            </Label>
+                            <!-- legg til arrangement i tekstfil -->
+                            <TextField fx:id="arrType" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0"
-            prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <children>
-      <TabPane layoutX="59.0" layoutY="73.0" prefHeight="543.0" prefWidth="701.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Arrangement">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.5004766444232602" layoutY="2.0" prefHeight="508.0" prefWidth="701.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                 <children>
-                                    <TableView layoutX="5.0" layoutY="8.0" prefHeight="491.0" prefWidth="340.0">
-                                      <columns>
-                                        <TableColumn prefWidth="82.66663599014282" text="C1" />
-                                        <TableColumn prefWidth="76.0000228881836" text="C2" />
-                                          <TableColumn prefWidth="85.99992370605469" text="Column X" />
-                                          <TableColumn prefWidth="90.00001525878906" text="Column X" />
-                                      </columns>
-                                    </TableView>
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                 <children>
-                                    <TextArea layoutX="14.0" layoutY="17.0" prefHeight="474.0" prefWidth="321.0" />
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Registrering av arrangement">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="514.0" prefWidth="717.0" />
-            </content>
-          </Tab>
-            <Tab text="Registrering av lokale">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="607.0" />
+                            <!-- Legge til navn -->
+                            <Label text="Navn : " GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            </Label>
+                            <!-- legge til navn på arrangement -->
+                            <TextField fx:id="arrNavn" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                  <GridPane
-                            xmlns:fx="http://javafx.com/fxml" alignment="center"
-                            hgap="10" vgap="10">
-                      <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
-                      <columnConstraints>
-                          <ColumnConstraints minWidth="100" prefWidth="100"
-                                             maxWidth="Infinity" halignment="RIGHT">
-                          </ColumnConstraints>
-                          <ColumnConstraints minWidth="200" prefWidth="200"
-                                             maxWidth="Infinity" hgrow="ALWAYS">
-                          </ColumnConstraints>
-                      </columnConstraints>
+                            <!-- Legge til artist -->
+                            <Label text="Artist : " GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            </Label>
+                            <!-- legge til artist i tekstfelt -->
+                            <TextField fx:id="arrArtist" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                      <!-- Add Header Label -->
-                      <Label text="Registrering av lokale" GridPane.columnIndex="0"
-                             GridPane.rowIndex="0" GridPane.columnSpan="2"
-                             GridPane.rowSpan="1" GridPane.halignment="CENTER" >
-                          <font>
-                              <Font name="Arial" size="25" ></Font>
-                          </font>
-                          <GridPane.margin>
-                              <Insets top="20" right="0" bottom="20" left="0"></Insets>
-                          </GridPane.margin>
-                      </Label>
+                            <!-- Legge til prgram -->
+                            <Label text="Program : " GridPane.columnIndex="0" GridPane.rowIndex="4">
+                            </Label>
+                            <!-- legge til program -->
+                            <TextField fx:id="arrPrgram" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
+                            <!-- Legge til tidspunkt -->
+                            <Label text="Tidspunkt : " GridPane.columnIndex="0" GridPane.rowIndex="5">
+                            </Label>
+                            <!-- legge til program -->
+                            <TextField fx:id="arrTidspunkt" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                      <!-- Add Lokalnavn -->
-                      <Label text="Lokalnavn : " GridPane.columnIndex="0"
-                             GridPane.rowIndex="1" >
-                      </Label>
-                      <!-- Add Name Text Field -->
-                      <TextField fx:id="lokNavn" prefHeight="40"
-                                 GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                            <!-- Legge til pris -->
+                            <Label text="Pris : " GridPane.columnIndex="0" GridPane.rowIndex="6">
+                            </Label>
+                            <!-- legge til program -->
+                            <TextField fx:id="arrPris" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
+                            <!-- Legge til kontaktperson -->
+                            <Label text="Kontaktperson : " GridPane.columnIndex="0" GridPane.rowIndex="7">
+                            </Label>
+                            <!-- legge til kontaktperson -->
+                            <TextField fx:id="arrKontaktPerson" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-                      <!-- Legge til lokaltype -->
-                      <Label text="Type : " GridPane.columnIndex="0"
-                             GridPane.rowIndex="2" >
-                      </Label>
-                      <!-- Add Email Text Field -->
-                      <TextField fx:id="lokType" prefHeight="40"
-                                 GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            <!-- Legge til sted -->
+                            <Label text="Lokale : " GridPane.columnIndex="0" GridPane.rowIndex="8">
+                            </Label>
+                            <!-- legge til sted i tekstfelt -->
+                            <TextField fx:id="arrLokale" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
-                      <!-- Legge til Antall Plasser -->
-                      <Label text="Antall Plasser : " GridPane.columnIndex="0"
-                             GridPane.rowIndex="3" >
-                      </Label>
-                      <!-- Add Email Text Field -->
-                      <TextField fx:id="lokAntallPlasser" prefHeight="40"
-                                 GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                            <!-- Knapp for lagring -->
+                            <Button fx:id="arrRegistrer" defaultButton="true" prefHeight="40" prefWidth="100" text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.rowSpan="1">
+                                <!-- onAction="#handleSubmitButtonAction"-->
+                                <GridPane.margin>
+                                    <Insets bottom="20" left="0" right="0" top="20" />
+                                </GridPane.margin>
+                            </Button>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                        </GridPane>
+
+                    </content>
+                </Tab>
+                <Tab text="Registrering av lokale">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="607.0" />
+
+                        <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
+                            <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="100" prefWidth="100">
+                                </ColumnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="200" prefWidth="200">
+                                </ColumnConstraints>
+                            </columnConstraints>
+
+                            <!-- Add Header Label -->
+                            <Label text="Registrering av lokale" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                                <font>
+                                    <Font name="Arial" size="25" />
+                                </font>
+                                <GridPane.margin>
+                                    <Insets bottom="20" left="0" right="0" top="20" />
+                                </GridPane.margin>
+                            </Label>
 
 
-                      <!-- Knapp for lagring -->
-                      <Button fx:id="registrer" text="Registrer"
-                              prefWidth="100" prefHeight="40" defaultButton="true"
-                              GridPane.columnIndex="0" GridPane.rowIndex="4"
-                              GridPane.columnSpan="2" GridPane.rowSpan="1"
-                              GridPane.halignment="CENTER">
-                             <!-- onAction="#handleSubmitButtonAction"-->
-                          <GridPane.margin>
-                              <Insets top="20" right="0" bottom="20" left="0"></Insets>
-                          </GridPane.margin>
-                      </Button>
-                  </GridPane>
+                            <!-- Add Lokalnavn -->
+                            <Label text="Lokalnavn : " GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            </Label>
+                            <!-- Add Name Text Field -->
+                            <TextField fx:id="lokNavn" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
 
-              </content>
-            </Tab>
-            <Tab text="Registrering av kontaktperson">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="570.0" />
-              </content>
-            </Tab>
-            <Tab text="Billettsalg">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="699.0" />
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+                            <!-- Legge til lokaltype -->
+                            <Label text="Type : " GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            </Label>
+                            <!-- Add Email Text Field -->
+                            <TextField fx:id="lokType" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <!-- Legge til Antall Plasser -->
+                            <Label text="Antall Plasser : " GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            </Label>
+                            <!-- Add Email Text Field -->
+                            <TextField fx:id="lokAntallPlasser" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+
+                            <!-- Knapp for lagring -->
+                            <Button fx:id="registrer" defaultButton="true" prefHeight="40" prefWidth="100" text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+                                <!-- onAction="#handleSubmitButtonAction"-->
+                                <GridPane.margin>
+                                    <Insets bottom="20" left="0" right="0" top="20" />
+                                </GridPane.margin>
+                            </Button>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                        </GridPane>
+
+
+                    </content>
+                </Tab>
+                <Tab text="Registrering av kontaktperson">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="570.0" />
+
+
+                            <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
+                                <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
+                                <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="100" prefWidth="100">
+                                    </ColumnConstraints>
+                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="200" prefWidth="200">
+                                    </ColumnConstraints>
+                                </columnConstraints>
+
+                                <!-- Add Header Label -->
+                                <Label text="Registrering av lokale" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                                    <font>
+                                        <Font name="Arial" size="25" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="20" left="0" right="0" top="20" />
+                                    </GridPane.margin>
+                                </Label>
+
+
+                                <!-- Add kontaktnavn -->
+                                <Label text="Navn : " GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                </Label>
+                                <!-- Add Name Text Field -->
+                                <TextField fx:id="kontaktNavn" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+
+                                <!-- Legge til tlfnummer -->
+                                <Label text="Telefonnummer : " GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                </Label>
+                                <!-- legge til telefonnummer i tekstfelt -->
+                                <TextField fx:id="tlfNummer" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                <!-- Legge til Email -->
+                                <Label text="Email : " GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                </Label>
+                                <!-- legge til email i tekstfelt -->
+                                <TextField fx:id="Email" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                <!-- Legge til Ekstraopplysning -->
+                                <Label text="Ekstraopplysning : " GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                </Label>
+                                <!-- legge til ekstraopplysninger i tekstfelt -->
+                                <TextField fx:id="ekstraOpplysning" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                                <!-- Legge til nettside -->
+                                <Label text="Nettside : " GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                </Label>
+                                <!-- Add homepage Text Field -->
+                                <TextField fx:id="nettSide" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+
+                                <!-- Legge til Firma -->
+                                <Label text="Firma : " GridPane.columnIndex="0" GridPane.rowIndex="6">
+                                </Label>
+                                <!-- legge Firma Text Field -->
+                                <TextField fx:id="Firma" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+
+                                <!-- Knapp for lagring -->
+                                <Button fx:id="regKontaktPerson" defaultButton="true" prefHeight="40" prefWidth="100" text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="1">
+                                    <!-- onAction="#handleSubmitButtonAction"-->
+                                    <GridPane.margin>
+                                        <Insets bottom="20" left="0" right="0" top="20" />
+                                    </GridPane.margin>
+                                </Button>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                            </GridPane>
+
+                    </content>
+                </Tab>
+                <Tab text="Billettsalg">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="699.0" />
+                        <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
+                        <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
+                        <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="100.0" prefWidth="100.0">
+                            </ColumnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="200.0" prefWidth="200.0">
+                            </ColumnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        </columnConstraints>
+
+                            <!-- Legge til Navn -->
+                            <Label text="Søk etter arrangement : " GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            </Label>
+                            <!-- legge navn i tekstfelt -->
+                            <TextField fx:id="sokArrangement" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                            <!-- Knapp for søk -->
+                            <Button fx:id="sokKnapp" defaultButton="true" prefHeight="40" prefWidth="65.0" text="Søk" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
+                                <!-- onAction="#handleSubmitButtonAction"-->
+                                <GridPane.margin>
+                                    <Insets bottom="15" left="0" right="0" top="15" />
+                                </GridPane.margin>
+                            </Button>
+
+                            <!-- display søkeresultat -->
+                            <Label text="Arrangement : " GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            </Label>
+                            <!-- viser arrangement -->
+                            <TextField fx:id="visArrangement" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <!-- Legge til Navn -->
+                            <Label text="Navn : " GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            </Label>
+                            <!-- legge navn i tekstfelt -->
+                            <TextField fx:id="salgNavn" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+
+                            <!-- Knapp for lagring -->
+                            <Button fx:id="regSalg" defaultButton="true" prefHeight="40" prefWidth="100" text="Registrer salg" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="1">
+                            <!-- onAction="#handleSubmitButtonAction"-->
+                            <GridPane.margin>
+                                <Insets bottom="20" left="0" right="0" top="20" />
+                            </GridPane.margin>
+                        </Button>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                        </GridPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
 </AnchorPane>
