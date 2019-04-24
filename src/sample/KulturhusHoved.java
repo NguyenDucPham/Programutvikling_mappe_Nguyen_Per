@@ -19,7 +19,7 @@ public class KulturhusHoved extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Tab.fxml"));
         primaryStage.setTitle("Kulturhus");
        // GridPane gridPane = RegistreringLokale();
-        Scene scene = new Scene(root, 800, 500);
+        Scene scene = new Scene(root, 800, 800);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Kontroller">
     <children>
         <TabPane layoutX="59.0" layoutY="73.0" prefHeight="543.0" prefWidth="701.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -119,11 +119,16 @@
                             </Label>
                             <!-- legge til sted i tekstfelt -->
                             <TextField fx:id="arrLokale" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                            <!-- Legge til antall -->
+                            <Label text="Antall billetter : " GridPane.columnIndex="0" GridPane.rowIndex="9">
+                            </Label>
+                            <!-- legge til antall i tekstfelt -->
+                            <TextField fx:id="arrAntallBilletter" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
                             <!-- Knapp for lagring -->
-                            <Button fx:id="arrRegistrer" defaultButton="true" prefHeight="40" prefWidth="100"
+                            <Button fx:id="arrRegistrerKnapp" defaultButton="true" prefHeight="40" prefWidth="100"
                                     text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"
-                                    GridPane.rowIndex="9" GridPane.rowSpan="1"
+                                    GridPane.rowIndex="10" GridPane.rowSpan="1"
                                     onAction="#arrReg">
 
                                 <GridPane.margin>
@@ -194,7 +199,7 @@
                             <Button fx:id="registrerLokaleKnapp" defaultButton="true" prefHeight="40" prefWidth="100"
                                     text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"
                                     GridPane.rowIndex="4" GridPane.rowSpan="1"
-                                    onAction="#regLok">
+                                    onAction="#lokReg">
 
                                 <GridPane.margin>
                                     <Insets bottom="20" left="0" right="0" top="20" />

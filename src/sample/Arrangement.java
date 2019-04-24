@@ -7,21 +7,22 @@ public class Arrangement {
      String artister;
      String program;
      String tidspunkt;
-     double pris;
+     String pris;
      String antBilletter;
      String kontaktperson;
      String lokale;
      int []billettArray;
      String []billetter;
 
-    public Arrangement(String kontaktperson,String type, String navn, String artister, String program, String tidspunkt, double pris, String billetter, String lokale) {
+    public Arrangement(String kontaktperson,String type, String navn, String artister,
+                       String program, String tidspunkt, String pris, String antBilletter, String lokale) {
         this.type = type;
         this.navn = navn;
         this.artister = artister;
         this.program = program;
         this.tidspunkt = tidspunkt;
         this.pris = pris;
-        this.antBilletter = billetter;
+        this.antBilletter = antBilletter;
         this.kontaktperson = kontaktperson;
         this.lokale = lokale;
 
@@ -75,11 +76,11 @@ public class Arrangement {
         this.tidspunkt = tidspunkt;
     }
 
-    public double getPris() {
+    public String getPris() {
         return pris;
     }
 
-    public void setPris(double pris) {
+    public void setPris(String pris) {
         this.pris = pris;
     }
 
