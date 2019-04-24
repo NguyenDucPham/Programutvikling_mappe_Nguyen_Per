@@ -188,8 +188,11 @@
 
 
                             <!-- Knapp for lagring -->
-                            <Button fx:id="registrer" defaultButton="true" prefHeight="40" prefWidth="100" text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
-                                <!-- onAction="#handleSubmitButtonAction"-->
+                            <Button fx:id="registrerLokaleKnapp" defaultButton="true" prefHeight="40" prefWidth="100"
+                                    text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"
+                                    GridPane.rowIndex="4" GridPane.rowSpan="1"
+                                    onAction="#regLok">
+
                                 <GridPane.margin>
                                     <Insets bottom="20" left="0" right="0" top="20" />
                                 </GridPane.margin>
