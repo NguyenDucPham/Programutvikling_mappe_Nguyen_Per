@@ -41,24 +41,24 @@ public class ArrangementKontroller {
 
 
     @FXML
-    protected void regLok() {
-        Window owner = registrerLokaleKnapp.getScene().getWindow();
-        if (lokNavn.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn navn");
+    protected void arrReg() {
+        Window eier = registrerLokaleKnapp.getScene().getWindow();
+        if (arrType.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type");
             return;
         }
-        if (lokType.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn type lokale");
+        if (arrNavn.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type navn");
             return;
         }
-        if (lokAntallPlasser.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, owner, "Form Error!", "Fyll inn antall plasser");
+        if (arrArtist.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn artist");
             return;
         }
         try {
-            // String test=lokNavn.getText();
-            Lokale test = new Lokale(lokNavn.getText(), lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
-            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, owner, "Vellykket", "Lokalet er registrert");
+
+           // Lokale test = new Lokale(lokNavn.getText(), lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
+           // Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, owner, "Vellykket", "Lokalet er registrert");
 
         } catch (Exception e) {
 

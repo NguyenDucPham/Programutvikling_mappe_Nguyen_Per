@@ -22,17 +22,7 @@ public class Lokale {
         LokalType = lokalType;
         AntallPlasser = antallPlasser;
     }
-    @FXML
-    private TextField lokNavn;
 
-    @FXML
-    private TextField lokType;
-
-    @FXML
-    private TextField lokAntallPlasser;
-
-    @FXML
-    private Button registrerLokaleKnapp;
 
     @Override
     public String toString() {
