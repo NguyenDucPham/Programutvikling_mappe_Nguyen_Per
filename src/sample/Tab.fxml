@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -18,7 +19,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Kontroller">
     <children>
-        <TabPane layoutX="59.0" layoutY="73.0" prefHeight="543.0" prefWidth="701.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane layoutX="59.0" layoutY="73.0" prefHeight="594.0" prefWidth="715.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Arrangement">
                     <content>
@@ -52,17 +53,17 @@
                 <Tab text="Registrering av arrangement">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="514.0" prefWidth="717.0" />
-                        <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
+                        <GridPane alignment="center" hgap="10" prefHeight="567.0" prefWidth="744.0" vgap="10" xmlns:fx="http://javafx.com/fxml">
                             <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
                             <columnConstraints>
-                                <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="100" prefWidth="100">
+                                <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="100.0" prefWidth="100.0">
                                 </ColumnConstraints>
-                                <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="200" prefWidth="200">
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="200.0" prefWidth="200.0">
                                 </ColumnConstraints>
                             </columnConstraints>
 
                             <!-- Add Header Label -->
-                            <Label text="Registrering av Arrangement" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                            <Label text="Registrering av Arrangement" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="1">
                                 <font>
                                     <Font name="Arial" size="25" />
                                 </font>
@@ -119,22 +120,17 @@
                             </Label>
                             <!-- legge til sted i tekstfelt -->
                             <TextField fx:id="arrLokale" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                            <!-- Legge til antall -->
-                            <Label text="Antall billetter : " GridPane.columnIndex="0" GridPane.rowIndex="9">
-                            </Label>
-                            <!-- legge til antall i tekstfelt -->
-                            <TextField fx:id="arrAntallBilletter" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
                             <!-- Knapp for lagring -->
-                            <Button fx:id="arrRegistrerKnapp" defaultButton="true" prefHeight="40" prefWidth="100"
-                                    text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"
-                                    GridPane.rowIndex="10" GridPane.rowSpan="1"
-                                    onAction="#arrReg">
-
+                            <Button fx:id="arrRegistrer" defaultButton="true" prefHeight="40" prefWidth="100" text="Registrer" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.rowSpan="1">
+                                <!-- onAction="#handleSubmitButtonAction"-->
                                 <GridPane.margin>
                                     <Insets bottom="20" left="0" right="0" top="20" />
                                 </GridPane.margin>
                             </Button>
+                     <ComboBox accessibleText="jlj" prefWidth="150.0" GridPane.rowIndex="9" />
+                     <ComboBox prefHeight="28.0" prefWidth="529.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     <ComboBox prefHeight="13.0" prefWidth="525.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                      <rowConstraints>
                         <RowConstraints />
                         <RowConstraints />
@@ -155,7 +151,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="607.0" />
 
-                        <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
+                        <GridPane id="regLokaleLagring" alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
                             <padding><Insets bottom="40" left="40" right="40" top="40" /></padding>
                             <columnConstraints>
                                 <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="100" prefWidth="100">
@@ -196,15 +192,13 @@
 
 
                             <!-- Knapp for lagring -->
-                            <Button fx:id="registrerLokaleKnapp" defaultButton="true" prefHeight="40" prefWidth="100"
-                                    text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"
-                                    GridPane.rowIndex="4" GridPane.rowSpan="1"
-                                    onAction="#lokReg">
+                            <Button fx:id="registrerLokaleKnapp" defaultButton="true" onAction="#lokReg" prefHeight="40" prefWidth="100" text="Registrer" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
 
                                 <GridPane.margin>
                                     <Insets bottom="20" left="0" right="0" top="20" />
                                 </GridPane.margin>
                             </Button>
+                     <ComboBox prefWidth="150.0" GridPane.rowIndex="4" />
                      <rowConstraints>
                         <RowConstraints />
                         <RowConstraints />
@@ -288,6 +282,7 @@
                                         <Insets bottom="20" left="0" right="0" top="20" />
                                     </GridPane.margin>
                                 </Button>
+                     <ComboBox prefWidth="150.0" GridPane.rowIndex="7" />
                      <rowConstraints>
                         <RowConstraints />
                         <RowConstraints />

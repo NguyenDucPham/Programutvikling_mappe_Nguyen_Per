@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import javafx.scene.control.ComboBox;
 
 import static java.lang.String.valueOf;
 
@@ -42,14 +43,18 @@ public class Kontroller {
         }
         try {
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Lokalet er registrert");
-            Lokale sdfa = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
+            Lokale lokale = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
             CsvLagring fil = new CsvLagring();
-            fil.skriver(sdfa,"lokale");
+            fil.skriver(lokale,"lokale");
         } catch (Exception e) {
 
         }
     }
-
+    /*
+    *
+    * Kontroller for arrangement
+    *
+    * */
     @FXML
     private TextField arrNavn;
 
@@ -116,9 +121,8 @@ public class Kontroller {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn lokale");
             return;
         }
-
+        ComboBox<Object> myComboBox = new ComboBox<Object>();
         try {
-
             Arrangement test = new Arrangement(arrKontaktPerson.getText(), arrType.getText(), arrNavn.getText(), arrArtist.getText(),
                     arrProgram.getText(), arrTidspunkt.getText(), arrPris.getText(), arrAntallBilletter.getText(), arrLokale.getText());
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");

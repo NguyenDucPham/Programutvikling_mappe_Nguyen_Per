@@ -2,12 +2,12 @@ package sample;
 
 public class Billett {
     String plass;
-    double pris;
+    String pris;
     String nummer;
     String dato;
     String klokkeslett;
 
-    public Billett(String plass, double pris, String nummer, String dato, String klokkeslett) {
+    public Billett(String plass, String pris, String nummer, String dato, String klokkeslett) {
         this.plass = plass;
         this.pris = pris;
         this.nummer = nummer;
@@ -23,11 +23,11 @@ public class Billett {
         this.plass = plass;
     }
 
-    public double getPris() {
+    public String getPris() {
         return pris;
     }
 
-    public void setPris(double pris) {
+    public void setPris(String pris) {
         this.pris = pris;
     }
 
