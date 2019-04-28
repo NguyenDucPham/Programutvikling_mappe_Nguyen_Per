@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -19,7 +20,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Kontroller">
     <children>
-        <TabPane layoutX="59.0" layoutY="73.0" prefHeight="594.0" prefWidth="715.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane layoutX="59.0" layoutY="73.0" prefHeight="638.0" prefWidth="745.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Arrangement">
                     <content>
@@ -128,7 +129,7 @@
                                     <Insets bottom="20" left="0" right="0" top="20" />
                                 </GridPane.margin>
                             </Button>
-                     <ComboBox accessibleText="jlj" prefWidth="150.0" GridPane.rowIndex="9" />
+                     <ComboBox id="arrLagringBox" fx:id="arrLagringBox" accessibleText="jlj" prefWidth="150.0" GridPane.rowIndex="9" />
                      <ComboBox prefHeight="28.0" prefWidth="529.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                      <ComboBox prefHeight="13.0" prefWidth="525.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                      <rowConstraints>
@@ -198,7 +199,7 @@
                                     <Insets bottom="20" left="0" right="0" top="20" />
                                 </GridPane.margin>
                             </Button>
-                     <ComboBox prefWidth="150.0" GridPane.rowIndex="4" />
+                     <ComboBox fx:id="lokLagringBox" prefWidth="150.0" GridPane.rowIndex="4" />
                      <rowConstraints>
                         <RowConstraints />
                         <RowConstraints />
@@ -282,7 +283,7 @@
                                         <Insets bottom="20" left="0" right="0" top="20" />
                                     </GridPane.margin>
                                 </Button>
-                     <ComboBox prefWidth="150.0" GridPane.rowIndex="7" />
+                     <ComboBox fx:id="konLagringBox" prefWidth="150.0" GridPane.rowIndex="7" />
                      <rowConstraints>
                         <RowConstraints />
                         <RowConstraints />
@@ -360,5 +361,9 @@
                 </Tab>
             </tabs>
         </TabPane>
+      <Separator layoutX="27.0" layoutY="65.0" prefHeight="13.0" prefWidth="815.0" />
+      <Separator layoutX="27.0" layoutY="752.0" prefHeight="6.0" prefWidth="815.0" />
+      <Separator layoutX="21.0" layoutY="71.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="15.0" />
+      <Separator layoutX="839.0" layoutY="73.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="5.0" />
     </children>
 </AnchorPane>

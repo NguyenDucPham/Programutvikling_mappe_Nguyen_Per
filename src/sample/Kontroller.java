@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,6 +16,9 @@ import static java.lang.String.valueOf;
 
 public class Kontroller {
 
+    ObservableList<String> arrLagringList= FXCollections.observableArrayList("Valg1","valg2");
+    ObservableList<String> lokLagringList= FXCollections.observableArrayList("Valg1","valg2");
+    ObservableList<String> konLagringList= FXCollections.observableArrayList("Valg1","valg2");
     @FXML
     private TextField lokNavn;
 
@@ -25,6 +31,21 @@ public class Kontroller {
     @FXML
     private Button registrerLokaleKnapp;
 
+    @FXML
+    private ComboBox arrLagringBox;
+    @FXML
+    private ComboBox lokLagringBox;
+    @FXML
+    private ComboBox konLagringBox;
+    @FXML
+    private void initialize(){
+        arrLagringBox.setValue("valg1");
+        arrLagringBox.setItems(arrLagringList);
+        lokLagringBox.setValue("valg1");
+        lokLagringBox.setItems(lokLagringList);
+        konLagringBox.setValue("valg1");
+        konLagringBox.setItems(konLagringList);
+    }
 
     @FXML
     protected void lokReg(ActionEvent event) {
