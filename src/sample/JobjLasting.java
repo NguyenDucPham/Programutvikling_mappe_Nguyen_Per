@@ -7,7 +7,7 @@ import java.io.RandomAccessFile;
 
 public class JobjLasting extends FilLasting{
     @Override
-    public String[][] leser(String fil){
+    public void leser(String fil){
         String data = null;
         String s;
         try{
@@ -24,7 +24,5 @@ public class JobjLasting extends FilLasting{
         }catch(IOException e){
 
         }
-        System.out.println(data);
-        return Splittere.objectSplitter(Splittere.linjeSplitter(data));
     }
 }
