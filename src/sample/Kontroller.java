@@ -16,9 +16,9 @@ import static java.lang.String.valueOf;
 
 public class Kontroller {
 
-    ObservableList<String> arrLagringList= FXCollections.observableArrayList("Valg1","valg2");
-    ObservableList<String> lokLagringList= FXCollections.observableArrayList("Valg1","valg2");
-    ObservableList<String> konLagringList= FXCollections.observableArrayList("Valg1","valg2");
+    ObservableList<String> arrLagringList= FXCollections.observableArrayList("Csv","Jobj");
+    ObservableList<String> lokLagringList= FXCollections.observableArrayList("Csv","Jobj");
+    ObservableList<String> konLagringList= FXCollections.observableArrayList("Csv","Jobj");
     @FXML
     private TextField lokNavn;
 
@@ -39,11 +39,11 @@ public class Kontroller {
     private ComboBox konLagringBox;
     @FXML
     private void initialize(){
-        arrLagringBox.setValue("valg1");
+        arrLagringBox.setValue("Csv");
         arrLagringBox.setItems(arrLagringList);
-        lokLagringBox.setValue("valg1");
+        lokLagringBox.setValue("Csv");
         lokLagringBox.setItems(lokLagringList);
-        konLagringBox.setValue("valg1");
+        konLagringBox.setValue("Csv");
         konLagringBox.setItems(konLagringList);
     }
 
@@ -65,10 +65,13 @@ public class Kontroller {
         try {
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Lokalet er registrert");
             Lokale lokale = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
-            CsvLagring fil = new CsvLagring();
-            fil.skriver(lokale,"lokale");
-            JobjLagring fil2 = new JobjLagring();
-            fil2.skriver(lokale,"lokale");
+            if(lokLagringBox.getValue()== "Csv"){
+                CsvLagring fil = new CsvLagring();
+                fil.skriver(lokale,"lokale");
+            }else if(lokLagringBox.getValue()== "Jobj"){
+                JobjLagring fil2 = new JobjLagring();
+                fil2.skriver(lokale,"lokale");
+            }
         } catch (Exception e) {
 
         }
@@ -146,10 +149,16 @@ public class Kontroller {
         }
         ComboBox<Object> myComboBox = new ComboBox<Object>();
         try {
-            Arrangement test = new Arrangement(arrKontaktPerson.getText(), arrType.getText(), arrNavn.getText(), arrArtist.getText(),
+            Arrangement arrangement = new Arrangement(arrKontaktPerson.getText(), arrType.getText(), arrNavn.getText(), arrArtist.getText(),
                     arrProgram.getText(), arrTidspunkt.getText(), arrPris.getText(), arrAntallBilletter.getText(), arrLokale.getText());
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
-
+            if(lokLagringBox.getValue()== "Csv"){
+                CsvLagring fil = new CsvLagring();
+                fil.skriver(arrangement,"arrangement");
+            }else if(lokLagringBox.getValue()== "Jobj"){
+                JobjLagring fil2 = new JobjLagring();
+                fil2.skriver(arrangement,"arrangement");
+            }
         } catch (Exception e) {
 
         }
