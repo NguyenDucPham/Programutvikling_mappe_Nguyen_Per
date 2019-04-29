@@ -2,19 +2,19 @@ package sample;
 
 
 public class Arrangement {
-     String type;
-     String navn;
-     String artister;
-     String program;
-     String tidspunkt;
-     String pris;
-     String antBilletter;
-     String kontaktperson;
-     String lokale;
-     int []billettArray;
-     String []billetter;
+    private String type;
+    private String navn;
+    private String artister;
+    private String program;
+    private String tidspunkt;
+    private String pris;
+    private String antBilletter;
+    private String kontaktperson;
+    private String lokale;
+    private int []billettId;
+    private String []billetter;
 
-    public Arrangement(String kontaktperson,String type, String navn, String artister,
+    public Arrangement(String kontaktperson, String type, String navn, String artister,
                        String program, String tidspunkt, String pris, String antBilletter, String lokale) {
         this.type = type;
         this.navn = navn;
@@ -30,12 +30,12 @@ public class Arrangement {
 
 
 
-    public void lagBillett(int antallBilletter){
+  /*  public void lagBillett(int antallBilletter){
         for (int i =0;i<antallBilletter;i++){
             billettArray[i]=i;
         }
 
-    }
+    }*/
     public String getType() {
         return type;
     }

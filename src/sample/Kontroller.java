@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -7,11 +10,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import javafx.scene.control.ComboBox;
 
 import static java.lang.String.valueOf;
 
 public class Kontroller {
 
+    ObservableList<String> arrLagringList= FXCollections.observableArrayList("Valg1","valg2");
+    ObservableList<String> lokLagringList= FXCollections.observableArrayList("Valg1","valg2");
+    ObservableList<String> konLagringList= FXCollections.observableArrayList("Valg1","valg2");
     @FXML
     private TextField lokNavn;
 
@@ -24,6 +31,21 @@ public class Kontroller {
     @FXML
     private Button registrerLokaleKnapp;
 
+    @FXML
+    private ComboBox arrLagringBox;
+    @FXML
+    private ComboBox lokLagringBox;
+    @FXML
+    private ComboBox konLagringBox;
+    @FXML
+    private void initialize(){
+        arrLagringBox.setValue("valg1");
+        arrLagringBox.setItems(arrLagringList);
+        lokLagringBox.setValue("valg1");
+        lokLagringBox.setItems(lokLagringList);
+        konLagringBox.setValue("valg1");
+        konLagringBox.setItems(konLagringList);
+    }
 
     @FXML
     protected void lokReg(ActionEvent event) {
@@ -47,15 +69,15 @@ public class Kontroller {
             fil.skriver(lokale,"lokale");
             JobjLagring fil2 = new JobjLagring();
             fil2.skriver(lokale,"lokale");
-            CsvLasting les = new CsvLasting();
-            les.leser("lokale");
-            JobjLasting les2 = new JobjLasting();
-            les.leser("lokale");
         } catch (Exception e) {
 
         }
     }
-
+    /*
+    *
+    * Kontroller for arrangement
+    *
+    * */
     @FXML
     private TextField arrNavn;
 
@@ -122,9 +144,8 @@ public class Kontroller {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn lokale");
             return;
         }
-
+        ComboBox<Object> myComboBox = new ComboBox<Object>();
         try {
-
             Arrangement test = new Arrangement(arrKontaktPerson.getText(), arrType.getText(), arrNavn.getText(), arrArtist.getText(),
                     arrProgram.getText(), arrTidspunkt.getText(), arrPris.getText(), arrAntallBilletter.getText(), arrLokale.getText());
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
