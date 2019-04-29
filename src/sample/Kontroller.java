@@ -11,6 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import javafx.scene.control.ComboBox;
+import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
+
+import java.util.ArrayList;
 
 import static java.lang.String.valueOf;
 
@@ -48,12 +51,19 @@ public class Kontroller {
         konLagringBox.setValue("Csv");
         konLagringBox.setItems(konLagringList);
         CsvLasting innlasting = new CsvLasting();
-        String [][]innlastingarray = innlasting.leser("lokale");
-
-        for (int i =0; i<innlastingarray.length; i++) {
-            ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList("Csv", "Jobj");
-        }
-
+        String lokaleString = innlasting.leser("lokale");
+        String[] lokaleArray = Splittere.linjeSplitter(lokaleString);
+        String[][] lokaleDArray = Splittere.objectSplitter(lokaleArray);
+        ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
+        try {
+            ArrayList<String> lokaleListe=new ArrayList<>();
+            for (int i = 0; i < lokaleArray.length; i++) {
+                lokaleListe.add(lokaleDArray[i][0]);
+            }
+            lokaleInnlastingList = FXCollections.observableArrayList(lokaleListe);
+            lokaleComboBox.setValue(lokaleDArray[0][0]);
+            lokaleComboBox.setItems(lokaleInnlastingList);
+        }catch(Exception e){}
 
     }
 
