@@ -6,7 +6,7 @@ import java.io.RandomAccessFile;
 
 public class CsvLasting extends FilLasting{
     @Override
-    public void leser(String fil){
+    public String leser(String fil){
         String data = null;
         String s;
         try{
