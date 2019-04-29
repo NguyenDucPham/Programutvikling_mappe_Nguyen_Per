@@ -130,8 +130,8 @@
                                 </GridPane.margin>
                             </Button>
                      <ComboBox id="arrLagringBox" fx:id="arrLagringBox" accessibleText="jlj" prefWidth="150.0" GridPane.rowIndex="9" />
-                     <ComboBox prefHeight="28.0" prefWidth="529.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                     <ComboBox prefHeight="13.0" prefWidth="525.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                     <ComboBox prefHeight="28.0" prefWidth="562.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     <ComboBox prefHeight="28.0" prefWidth="555.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                      <rowConstraints>
                         <RowConstraints />
                         <RowConstraints />
