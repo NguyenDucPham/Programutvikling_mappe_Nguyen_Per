@@ -23,7 +23,6 @@ public class Lokale {
         AntallPlasser = antallPlasser;
     }
 
-
     @Override
     public String toString() {
         return LokalNavn + ";" + LokalType + ";" + AntallPlasser;

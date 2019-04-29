@@ -67,6 +67,8 @@ public class Kontroller {
             Lokale lokale = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
             CsvLagring fil = new CsvLagring();
             fil.skriver(lokale,"lokale");
+            JobjLagring fil2 = new JobjLagring();
+            fil2.skriver(lokale,"lokale");
         } catch (Exception e) {
 
         }

@@ -5,10 +5,13 @@ import java.io.*;
 public class CsvLagring extends FilLagring{
     @Override
     public void skriver(Object object, String filPlassering){
+        /*****
+         *   FileWriter bestemmer fil og true sier at den skal legge til om filen finnes,
+         *   BufferedWriter får opp effektiviteten ved enkelte tilfeller,
+         *   PrintWriter gir tilgang til println.
+         *****/
         try {
-            FileWriter filSkriver = new FileWriter(filPlassering+".csv", true);
-            BufferedWriter bufferSkriver = new BufferedWriter(filSkriver);
-            PrintWriter skriver = new PrintWriter(bufferSkriver);
+            PrintWriter skriver = new PrintWriter(new BufferedWriter(new FileWriter(filPlassering+".csv", true)));
             skriver.println(object.toString());
             skriver.close();
         } catch (IOException e) {
