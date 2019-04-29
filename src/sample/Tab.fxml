@@ -130,8 +130,8 @@
                                 </GridPane.margin>
                             </Button>
                      <ComboBox id="arrLagringBox" fx:id="arrLagringBox" accessibleText="jlj" prefWidth="150.0" GridPane.rowIndex="9" />
-                     <ComboBox prefHeight="28.0" prefWidth="562.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                     <ComboBox prefHeight="28.0" prefWidth="555.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                     <ComboBox fx:id="lokaleComboBox" prefHeight="28.0" prefWidth="562.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     <ComboBox fx:id="kontaktPersonComboBox" prefHeight="28.0" prefWidth="555.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                      <rowConstraints>
                         <RowConstraints />
                         <RowConstraints />
@@ -361,9 +361,9 @@
                 </Tab>
             </tabs>
         </TabPane>
-      <Separator layoutX="27.0" layoutY="65.0" prefHeight="13.0" prefWidth="815.0" />
-      <Separator layoutX="27.0" layoutY="752.0" prefHeight="6.0" prefWidth="815.0" />
-      <Separator layoutX="21.0" layoutY="71.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="15.0" />
-      <Separator layoutX="839.0" layoutY="73.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="5.0" />
+      <Separator layoutX="56.0" layoutY="65.0" prefHeight="13.0" prefWidth="745.0" />
+      <Separator layoutX="56.0" layoutY="745.0" prefHeight="21.0" prefWidth="745.0" />
+      <Separator layoutX="51.0" layoutY="71.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="15.0" />
+      <Separator layoutX="801.0" layoutY="71.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="5.0" />
     </children>
 </AnchorPane>

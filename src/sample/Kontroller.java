@@ -38,6 +38,8 @@ public class Kontroller {
     @FXML
     private ComboBox konLagringBox;
     @FXML
+    private ComboBox lokaleComboBox;
+    @FXML
     private void initialize(){
         arrLagringBox.setValue("Csv");
         arrLagringBox.setItems(arrLagringList);
@@ -45,6 +47,14 @@ public class Kontroller {
         lokLagringBox.setItems(lokLagringList);
         konLagringBox.setValue("Csv");
         konLagringBox.setItems(konLagringList);
+        CsvLasting innlasting = new CsvLasting();
+        String [][]innlastingarray = innlasting.leser("lokale");
+
+        for (int i =0; i<innlastingarray.length; i++) {
+            ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList("Csv", "Jobj");
+        }
+
+
     }
 
     @FXML
