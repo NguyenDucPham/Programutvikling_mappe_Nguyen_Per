@@ -13,6 +13,7 @@ public class Arrangement {
     private String lokale;
     private int []billettId;
     private String []billetter;
+    private String[] billettArray;
 
     public Arrangement(String kontaktperson, String type, String navn, String artister,
                        String program, String tidspunkt, String pris, String antBilletter, String lokale) {
@@ -28,14 +29,14 @@ public class Arrangement {
 
     }
 
-
-
-  /*  public void lagBillett(int antallBilletter){
-        for (int i =0;i<antallBilletter;i++){
-            billettArray[i]=i;
+    public void lagBillett(int antallSeter, String ArrangementNavn) {
+        for (int i = 0; i < antallSeter; i++) {
+            String enbillett = ArrangementNavn + (i);
+            billettArray[i] = enbillett;
         }
+    }
 
-    }*/
+
     public String getType() {
         return type;
     }

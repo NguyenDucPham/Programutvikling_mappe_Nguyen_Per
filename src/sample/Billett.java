@@ -1,26 +1,34 @@
 package sample;
 
 public class Billett {
-    String plass;
-    String pris;
-    String nummer;
-    String dato;
-    String klokkeslett;
+    private String lokalNavn;
+    private String plassNummer;
+    private String pris;
+    private String nummer;
+    private String dato;
+    private String klokkeslett;
+    private String arrangementNavn;
 
-    public Billett(String plass, String pris, String nummer, String dato, String klokkeslett) {
-        this.plass = plass;
+
+    public Billett(String lokalNavn, String plassNummer, String pris, String nummer, String dato, String klokkeslett, String arrangementNavn) {
+        this.plassNummer = plassNummer;
+        this.lokalNavn=lokalNavn;
         this.pris = pris;
         this.nummer = nummer;
         this.dato = dato;
         this.klokkeslett = klokkeslett;
+        this.arrangementNavn= arrangementNavn;
     }
 
+/*
+
+   }*/
     public String getPlass() {
-        return plass;
+        return plassNummer;
     }
 
     public void setPlass(String plass) {
-        this.plass = plass;
+        this.plassNummer = plass;
     }
 
     public String getPris() {
