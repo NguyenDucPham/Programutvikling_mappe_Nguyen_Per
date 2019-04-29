@@ -42,9 +42,15 @@ public class Kontroller {
         }
         try {
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Lokalet er registrert");
-            Lokale sdfa = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
+            Lokale lokale = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
             CsvLagring fil = new CsvLagring();
-            fil.skriver(sdfa,"lokale");
+            fil.skriver(lokale,"lokale");
+            JobjLagring fil2 = new JobjLagring();
+            fil2.skriver(lokale,"lokale");
+            CsvLasting les = new CsvLasting();
+            les.leser("lokale");
+            JobjLasting les2 = new JobjLasting();
+            les.leser("lokale");
         } catch (Exception e) {
 
         }

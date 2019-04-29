@@ -1,17 +1,17 @@
 package sample;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class JobjLagring extends FilLagring{
     @Override
-    public void skriver(Object object, String filPlassering) throws IOException {
+    public void skriver(Object object, String filPlassering){
+        /*****
+         *   FileWriter bestemmer fil og true sier at den skal legge til om filen finnes,
+         *   BufferedWriter får opp effektiviteten ved enkelte tilfeller,
+         *   PrintWriter gir tilgang til println.
+         *****/
         try {
-            FileWriter filSkriver = new FileWriter(filPlassering+".jobj", true);
-            BufferedWriter bufferSkriver = new BufferedWriter(filSkriver);
-            PrintWriter skriver = new PrintWriter(bufferSkriver);
+            PrintWriter skriver = new PrintWriter(new BufferedWriter(new FileWriter(filPlassering+".jobj", true)));
             skriver.println(object.toString());
             skriver.close();
         } catch (IOException e) {
