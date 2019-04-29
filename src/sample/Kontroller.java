@@ -17,7 +17,7 @@ import static java.lang.String.valueOf;
 public class Kontroller {
 
     ObservableList<String> arrLagringList= FXCollections.observableArrayList("Valg1","valg2");
-    ObservableList<String> lokLagringList= FXCollections.observableArrayList("Valg1","valg2");
+    ObservableList<String> lokLagringList= FXCollections.observableArrayList("Csv","Jobj");
     ObservableList<String> konLagringList= FXCollections.observableArrayList("Valg1","valg2");
     @FXML
     private TextField lokNavn;
@@ -45,6 +45,7 @@ public class Kontroller {
         lokLagringBox.setItems(lokLagringList);
         konLagringBox.setValue("valg1");
         konLagringBox.setItems(konLagringList);
+        
     }
 
     @FXML
