@@ -14,11 +14,20 @@ public class Arrangement implements Serializable {
     private String pris;
     private int antBilletter;
     private String kontaktperson;
+    private String kontaktTelefon;
+    private String epost;
+    private String nettSide;
+    private String firma;
+    private String opplysninger;
     private String lokale;
+    private String lokalType;
+    private int antallPlasser;
     private int antallLedigeBilletter;
 
-    public Arrangement(String kontaktperson, String type, String navn, String artister,
-                       String program, String tidspunkt, String pris, int antBilletter, String lokale) {
+
+    public Arrangement(String kontaktperson, String kontaktTelefon, String epost, String nettSide, String firma,
+                       String opplysninger, String type, String navn, String artister, String program,
+                       String tidspunkt, String pris, int antBilletter, String lokale, String lokalType, int antallPlasser) {
         this.type = type;
         this.navn = navn;
         this.artister = artister;
@@ -27,7 +36,14 @@ public class Arrangement implements Serializable {
         this.pris = pris;
         this.antBilletter = antBilletter;
         this.kontaktperson = kontaktperson;
+        this.kontaktTelefon = kontaktTelefon;
+        this.epost = epost;
+        this.nettSide = nettSide;
+        this.firma = firma;
+        this.opplysninger = opplysninger;
         this.lokale = lokale;
+        this.lokalType = lokalType;
+        this.antallPlasser = antallPlasser;
         this.antallLedigeBilletter=antBilletter;
     }
 
