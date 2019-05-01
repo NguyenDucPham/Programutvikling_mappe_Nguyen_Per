@@ -45,7 +45,7 @@ public class OppstartKontroller {
                 root = FXMLLoader.load(getClass().getResource("Tab.fxml"));
                 Stage stage = new Stage();
                 stage.setTitle("My New Stage Title");
-                stage.setScene(new Scene(root, 450, 450));
+                stage.setScene(new Scene(root, 900, 900));
                 stage.show();
                 // Hide this current window (if this is what you want)
                 ((Node) (event.getSource())).getScene().getWindow().hide();

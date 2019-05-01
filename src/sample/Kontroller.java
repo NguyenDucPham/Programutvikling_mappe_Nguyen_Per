@@ -192,13 +192,7 @@ public class Kontroller {
                     arrPris.getText(), konNavn.getText(), konTelefonnummer.getText(), konEmail.getText(), konEkstraopplysning.getText(),
                     konNettside.getText(), konFirma.getText(), lokNavn.getText(), lokType.getText(), lokAntallplasser.getText());
                     Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
-            if(lokLagringBox.getValue()== "Csv"){
-                CsvLagring fil = new CsvLagring();
-                fil.skriver(arrangement,"arrangement");
-            }else if(lokLagringBox.getValue()== "Jobj"){
-                JobjLagring fil2 = new JobjLagring();
-                fil2.skriver(arrangement,"arrangement");
-            }
+
         } catch (Exception e) {
 
         }

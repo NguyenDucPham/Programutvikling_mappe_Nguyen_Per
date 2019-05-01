@@ -12,11 +12,14 @@ public class InnlastingThread implements Runnable{
     private ComboBox lokaleComboBox;
 
 
-
-
     public void run(){
         CsvLasting innlasting = new CsvLasting();
-        String lokaleString = innlasting.leser("lokale");
+        String lokaleString = null;
+        try {
+            lokaleString = innlasting.leser("lokale");
+        } catch (InvalidFileFormatException e) {
+            e.printStackTrace();
+        }
         String[] lokaleArray = Splittere.linjeSplitter(lokaleString);
         String[][] lokaleDArray = Splittere.objectSplitter(lokaleArray);
         ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
@@ -31,7 +34,7 @@ public class InnlastingThread implements Runnable{
 
             Kontroller Kon = new Kontroller();
             System.out.println("denne ble først kjørt");
-            Kon.init(lokaleDArray, lokaleArray, lokaleInnlastingList);
+            //Kon.init(lokaleDArray, lokaleArray, lokaleInnlastingList);
 
         }catch(Exception e){}
     }
