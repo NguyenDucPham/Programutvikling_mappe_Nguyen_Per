@@ -15,9 +15,9 @@ public class JobjLagring extends FilLagring implements Serializable {
             } catch (ClassNotFoundException e) {
 
             }
-            objects.add(object);
-            out = new ObjectOutputStream(new FileOutputStream(filPlassering + ".jobj"));
-            out.writeObject(objects);
         }
+        objects.add(object);
+        out = new ObjectOutputStream(new FileOutputStream(filPlassering + ".jobj"));
+        out.writeObject(objects);
     }
 }
