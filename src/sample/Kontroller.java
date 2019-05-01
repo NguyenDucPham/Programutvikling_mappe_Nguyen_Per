@@ -17,30 +17,13 @@ import static java.lang.String.valueOf;
 
 public class Kontroller {
 
-    ObservableList<String> arrLagringList= FXCollections.observableArrayList("Csv","Jobj");
-    ObservableList<String> lokLagringList= FXCollections.observableArrayList("Csv","Jobj");
-    ObservableList<String> konLagringList= FXCollections.observableArrayList("Csv","Jobj");
+
     String[] lokaleArray;
     String[][] lokaleDArray;
    // ArrayList<String> lokaleListe=new ArrayList<>();
     ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
 
-    @FXML
-    private TextField lokNavn;
-    @FXML
-    private TextField lokType;
-    @FXML
-    private TextField lokAntallPlasser;
-    @FXML
-    private Button registrerLokaleKnapp;
-    @FXML
-    private ComboBox arrLagringBox;
-    @FXML
-    private ComboBox lokLagringBox;
-    @FXML
-    private ComboBox konLagringBox;
-    @FXML
-    private ComboBox lokaleComboBox;
+
     @FXML
     private ComboBox kontaktComboBox;
 
@@ -56,32 +39,9 @@ public class Kontroller {
     private Text hentetLokal;
 
     @FXML
-    private void initialize(){
+    private void initialize() {
+    }
 
-        lokLagringBox.setValue("Csv");
-        lokLagringBox.setItems(lokLagringList);
-        konLagringBox.setValue("Csv");
-        konLagringBox.setItems(konLagringList);
-        lokaleComboBox.setValue("test");
-
-
-
-        lokaleComboBox.setItems(lokaleInnlastingList);
-        System.out.println(lokaleInnlastingList);
-        try {
-            ArrayList<String> lokaleListe=new ArrayList<>();
-           /* for (int i = 0; i < lokaleArray.length; i++) {
-                lokaleListe.add(lokaleDArray[i][0]);
-            }*/
-           // lokaleInnlastingList = FXCollections.observableArrayList(lokaleListe);
-           // lokaleComboBox.setValue(lokaleDArray[0][0]);
-           // lokaleComboBox.setItems(lokaleInnlastingList);
-            System.out.println("ikke noe galt her");
-           // System.out.println(lokaleArray.length);
-        }catch(Exception e){
-
-            System.out.println("noe feeeeeil heeer for faen");
-        }
 
 
 /*
@@ -117,7 +77,7 @@ public class Kontroller {
         }catch(Exception e){}
 
 */
-    }
+
 
     public void init(String[][] lokaleDArray, String[] lokaleArray,ObservableList<String> lokaleInnlastingList){
         this.lokaleArray=lokaleArray;
