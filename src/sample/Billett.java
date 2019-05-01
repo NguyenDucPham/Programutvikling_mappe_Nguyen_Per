@@ -8,20 +8,23 @@ public class Billett implements Serializable {
     private String lokalNavn;
     private String plassNummer;
     private String pris;
-    private String nummer;
+    private String tlfnummer;
     private String dato;
     private String klokkeslett;
     private String arrangementNavn;
 
 
-    public Billett(String lokalNavn, String plassNummer, String pris, String nummer, String dato, String klokkeslett, String arrangementNavn) {
+    public Billett(String lokalNavn, String plassNummer, String pris, String tlfnummer, String dato, String klokkeslett, String arrangementNavn) {
         this.plassNummer = plassNummer;
         this.lokalNavn=lokalNavn;
         this.pris = pris;
-        this.nummer = nummer;
+        this.tlfnummer = tlfnummer;
         this.dato = dato;
         this.klokkeslett = klokkeslett;
         this.arrangementNavn= arrangementNavn;
+    }
+    public void billettSolgt(){
+
     }
 
     @Override
@@ -46,11 +49,11 @@ public class Billett implements Serializable {
     }
 
     public String getNummer() {
-        return nummer;
+        return tlfnummer;
     }
 
     public void setNummer(String nummer) {
-        this.nummer = nummer;
+        this.tlfnummer = nummer;
     }
 
     public String getDato() {
