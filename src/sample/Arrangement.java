@@ -115,4 +115,76 @@ public class Arrangement implements Serializable {
     public void setBilletter(int billetter) {
         this.antBilletter = billetter;
     }
+
+    public String getKontaktperson() {
+        return kontaktperson;
+    }
+
+    public void setKontaktperson(String kontaktperson) {
+        this.kontaktperson = kontaktperson;
+    }
+
+    public String getKontaktTelefon() {
+        return kontaktTelefon;
+    }
+
+    public void setKontaktTelefon(String kontaktTelefon) {
+        this.kontaktTelefon = kontaktTelefon;
+    }
+
+    public String getEpost() {
+        return epost;
+    }
+
+    public void setEpost(String epost) {
+        this.epost = epost;
+    }
+
+    public String getNettSide() {
+        return nettSide;
+    }
+
+    public void setNettSide(String nettSide) {
+        this.nettSide = nettSide;
+    }
+
+    public String getFirma() {
+        return firma;
+    }
+
+    public void setFirma(String firma) {
+        this.firma = firma;
+    }
+
+    public String getOpplysninger() {
+        return opplysninger;
+    }
+
+    public void setOpplysninger(String opplysninger) {
+        this.opplysninger = opplysninger;
+    }
+
+    public String getLokale() {
+        return lokale;
+    }
+
+    public void setLokale(String lokale) {
+        this.lokale = lokale;
+    }
+
+    public String getLokalType() {
+        return lokalType;
+    }
+
+    public void setLokalType(String lokalType) {
+        this.lokalType = lokalType;
+    }
+
+    public int getAntallPlasser() {
+        return antallPlasser;
+    }
+
+    public void setAntallPlasser(int antallPlasser) {
+        this.antallPlasser = antallPlasser;
+    }
 }
