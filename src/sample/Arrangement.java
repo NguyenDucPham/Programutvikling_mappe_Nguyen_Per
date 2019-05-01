@@ -8,15 +8,13 @@ public class Arrangement {
     private String program;
     private String tidspunkt;
     private String pris;
-    private String antBilletter;
+    private int antBilletter;
     private String kontaktperson;
     private String lokale;
-    private int []billettId;
-    private String []billetter;
-    private String[] billettArray;
+    private int antallLedigeBilletter;
 
     public Arrangement(String kontaktperson, String type, String navn, String artister,
-                       String program, String tidspunkt, String pris, String antBilletter, String lokale) {
+                       String program, String tidspunkt, String pris, int antBilletter, String lokale) {
         this.type = type;
         this.navn = navn;
         this.artister = artister;
@@ -26,15 +24,15 @@ public class Arrangement {
         this.antBilletter = antBilletter;
         this.kontaktperson = kontaktperson;
         this.lokale = lokale;
-
+        this.antallLedigeBilletter=antBilletter;
     }
 
-    public void lagBillett(int antallSeter, String ArrangementNavn) {
+  /*  public void lagBillett(int antallSeter, String ArrangementNavn) {
         for (int i = 0; i < antallSeter; i++) {
             String enbillett = ArrangementNavn + (i);
             billettArray[i] = enbillett;
         }
-    }
+    }*/
 
 
     public String getType() {
@@ -85,11 +83,11 @@ public class Arrangement {
         this.pris = pris;
     }
 
-    public String getAntBilletter() {
+    public int getAntBilletter() {
         return antBilletter;
     }
 
-    public void setBilletter(String billetter) {
+    public void setBilletter(int billetter) {
         this.antBilletter = billetter;
     }
 }

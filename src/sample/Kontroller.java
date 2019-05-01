@@ -1,17 +1,15 @@
 package sample;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Window;
 import javafx.scene.control.ComboBox;
-import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
 
 import java.util.ArrayList;
 
@@ -22,18 +20,19 @@ public class Kontroller {
     ObservableList<String> arrLagringList= FXCollections.observableArrayList("Csv","Jobj");
     ObservableList<String> lokLagringList= FXCollections.observableArrayList("Csv","Jobj");
     ObservableList<String> konLagringList= FXCollections.observableArrayList("Csv","Jobj");
+    String[] lokaleArray;
+    String[][] lokaleDArray;
+   // ArrayList<String> lokaleListe=new ArrayList<>();
+    ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
+
     @FXML
     private TextField lokNavn;
-
     @FXML
     private TextField lokType;
-
     @FXML
     private TextField lokAntallPlasser;
-
     @FXML
     private Button registrerLokaleKnapp;
-
     @FXML
     private ComboBox arrLagringBox;
     @FXML
@@ -43,13 +42,49 @@ public class Kontroller {
     @FXML
     private ComboBox lokaleComboBox;
     @FXML
+    private ComboBox kontaktComboBox;
+
+    @FXML
+    private TextField kjoperensTlf;
+    @FXML
+    private Button regSalg;
+    @FXML
+    private Text hentetPris;
+    @FXML
+    private Text hentetTidspunkt;
+    @FXML
+    private Text hentetLokal;
+
+    @FXML
     private void initialize(){
-        arrLagringBox.setValue("Csv");
-        arrLagringBox.setItems(arrLagringList);
+
         lokLagringBox.setValue("Csv");
         lokLagringBox.setItems(lokLagringList);
         konLagringBox.setValue("Csv");
         konLagringBox.setItems(konLagringList);
+        lokaleComboBox.setValue("test");
+
+
+
+        lokaleComboBox.setItems(lokaleInnlastingList);
+        System.out.println(lokaleInnlastingList);
+        try {
+            ArrayList<String> lokaleListe=new ArrayList<>();
+           /* for (int i = 0; i < lokaleArray.length; i++) {
+                lokaleListe.add(lokaleDArray[i][0]);
+            }*/
+           // lokaleInnlastingList = FXCollections.observableArrayList(lokaleListe);
+           // lokaleComboBox.setValue(lokaleDArray[0][0]);
+           // lokaleComboBox.setItems(lokaleInnlastingList);
+            System.out.println("ikke noe galt her");
+           // System.out.println(lokaleArray.length);
+        }catch(Exception e){
+
+            System.out.println("noe feeeeeil heeer for faen");
+        }
+
+
+/*
         CsvLasting innlasting = new CsvLasting();
         String lokaleString = innlasting.leser("lokale");
         String[] lokaleArray = Splittere.linjeSplitter(lokaleString);
@@ -65,40 +100,37 @@ public class Kontroller {
             lokaleComboBox.setItems(lokaleInnlastingList);
         }catch(Exception e){}
 
-    }
 
-    @FXML
-    protected void lokReg(ActionEvent event) {
-        Window eier = registrerLokaleKnapp.getScene().getWindow();
-        if (lokNavn.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn navn");
-            return;
-        }
-        if (lokType.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type lokale");
-            return;
-        }
-        if (lokAntallPlasser.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn antall plasser");
-            return;
-        }
+        CsvLasting kontaktInnlasting = new CsvLasting();
+        String kontaktString = kontaktInnlasting.leser("kontakt");
+        String[] kontaktArray = Splittere.linjeSplitter(kontaktString);
+        String[][] kontaktDArray = Splittere.objectSplitter(kontaktArray);
+        ObservableList<String> kontaktInnlastingList = FXCollections.observableArrayList();
         try {
-            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Lokalet er registrert");
-            Lokale lokale = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
-            if(lokLagringBox.getValue()== "Csv"){
-                CsvLagring fil = new CsvLagring();
-                fil.skriver(lokale,"lokale");
-            }else if(lokLagringBox.getValue()== "Jobj"){
-                JobjLagring fil2 = new JobjLagring();
-                fil2.skriver(lokale,"lokale");
+            ArrayList<String> kontaktListe=new ArrayList<>();
+            for (int i = 0; i < kontaktArray.length; i++) {
+                kontaktListe.add(kontaktDArray[i][0]);
             }
-        } catch (Exception e) {
+            kontaktInnlastingList = FXCollections.observableArrayList(kontaktListe);
+            kontaktComboBox.setValue(kontaktDArray[0][0]);
+            kontaktComboBox.setItems(kontaktInnlastingList);
+        }catch(Exception e){}
 
-        }
+*/
     }
+
+    public void init(String[][] lokaleDArray, String[] lokaleArray,ObservableList<String> lokaleInnlastingList){
+        this.lokaleArray=lokaleArray;
+        this.lokaleDArray=lokaleDArray;
+        this.lokaleInnlastingList=lokaleInnlastingList;
+    System.out.println(lokaleInnlastingList);
+
+    }
+
+
     /*
     *
-    * Kontroller for arrangement
+    * Kontroller for arrangement****************************************************************************
     *
     * */
     @FXML
@@ -160,17 +192,17 @@ public class Kontroller {
             return;
         }
         if (arrKontaktPerson.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn kontaktperson");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Opprett først en kontaktpernson i kontaktpersonfane");
             return;
         }
         if (arrLokale.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn lokale");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Opprett først et lokal i lokalfane");
             return;
         }
         ComboBox<Object> myComboBox = new ComboBox<Object>();
         try {
             Arrangement arrangement = new Arrangement(arrKontaktPerson.getText(), arrType.getText(), arrNavn.getText(), arrArtist.getText(),
-                    arrProgram.getText(), arrTidspunkt.getText(), arrPris.getText(), arrAntallBilletter.getText(), arrLokale.getText());
+                    arrProgram.getText(), arrTidspunkt.getText(), arrPris.getText(), Integer.valueOf(arrAntallBilletter.getText()), arrLokale.getText());
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
             if(lokLagringBox.getValue()== "Csv"){
                 CsvLagring fil = new CsvLagring();
@@ -184,7 +216,22 @@ public class Kontroller {
         }
     }
 
+    /*
+     *
+     * Kontroller for billett************************************************************************'***
+     *
+     * */
 
 
+    @FXML
+    protected void regSalg(ActionEvent event){
+        Window salg = regSalg.getScene().getWindow();
+        if (kjoperensTlf.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, salg, "Form Error!", "Fyll inn telefonnummer");
+            return;
+        }
+        ComboBox<Object> salgBox = new ComboBox<Object>();
+
+
+    }
 }
-
