@@ -42,9 +42,9 @@ public class Kontroller extends InnlastingThread{
     }
 
     public void addItems(){
-       // lokaleInnlastingList.add("name3");
-       // lokaleInnlastingList.add("name4");
-       // lokaleInnlastingList.add("name4");
+        lokaleInnlastingList.add("name3");
+        lokaleInnlastingList.add("name4");
+        lokaleInnlastingList.add("name4");
 
 
 
@@ -86,6 +86,7 @@ public class Kontroller extends InnlastingThread{
         }catch(Exception e){}
 
 */
+
 
 public void setLokaleInnlastingList(ObservableList<String> lokaleInnlastingList){
     this.lokaleInnlastingList=lokaleInnlastingList;
