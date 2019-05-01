@@ -6,7 +6,7 @@ import java.io.RandomAccessFile;
 
 public class CsvLasting extends FilLasting{
     @Override
-    public String leser(String fil){
+    public String leser(String fil) throws InvalidFileFormatException {
         String data = null;
         String s;
         try{
@@ -23,6 +23,7 @@ public class CsvLasting extends FilLasting{
         }catch(IOException e){
 
         }
+        if(false) throw new InvalidFileFormatException("Filen er ikke separert med semikolon");
         return data;
     }
 }

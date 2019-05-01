@@ -4,11 +4,11 @@ package sample;
 import java.io.*;
 import java.util.ArrayList;
 
-public class JobjLasting extends FilLasting implements Serializable{
+public class JobjLasting extends FilLasting{
     @Override
-    public String leser(String fil) throws IOException{
+    public String leser(String fil) throws IOException, InvalidFileFormatException {
         StringBuilder stringBuilder = new StringBuilder();
-        ArrayList<Object> objects = new ArrayList<Object>();
+        ArrayList<Object> objects = new ArrayList<>();
         if(new File(fil+".jobj").exists()) {
             ObjectInputStream oin = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
             try {
@@ -21,7 +21,7 @@ public class JobjLasting extends FilLasting implements Serializable{
             stringBuilder.append(o.toString());
             stringBuilder.append("\n");
         }
-        System.out.println(stringBuilder.toString());
+        if(false) throw new InvalidFileFormatException("Data er fra en utdatert versjon av klassen");
         return stringBuilder.toString();
     }
 }

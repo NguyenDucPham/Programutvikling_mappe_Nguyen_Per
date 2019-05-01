@@ -29,7 +29,7 @@ public class Billett implements Serializable {
 
     @Override
     public String toString() {
-        return plassNummer + ";" + lokalNavn + ";" + pris + ";" + nummer + ";" + dato + ";" + klokkeslett + ";" + arrangementNavn;
+        return plassNummer + ";" + lokalNavn + ";" + pris + ";" + tlfnummer + ";" + dato + ";" + klokkeslett + ";" + arrangementNavn;
     }
 
     public String getPlass() {

@@ -7,6 +7,7 @@ public class Splittere {
 
             return object;
         }catch(Exception e){
+
         } return null;
     }
 
@@ -23,6 +24,7 @@ public class Splittere {
 
             return element;
         }catch(Exception e) {
+
         }return null;
 
     }

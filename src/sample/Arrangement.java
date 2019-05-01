@@ -14,11 +14,20 @@ public class Arrangement implements Serializable {
     private String pris;
     private int antBilletter;
     private String kontaktperson;
+    private String kontaktTelefon;
+    private String epost;
+    private String nettSide;
+    private String firma;
+    private String opplysninger;
     private String lokale;
+    private String lokalType;
+    private int antallPlasser;
     private int antallLedigeBilletter;
 
-    public Arrangement(String kontaktperson, String type, String navn, String artister,
-                       String program, String tidspunkt, String pris, int antBilletter, String lokale) {
+
+    public Arrangement(String kontaktperson, String kontaktTelefon, String epost, String nettSide, String firma,
+                       String opplysninger, String type, String navn, String artister, String program,
+                       String tidspunkt, String pris, int antBilletter, String lokale, String lokalType, int antallPlasser) {
         this.type = type;
         this.navn = navn;
         this.artister = artister;
@@ -27,7 +36,14 @@ public class Arrangement implements Serializable {
         this.pris = pris;
         this.antBilletter = antBilletter;
         this.kontaktperson = kontaktperson;
+        this.kontaktTelefon = kontaktTelefon;
+        this.epost = epost;
+        this.nettSide = nettSide;
+        this.firma = firma;
+        this.opplysninger = opplysninger;
         this.lokale = lokale;
+        this.lokalType = lokalType;
+        this.antallPlasser = antallPlasser;
         this.antallLedigeBilletter=antBilletter;
     }
 
@@ -98,5 +114,77 @@ public class Arrangement implements Serializable {
 
     public void setBilletter(int billetter) {
         this.antBilletter = billetter;
+    }
+
+    public String getKontaktperson() {
+        return kontaktperson;
+    }
+
+    public void setKontaktperson(String kontaktperson) {
+        this.kontaktperson = kontaktperson;
+    }
+
+    public String getKontaktTelefon() {
+        return kontaktTelefon;
+    }
+
+    public void setKontaktTelefon(String kontaktTelefon) {
+        this.kontaktTelefon = kontaktTelefon;
+    }
+
+    public String getEpost() {
+        return epost;
+    }
+
+    public void setEpost(String epost) {
+        this.epost = epost;
+    }
+
+    public String getNettSide() {
+        return nettSide;
+    }
+
+    public void setNettSide(String nettSide) {
+        this.nettSide = nettSide;
+    }
+
+    public String getFirma() {
+        return firma;
+    }
+
+    public void setFirma(String firma) {
+        this.firma = firma;
+    }
+
+    public String getOpplysninger() {
+        return opplysninger;
+    }
+
+    public void setOpplysninger(String opplysninger) {
+        this.opplysninger = opplysninger;
+    }
+
+    public String getLokale() {
+        return lokale;
+    }
+
+    public void setLokale(String lokale) {
+        this.lokale = lokale;
+    }
+
+    public String getLokalType() {
+        return lokalType;
+    }
+
+    public void setLokalType(String lokalType) {
+        this.lokalType = lokalType;
+    }
+
+    public int getAntallPlasser() {
+        return antallPlasser;
+    }
+
+    public void setAntallPlasser(int antallPlasser) {
+        this.antallPlasser = antallPlasser;
     }
 }
