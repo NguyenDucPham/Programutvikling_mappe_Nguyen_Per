@@ -21,13 +21,13 @@ public class Arrangement implements Serializable {
     private String opplysninger;
     private String lokale;
     private String lokalType;
-    private int antallPlasser;
+    private String antallPlasser;
     private int antallLedigeBilletter;
 
 
     public Arrangement(String kontaktperson, String kontaktTelefon, String epost, String nettSide, String firma,
                        String opplysninger, String navn, String artister, String program, String tidspunkt, String pris,
-                       String lokale, String lokalType, int antallPlasser) {
+                       String lokale, String lokalType, String antallPlasser) {
         this.navn = navn;
         this.artister = artister;
         this.program = program;
@@ -178,11 +178,11 @@ public class Arrangement implements Serializable {
         this.lokalType = lokalType;
     }
 
-    public int getAntallPlasser() {
+    public String getAntallPlasser() {
         return antallPlasser;
     }
 
-    public void setAntallPlasser(int antallPlasser) {
+    public void setAntallPlasser(String antallPlasser) {
         this.antallPlasser = antallPlasser;
     }
 }
