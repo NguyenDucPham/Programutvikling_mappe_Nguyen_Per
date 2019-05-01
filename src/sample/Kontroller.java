@@ -13,6 +13,7 @@ import javafx.stage.Window;
 import javafx.scene.control.ComboBox;
 import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static java.lang.String.valueOf;
@@ -50,8 +51,27 @@ public class Kontroller {
         lokLagringBox.setItems(lokLagringList);
         konLagringBox.setValue("Csv");
         konLagringBox.setItems(konLagringList);
-        CsvLasting innlasting = new CsvLasting();
+        /*CsvLasting innlasting = new CsvLasting();
         String lokaleString = innlasting.leser("lokale");
+        String[] lokaleArray = Splittere.linjeSplitter(lokaleString);
+        String[][] lokaleDArray = Splittere.objectSplitter(lokaleArray);
+        ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
+        try {
+            ArrayList<String> lokaleListe=new ArrayList<>();
+            for (int i = 0; i < lokaleArray.length; i++) {
+                lokaleListe.add(lokaleDArray[i][0]);
+            }
+            lokaleInnlastingList = FXCollections.observableArrayList(lokaleListe);
+            lokaleComboBox.setValue(lokaleDArray[0][0]);
+            lokaleComboBox.setItems(lokaleInnlastingList);
+        }catch(Exception e){}*/
+        JobjLasting jobjLasting = new JobjLasting();
+        String lokaleString = null;
+        try {
+            lokaleString = jobjLasting.leser("lokale");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         String[] lokaleArray = Splittere.linjeSplitter(lokaleString);
         String[][] lokaleDArray = Splittere.objectSplitter(lokaleArray);
         ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
@@ -86,11 +106,19 @@ public class Kontroller {
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Lokalet er registrert");
             Lokale lokale = new Lokale(lokNavn.getText(),lokType.getText(), Integer.parseInt(lokAntallPlasser.getText()));
             if(lokLagringBox.getValue()== "Csv"){
-                CsvLagring fil = new CsvLagring();
-                fil.skriver(lokale,"lokale");
+                try{
+                    CsvLagring fil = new CsvLagring();
+                    fil.skriver(lokale,"lokale");
+                }catch (IOException e){
+
+                }
             }else if(lokLagringBox.getValue()== "Jobj"){
-                JobjLagring fil2 = new JobjLagring();
-                fil2.skriver(lokale,"lokale");
+                try{
+                    JobjLagring fil = new JobjLagring();
+                    fil.skriver(lokale,"lokale");
+                }catch (IOException e){
+
+                }
             }
         } catch (Exception e) {
 
@@ -173,11 +201,19 @@ public class Kontroller {
                     arrProgram.getText(), arrTidspunkt.getText(), arrPris.getText(), arrAntallBilletter.getText(), arrLokale.getText());
             Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
             if(lokLagringBox.getValue()== "Csv"){
-                CsvLagring fil = new CsvLagring();
-                fil.skriver(arrangement,"arrangement");
+                try{
+                    CsvLagring fil = new CsvLagring();
+                    fil.skriver(arrangement,"arrangement");
+                }catch (IOException e){
+
+                }
             }else if(lokLagringBox.getValue()== "Jobj"){
-                JobjLagring fil2 = new JobjLagring();
-                fil2.skriver(arrangement,"arrangement");
+                try{
+                    JobjLagring fil = new JobjLagring();
+                    fil.skriver(arrangement,"arrangement");
+                }catch (IOException e){
+
+                }
             }
         } catch (Exception e) {
 

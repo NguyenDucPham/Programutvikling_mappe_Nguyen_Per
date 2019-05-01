@@ -7,9 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Lokale {
+public class Lokale implements Serializable {
+    private static final long serialVersionUID = 3;
 
     private String LokalNavn;
     //skal være kino, konsertsal, foredragssal, teatersal

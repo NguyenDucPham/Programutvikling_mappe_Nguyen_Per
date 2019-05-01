@@ -1,7 +1,11 @@
 package sample;
 
 
-public class Arrangement {
+import java.io.Serializable;
+
+public class Arrangement implements Serializable {
+    private static final long serialVersionUID = 2;
+
     private String type;
     private String navn;
     private String artister;
@@ -36,6 +40,11 @@ public class Arrangement {
         }
     }
 
+    @Override
+    public String toString() {
+        return type + ";" + navn + ";" + artister + ";" + program + ";" + tidspunkt + ";" + pris + ";" + antBilletter
+                + ";" + kontaktperson + ";" + lokale;
+    }
 
     public String getType() {
         return type;

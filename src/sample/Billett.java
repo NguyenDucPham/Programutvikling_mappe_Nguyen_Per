@@ -1,6 +1,10 @@
 package sample;
 
-public class Billett {
+import java.io.Serializable;
+
+public class Billett implements Serializable {
+    private static final long serialVersionUID = 2;
+
     private String lokalNavn;
     private String plassNummer;
     private String pris;
@@ -20,9 +24,11 @@ public class Billett {
         this.arrangementNavn= arrangementNavn;
     }
 
-/*
+    @Override
+    public String toString() {
+        return plassNummer + ";" + lokalNavn + ";" + pris + ";" + nummer + ";" + dato + ";" + klokkeslett + ";" + arrangementNavn;
+    }
 
-   }*/
     public String getPlass() {
         return plassNummer;
     }

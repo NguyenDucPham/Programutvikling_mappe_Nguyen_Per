@@ -1,29 +1,27 @@
 package sample;
 
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
+import java.util.ArrayList;
 
-public class JobjLasting extends FilLasting{
+public class JobjLasting extends FilLasting implements Serializable{
     @Override
-    public String leser(String fil){
-        String data = null;
-        String s;
-        try{
-            RandomAccessFile leser = new RandomAccessFile(fil+".jobj","r" );
-            while ((s=(leser.readLine())) != null){
-                if(data == null){
-                    data = s + "\n";
-                }else{
-                    data = data + s + "\n";
-                }
+    public String leser(String fil) throws IOException{
+        StringBuilder stringBuilder = new StringBuilder();
+        ArrayList<Object> objects = new ArrayList<Object>();
+        if(new File(fil+".jobj").exists()) {
+            ObjectInputStream oin = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
+            try {
+                objects = (ArrayList<Object>) oin.readObject();
+            } catch (ClassNotFoundException e) {
+
             }
-        }catch(FileNotFoundException e){
-
-        }catch(IOException e){
-
         }
-        return data;
+        for (Object o : objects) {
+            stringBuilder.append(o.toString());
+            stringBuilder.append("\n");
+        }
+        System.out.println(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 }

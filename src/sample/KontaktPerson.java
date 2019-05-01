@@ -1,6 +1,9 @@
 package sample;
 
-public class KontaktPerson {
+import java.io.Serializable;
+
+public class KontaktPerson implements Serializable {
+    private static final long serialVersionUID = 2;
 
     private String Navn;
     private String TelefonNummer;
