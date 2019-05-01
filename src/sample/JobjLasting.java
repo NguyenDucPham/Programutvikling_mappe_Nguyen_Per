@@ -9,13 +9,11 @@ public class JobjLasting extends FilLasting{
     public String leser(String fil) throws IOException, InvalidFileFormatException {
         StringBuilder stringBuilder = new StringBuilder();
         ArrayList<Object> objects = new ArrayList<>();
-        if(new File(fil+".jobj").exists()) {
-            ObjectInputStream oin = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
-            try {
-                objects = (ArrayList<Object>) oin.readObject();
-            } catch (ClassNotFoundException e) {
+        ObjectInputStream oin = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
+        try {
+            objects = (ArrayList<Object>) oin.readObject();
+        } catch (ClassNotFoundException e) {
 
-            }
         }
         for (Object o : objects) {
             stringBuilder.append(o.toString());
