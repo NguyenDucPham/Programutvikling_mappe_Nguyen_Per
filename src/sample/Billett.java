@@ -14,7 +14,8 @@ public class Billett implements Serializable {
     private String arrangementNavn;
 
 
-    public Billett(String lokalNavn, String plassNummer, String pris, String tlfnummer, String dato, String klokkeslett, String arrangementNavn) {
+    public Billett(String plassNummer, String lokalNavn, String pris, String tlfnummer, String dato, String klokkeslett,
+                   String arrangementNavn) {
         this.plassNummer = plassNummer;
         this.lokalNavn=lokalNavn;
         this.pris = pris;
@@ -29,7 +30,8 @@ public class Billett implements Serializable {
 
     @Override
     public String toString() {
-        return plassNummer + ";" + lokalNavn + ";" + pris + ";" + tlfnummer + ";" + dato + ";" + klokkeslett + ";" + arrangementNavn;
+        return plassNummer + ";" + lokalNavn + ";" + pris + ";" + tlfnummer + ";" + dato + ";" + klokkeslett
+                + ";" + arrangementNavn;
     }
 
     public String getPlass() {
