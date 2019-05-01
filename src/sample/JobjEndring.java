@@ -12,7 +12,7 @@ public class JobjEndring extends FilEndring{
         JobjLasting jobjLasting = new JobjLasting();
         String[] array = Splittere.linjeSplitter(jobjLasting.leser(fil+".csv"));
         String[][] dArray = Splittere.objectSplitter(array);
-        dArray[index][14] = Metoder.billettTrekker(dArray,index);
+        dArray = Metoder.billettTrekker(dArray,index);
         if(fil.equals("arrangement")){
             elementer = 15;
         }else{
