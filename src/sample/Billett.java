@@ -1,5 +1,6 @@
 package sample;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 public class Billett implements Serializable {
@@ -24,8 +25,14 @@ public class Billett implements Serializable {
         this.klokkeslett = klokkeslett;
         this.arrangementNavn= arrangementNavn;
     }
-    public void billettSolgt(){
-
+    public void billettSolgt(String format,int index) throws IOException, InvalidFileFormatException{
+        FilEndring filEndring;
+        if(format.equals("csv")){
+            filEndring = new CsvEndring();
+        }else{
+            filEndring = new JobjEndring();
+        }
+        filEndring.elementEndrer("arrangement",index);
     }
 
     @Override
