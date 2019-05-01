@@ -83,15 +83,15 @@
                                  </rowConstraints>
                                  <children>
                                     <Label text="Navn : " GridPane.rowIndex="3" />
-                                    <TextField id="konNavn" fx:id="arrNavn11" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField id="konNavn" fx:id="konNavn" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <Label text="Telefonnummer :" GridPane.rowIndex="4" />
-                                    <TextField id="konTelefonnummer" fx:id="arrArtist11" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField id="konTelefonnummer" fx:id="konTelefonnummer" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     <Label text="Ekstraopplysning :" GridPane.rowIndex="5" />
-                                    <TextField id="konEkstraopplysning" fx:id="arrProgram11" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField id="konEkstraopplysning" fx:id="konEkstraopplysning" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     <Label text="Nettside :" GridPane.rowIndex="6" />
-                                    <TextField id="konNetttside" fx:id="arrTidspunkt11" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <TextField id="konNetttside" fx:id="konNettside" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                     <Label text="Firma :" GridPane.rowIndex="7" />
-                                    <TextField id="konFirma" fx:id="arrPris11" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <TextField id="konFirma" fx:id="konFirma" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                     <Label text="Kontaktperson" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
@@ -115,11 +115,11 @@
                                  </rowConstraints>
                                  <children>
                                     <Label text="Navn : " GridPane.rowIndex="3" />
-                                    <TextField id="lokNavn" fx:id="arrNavn111" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField id="lokNavn" fx:id="lokNavn" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <Label text="Type :" GridPane.rowIndex="4" />
-                                    <TextField id="lokType" fx:id="arrArtist111" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField id="lokType" fx:id="lokType" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     <Label text="Antall plasser :" GridPane.rowIndex="5" />
-                                    <TextField id="lokAntallplasser" fx:id="arrProgram111" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField id="lokAntallplasser" fx:id="lokAntallplasser" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     <Label text="Lokal" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
@@ -145,15 +145,15 @@
                            </rowConstraints>
                            <children>
                               <Label text="Navn : " GridPane.rowIndex="3" />
-                              <TextField id="arrNavn" fx:id="arrNavn1" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField id="arrNavn" fx:id="arrNavn" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label text="Artist : " GridPane.rowIndex="4" />
-                              <TextField id="arrArtist" fx:id="arrArtist1" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField id="arrArtist" fx:id="arrArtist" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                               <Label text="Program : " GridPane.rowIndex="5" />
-                              <TextField id="arrProgram" fx:id="arrProgram1" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField id="arrProgram" fx:id="arrProgram" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                               <Label text="Tidspunkt : " GridPane.rowIndex="6" />
-                              <TextField id="arrTidspunkt" fx:id="arrTidspunkt1" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField id="arrTidspunkt" fx:id="arrTidspunkt" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                               <Label text="Pris : " GridPane.rowIndex="7" />
-                              <TextField id="arrPris" fx:id="arrPris1" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <TextField id="arrPris" fx:id="arrPris" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                               <Label text="Arrangement" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>

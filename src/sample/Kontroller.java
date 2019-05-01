@@ -24,19 +24,8 @@ public class Kontroller {
     ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
 
 
-    @FXML
-    private ComboBox kontaktComboBox;
 
-    @FXML
-    private TextField kjoperensTlf;
-    @FXML
-    private Button regSalg;
-    @FXML
-    private Text hentetPris;
-    @FXML
-    private Text hentetTidspunkt;
-    @FXML
-    private Text hentetLokal;
+
 
     @FXML
     private void initialize() {
@@ -76,7 +65,7 @@ public class Kontroller {
             kontaktComboBox.setItems(kontaktInnlastingList);
         }catch(Exception e){}
 
-*/
+
 
 
     public void init(String[][] lokaleDArray, String[] lokaleArray,ObservableList<String> lokaleInnlastingList){
@@ -86,7 +75,7 @@ public class Kontroller {
     System.out.println(lokaleInnlastingList);
 
     }
-
+*/
 
     /*
     *
@@ -112,10 +101,28 @@ public class Kontroller {
     private TextField arrPris;
 
     @FXML
-    private TextField arrKontaktPerson;
+    private TextField konNavn;
 
     @FXML
-    private TextField arrLokale;
+    private TextField konTelefonnummer;
+
+    @FXML
+    private TextField konEkstraopplysning;
+
+    @FXML
+    private TextField konNettside;
+
+    @FXML
+    private TextField konFirma;
+
+    @FXML
+    private TextField lokNavn;
+
+    @FXML
+    private TextField lokType;
+
+    @FXML
+    private TextField lokAntallplasser;
 
     @FXML
     private Button arrRegistrerKnapp;
@@ -181,7 +188,16 @@ public class Kontroller {
      * Kontroller for billett************************************************************************'***
      *
      * */
-
+    @FXML
+    private TextField kjoperensTlf;
+    @FXML
+    private Button regSalg;
+    @FXML
+    private Text hentetPris;
+    @FXML
+    private Text hentetTidspunkt;
+    @FXML
+    private Text hentetLokal;
 
     @FXML
     protected void regSalg(ActionEvent event){
