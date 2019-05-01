@@ -2,18 +2,19 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class InnlastingThread implements Runnable{
+public class Test extends Task {
     @FXML
     private ComboBox lokaleComboBox;
     private ObservableList<String>javel;
-
-    public void run() {
+    @Override
+    protected Object call() throws Exception {
         CsvLasting innlasting = new CsvLasting();
         String lokaleString = null;
         try {
@@ -46,8 +47,8 @@ public class InnlastingThread implements Runnable{
             System.out.println(javel+"for faen");
 
         }catch(Exception e){}
+        return
     }
-    public ObservableList<String> getJavel(){
-        return javel;
-    }
+
+
 }
