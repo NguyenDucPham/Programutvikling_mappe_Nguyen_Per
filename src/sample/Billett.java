@@ -1,5 +1,6 @@
 package sample;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 public class Billett implements Serializable {
@@ -14,7 +15,8 @@ public class Billett implements Serializable {
     private String arrangementNavn;
 
 
-    public Billett(String lokalNavn, String plassNummer, String pris, String tlfnummer, String dato, String klokkeslett, String arrangementNavn) {
+    public Billett(String plassNummer, String lokalNavn, String pris, String tlfnummer, String dato, String klokkeslett,
+                   String arrangementNavn) {
         this.plassNummer = plassNummer;
         this.lokalNavn=lokalNavn;
         this.pris = pris;
@@ -23,13 +25,20 @@ public class Billett implements Serializable {
         this.klokkeslett = klokkeslett;
         this.arrangementNavn= arrangementNavn;
     }
-    public void billettSolgt(){
-
+    public void billettSolgt(String format,int index) throws IOException, InvalidFileFormatException{
+        FilEndring filEndring;
+        if(format.equals("csv")){
+            filEndring = new CsvEndring();
+        }else{
+            filEndring = new JobjEndring();
+        }
+        filEndring.elementEndrer("arrangement",index);
     }
 
     @Override
     public String toString() {
-        return plassNummer + ";" + lokalNavn + ";" + pris + ";" + tlfnummer + ";" + dato + ";" + klokkeslett + ";" + arrangementNavn;
+        return plassNummer + ";" + lokalNavn + ";" + pris + ";" + tlfnummer + ";" + dato + ";" + klokkeslett
+                + ";" + arrangementNavn;
     }
 
     public String getPlass() {

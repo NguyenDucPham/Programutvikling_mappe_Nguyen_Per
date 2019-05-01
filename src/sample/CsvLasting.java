@@ -6,22 +6,16 @@ import java.io.RandomAccessFile;
 
 public class CsvLasting extends FilLasting{
     @Override
-    public String leser(String fil) throws InvalidFileFormatException {
+    public String leser(String fil) throws InvalidFileFormatException,IOException {
         String data = null;
         String s;
-        try{
-            RandomAccessFile leser = new RandomAccessFile(fil+".csv","r" );
-            while ((s=(leser.readLine())) != null){
-                if(data == null){
-                    data = s + "\n";
-                }else{
-                    data = data + s + "\n";
-                }
+        RandomAccessFile leser = new RandomAccessFile(fil+".csv","r" );
+        while ((s=(leser.readLine())) != null){
+            if(data == null){
+                data = s + "\n";
+            }else{
+                data = data + s + "\n";
             }
-        }catch(FileNotFoundException e){
-
-        }catch(IOException e){
-
         }
         if(false) throw new InvalidFileFormatException("Filen er ikke separert med semikolon");
         return data;
