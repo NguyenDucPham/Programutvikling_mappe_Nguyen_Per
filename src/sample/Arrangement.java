@@ -25,9 +25,9 @@ public class Arrangement implements Serializable {
     private String antallLedigeBilletter;
 
 
-    public Arrangement(String kontaktperson, String kontaktTelefon, String epost, String nettSide, String firma,
-                       String opplysninger, String navn, String artister, String program, String tidspunkt, String pris,
-                       String lokale, String lokalType, String antallPlasser, String antallLedigeBilletter) {
+    public Arrangement(String navn, String artister, String program, String tidspunkt, String pris,
+                       String kontaktperson, String kontaktTelefon, String epost, String opplysninger, String nettSide,
+                       String firma, String lokale, String lokalType, String antallPlasser, String antallLedigeBilletter) {
         this.navn = navn;
         this.artister = artister;
         this.program = program;

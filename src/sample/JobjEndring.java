@@ -7,30 +7,31 @@ public class JobjEndring extends FilEndring{
 
     @Override
     public void elementEndrer(String fil, int index) throws IOException, InvalidFileFormatException {
-        int elementer = 0;
-        String ut = null;
+        ArrayList<Object> objects = new ArrayList<>();
+        if (new File(fil + ".jobj").exists()) {
+            ObjectInputStream oin = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
+            try {
+                objects = (ArrayList<Object>) oin.readObject();
+            } catch (ClassNotFoundException e) {
+
+            }
+        }
+        Object object;
+        objects.remove(index);
         JobjLasting jobjLasting = new JobjLasting();
-        String[] array = Splittere.linjeSplitter(jobjLasting.leser(fil+".csv"));
+        String[] array = Splittere.linjeSplitter(jobjLasting.leser(fil+".jobj"));
         String[][] dArray = Splittere.objectSplitter(array);
         dArray = Metoder.billettTrekker(dArray,index);
         if(fil.equals("arrangement")){
-            elementer = 15;
+            object = new Arrangement(dArray[index][0],dArray[index][1],dArray[index][2],dArray[index][3],dArray[index][4],
+                    dArray[index][5],dArray[index][6],dArray[index][7],dArray[index][8],dArray[index][9],dArray[index][10],
+                    dArray[index][11],dArray[index][12],dArray[index][13],dArray[index][14]);
         }else{
-            elementer = 7;
+            object = new Billett(dArray[index][0],dArray[index][1],dArray[index][2],dArray[index][3],dArray[index][4],
+                    dArray[index][5],dArray[index][6]);
         }
-        for(int i = 0; i < array.length; i++){
-            for (int j = 0; j < elementer; j++){
-                if(i == 0){
-                    ut = ut + dArray[i][j];
-                }else if(i == array.length-1 && !(j == elementer-1)){
-                    ut = ut + dArray[i][j] + "\n";
-                }else{
-                    ut = ut + dArray[i][j] + ";";
-                }
-            }
-        }
-        PrintWriter skriver = new PrintWriter(new BufferedWriter(new FileWriter(fil + ".csv")));
-        skriver.print(ut);
-
+        objects.add(index,object);
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fil + ".jobj"));
+        out.writeObject(objects);
     }
 }
