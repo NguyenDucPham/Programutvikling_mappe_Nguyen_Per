@@ -86,9 +86,6 @@ public class Kontroller {
     private TextField arrNavn;
 
     @FXML
-    private TextField arrType;
-
-    @FXML
     private TextField arrProgram;
 
     @FXML
@@ -130,14 +127,13 @@ public class Kontroller {
     @FXML
     private TextField arrAntallBilletter;
 
+    @FXML
+    private TextField konEmail;
 
     @FXML
     protected void arrReg(ActionEvent event) {
-        Window eier = registrerLokaleKnapp.getScene().getWindow();
-        if (arrType.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type");
-            return;
-        }
+        Window eier = arrRegistrerKnapp.getScene().getWindow();
+
         if (arrNavn.getText().isEmpty()) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type navn");
             return;
@@ -158,19 +154,44 @@ public class Kontroller {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn pris");
             return;
         }
-        if (arrKontaktPerson.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Opprett først en kontaktpernson i kontaktpersonfane");
+        if (konNavn.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn navn");
             return;
         }
-        if (arrLokale.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Opprett først et lokal i lokalfane");
+        if (konTelefonnummer.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn telefonnummer");
             return;
         }
-        ComboBox<Object> myComboBox = new ComboBox<Object>();
+        if (konEkstraopplysning.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn ekstraopplysning");
+            return;
+        }
+        if (konNettside.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn nettside");
+            return;
+        }
+        if (konFirma.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn firmanavn");
+            return;
+        }
+        if (lokNavn.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn navn");
+            return;
+        }
+        if (lokType.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type");
+            return;
+        }
+        if (lokAntallplasser.getText().isEmpty()) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn antall plasser");
+            return;
+        }
+        ComboBox<Object> arrComboBox= new ComboBox<Object>();
         try {
-            Arrangement arrangement = new Arrangement(arrKontaktPerson.getText(), arrType.getText(), arrNavn.getText(), arrArtist.getText(),
-                    arrProgram.getText(), arrTidspunkt.getText(), arrPris.getText(), Integer.valueOf(arrAntallBilletter.getText()), arrLokale.getText());
-            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
+            Arrangement arrangement = new Arrangement(arrNavn.getText(), arrArtist.getText(), arrProgram.getText(), arrTidspunkt.getText(),
+                    arrPris.getText(), konNavn.getText(), konTelefonnummer.getText(), konEmail.getText(), konEkstraopplysning.getText(),
+                    konNettside.getText(), konFirma.getText(), lokNavn.getText(), lokType.getText(), lokAntallplasser.getText());
+                    Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
             if(lokLagringBox.getValue()== "Csv"){
                 CsvLagring fil = new CsvLagring();
                 fil.skriver(arrangement,"arrangement");
