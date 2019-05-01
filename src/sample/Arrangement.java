@@ -26,25 +26,22 @@ public class Arrangement implements Serializable {
 
 
     public Arrangement(String kontaktperson, String kontaktTelefon, String epost, String nettSide, String firma,
-                       String opplysninger, String type, String navn, String artister, String program,
-                       String tidspunkt, String pris, int antBilletter, String lokale, String lokalType, int antallPlasser) {
-        this.type = type;
+                       String opplysninger, String navn, String artister, String program, String tidspunkt, String pris,
+                       String lokale, String lokalType, int antallPlasser) {
         this.navn = navn;
         this.artister = artister;
         this.program = program;
         this.tidspunkt = tidspunkt;
         this.pris = pris;
-        this.antBilletter = antBilletter;
         this.kontaktperson = kontaktperson;
         this.kontaktTelefon = kontaktTelefon;
         this.epost = epost;
+        this.opplysninger = opplysninger;
         this.nettSide = nettSide;
         this.firma = firma;
-        this.opplysninger = opplysninger;
         this.lokale = lokale;
         this.lokalType = lokalType;
         this.antallPlasser = antallPlasser;
-        this.antallLedigeBilletter=antBilletter;
     }
 
   /*  public void lagBillett(int antallSeter, String ArrangementNavn) {
@@ -56,8 +53,9 @@ public class Arrangement implements Serializable {
 
     @Override
     public String toString() {
-        return type + ";" + navn + ";" + artister + ";" + program + ";" + tidspunkt + ";" + pris + ";" + antBilletter
-                + ";" + kontaktperson + ";" + lokale;
+        return navn + ";" + artister + ";" + program + ";" + tidspunkt + ";" + pris + ";" + kontaktperson + ";" + kontaktperson
+                + ";" + kontaktTelefon + ";" + epost + ";" + opplysninger + ";" + nettSide + ";" + firma + ";" + lokale
+                + ";" + lokalType + ";" + antallPlasser;
     }
 
     public String getType() {
