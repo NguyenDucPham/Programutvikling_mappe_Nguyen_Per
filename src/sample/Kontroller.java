@@ -58,11 +58,7 @@ public class Kontroller {
     @FXML
     private void initialize(){
 
-        lokLagringBox.setValue("Csv");
-        lokLagringBox.setItems(lokLagringList);
-        konLagringBox.setValue("Csv");
-        konLagringBox.setItems(konLagringList);
-        lokaleComboBox.setValue("test");
+        
 
 
 
