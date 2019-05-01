@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class InnlastingThread implements Runnable{
     @FXML
     private ComboBox lokaleComboBox;
-
+private ObservableList<String>javel;
 
     public void run(){
         CsvLasting innlasting = new CsvLasting();
@@ -33,9 +33,18 @@ public class InnlastingThread implements Runnable{
             lokaleInnlastingList = FXCollections.observableArrayList(lokaleListe);
 
             Kontroller Kon = new Kontroller();
+            Kon.setLokaleInnlastingList(lokaleInnlastingList);
             System.out.println("denne ble først kjørt");
+
+
             //Kon.init(lokaleDArray, lokaleArray, lokaleInnlastingList);
+            System.out.println(lokaleInnlastingList);
+            javel=lokaleInnlastingList;
+            System.out.println(javel+"for faen");
 
         }catch(Exception e){}
+    }
+    public ObservableList<String> getJavel(){
+        return javel;
     }
 }

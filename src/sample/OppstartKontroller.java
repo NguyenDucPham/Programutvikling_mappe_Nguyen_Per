@@ -36,7 +36,8 @@ public class OppstartKontroller {
 
     @FXML
     public void startBekreft(ActionEvent event) {
-
+        InnlastingThread last= new InnlastingThread();
+        last.run();
 
         Parent root;
         Window denne = oppstartBekreft.getScene().getWindow();

@@ -31,17 +31,17 @@
                                     <items>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                             <children>
-                                                <TableView layoutX="5.0" layoutY="8.0" prefHeight="491.0" prefWidth="340.0">
+                                                <TableView fx:id="tabellVisning" layoutX="5.0" layoutY="8.0" prefHeight="491.0" prefWidth="340.0">
                                                     <columns>
-                                                        <TableColumn prefWidth="82.66663599014282" text="C1" />
-                                                        <TableColumn prefWidth="76.0000228881836" text="C2" />
-                                                        <TableColumn prefWidth="85.99992370605469" text="Column X" />
-                                                        <TableColumn prefWidth="90.00001525878906" text="Column X" />
+                                                        <TableColumn id="visningName" fx:id="visningNavn" prefWidth="134.00001001358032" text="Arrangement" />
+                                                        <TableColumn fx:id="visningType" prefWidth="65.33334350585938" text="Type" />
+                                                        <TableColumn fx:id="visningPris" prefWidth="47.99998474121094" text="Pris" />
+                                                        <TableColumn fx:id="visningDato" prefWidth="90.00001525878906" text="Dato" />
                                                     </columns>
                                                 </TableView>
                                             </children>
                                         </AnchorPane>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="506.0" prefWidth="308.0">
                                             <children>
                                                 <TextArea layoutX="14.0" layoutY="17.0" prefHeight="474.0" prefWidth="321.0" />
                                             </children>
@@ -193,7 +193,7 @@
                                 <Insets bottom="20" left="0" right="0" top="20" />
                             </GridPane.margin>
                         </Button>
-                     <ComboBox prefHeight="28.0" prefWidth="469.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <ComboBox id="billettbox" fx:id="billettComboBox" prefHeight="28.0" prefWidth="469.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      <Label text="Lokal :" GridPane.rowIndex="2" />
                      <Label text="Tidspunkt" GridPane.rowIndex="3" />
                      <Label text="Pris :" GridPane.rowIndex="4" />

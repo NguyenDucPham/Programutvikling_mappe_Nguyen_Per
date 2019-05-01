@@ -4,35 +4,55 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.stage.Window;
-import javafx.scene.control.ComboBox;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static java.lang.String.valueOf;
 
-public class Kontroller {
+public class Kontroller extends InnlastingThread{
+   private ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
 
-
+@FXML
+        private ComboBox billettComboBox;
     String[] lokaleArray;
     String[][] lokaleDArray;
    // ArrayList<String> lokaleListe=new ArrayList<>();
-    ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
-
 
 
 
 
     @FXML
     private void initialize() {
+        ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList("test1","test2");
+
+        InnlastingThread test= new InnlastingThread();
+        System.out.println(lokaleInnlastingList);
+        billettComboBox.setItems(lokaleInnlastingList);
+        billettComboBox.setValue("fuclk");
+        addItems();
+
+    }
+
+    public void addItems(){
+       // lokaleInnlastingList.add("name3");
+       // lokaleInnlastingList.add("name4");
+       // lokaleInnlastingList.add("name4");
+
+
+
+        billettComboBox.setItems(lokaleInnlastingList); // this does not work. ComboBox items remain "name1" and "name2"
     }
 
 
-
+    /*
 /*
         CsvLasting innlasting = new CsvLasting();
         String lokaleString = innlasting.leser("lokale");
@@ -65,17 +85,21 @@ public class Kontroller {
             kontaktComboBox.setItems(kontaktInnlastingList);
         }catch(Exception e){}
 
+*/
 
+public void setLokaleInnlastingList(ObservableList<String> lokaleInnlastingList){
+    this.lokaleInnlastingList=lokaleInnlastingList;
 
-
+}
     public void init(String[][] lokaleDArray, String[] lokaleArray,ObservableList<String> lokaleInnlastingList){
-        this.lokaleArray=lokaleArray;
-        this.lokaleDArray=lokaleDArray;
-        this.lokaleInnlastingList=lokaleInnlastingList;
+       // this.lokaleArray=lokaleArray;
+       // this.lokaleDArray=lokaleDArray;
+       // this.lokaleInnlastingList=lokaleInnlastingList;
+        setLokaleInnlastingList(lokaleInnlastingList);
     System.out.println(lokaleInnlastingList);
 
     }
-*/
+
 
     /*
     *
@@ -197,6 +221,31 @@ public class Kontroller {
 
         }
     }
+    /*
+    *
+    * *
+    *  Kontroller for Arrangement visning
+    *
+    *
+    */
+
+    private final ObservableList<String> data = FXCollections.observableArrayList();
+
+    @FXML
+    private TableView tabellVisning;
+    @FXML
+    private TableColumn visningNavn;
+    @FXML
+    private TableColumn visningType;
+    @FXML
+    private TableColumn visningPris;
+    @FXML
+    private TableColumn visningDato;
+
+
+
+
+
 
     /*
      *
