@@ -7,26 +7,26 @@ import java.io.PrintWriter;
 
 public class CsvEndring extends FilEndring{
     @Override
-    public void elementEndrer(String fil, int index) throws IOException, InvalidFileFormatException {
+    public void elementEndrer(String fil, int indeks) throws IOException, InvalidFileFormatException {
         int elementer = 0;
         String ut = null;
         CsvLasting csvLasting = new CsvLasting();
-        String[] array = Splittere.linjeSplitter(csvLasting.leser(fil+".csv"));
-        String[][] dArray = Splittere.objectSplitter(array);
-        dArray = Metoder.billettTrekker(dArray,index);
+        String[] rekke = Splittere.linjeSplitter(csvLasting.leser(fil+".csv"));
+        String[][] matrise = Splittere.objectSplitter(rekke);
+        matrise = Metoder.billettTrekker(matrise,indeks);
         if(fil.equals("arrangement")){
             elementer = 15;
         }else{
             elementer = 7;
         }
-        for(int i = 0; i < array.length; i++){
+        for(int i = 0; i < rekke.length; i++){
             for (int j = 0; j < elementer; j++){
                 if(i == 0){
-                    ut = ut + dArray[i][j];
-                }else if(i == array.length-1 && !(j == elementer-1)){
-                    ut = ut + dArray[i][j] + "\n";
+                    ut = ut + matrise[i][j];
+                }else if(i == rekke.length-1 && !(j == elementer-1)){
+                    ut = ut + matrise[i][j] + "\n";
                 }else{
-                    ut = ut + dArray[i][j] + ";";
+                    ut = ut + matrise[i][j] + ";";
                 }
             }
         }
