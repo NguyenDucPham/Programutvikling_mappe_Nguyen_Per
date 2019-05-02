@@ -3,7 +3,6 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -36,8 +35,6 @@ public class OppstartKontroller {
 
     @FXML
     public void startBekreft(ActionEvent event) {
-        InnlastingThread last= new InnlastingThread();
-        last.run();
 
         Parent root;
         Window denne = oppstartBekreft.getScene().getWindow();

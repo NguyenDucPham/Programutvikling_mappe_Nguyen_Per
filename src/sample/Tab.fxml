@@ -193,16 +193,17 @@
                                 <Insets bottom="20" left="0" right="0" top="20" />
                             </GridPane.margin>
                         </Button>
-                     <ComboBox id="billettbox" fx:id="billettComboBox" prefHeight="28.0" prefWidth="469.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <ComboBox id="billettbox" fx:id="billettComboBox" onMouseClicked="#updateValues" prefHeight="28.0" prefWidth="577.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      <Label text="Lokal :" GridPane.rowIndex="2" />
                      <Label text="Tidspunkt" GridPane.rowIndex="3" />
                      <Label text="Pris :" GridPane.rowIndex="4" />
                      <Label text="Kjøperens telefonnummer" GridPane.rowIndex="5" />
                      <TextField id="kjoperensTlf" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                     <Text id="hentetPris" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="464.64980125427246" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     <Text id="hentetPris" fx:id="billettPris" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="464.64980125427246" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      <Text id="hentetTidspunkt" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="465.9831123352051" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      <Text id="hentetLokal" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="465.9831123352051" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                     <Text id="hentetTidspunkt" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="466.6497383117676" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     <Text id="hentetTidspunkt" fx:id="billettTidspunkt" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="577.9830207824707" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     <Text fx:id="billettLokal" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="577.3163795471191" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      <rowConstraints>
                         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
                         <RowConstraints maxHeight="67.99999999999997" minHeight="0.0" prefHeight="42.666656494140625" />
