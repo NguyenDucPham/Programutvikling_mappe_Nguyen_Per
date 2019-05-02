@@ -12,16 +12,10 @@ public class InnlastingThread extends Task {
     private ComboBox lokaleComboBox;
     private ObservableList<String>javel;
     @Override
-    protected String call() throws Exception {
+    protected String call() throws IOException, FeilFilFormatException {
         CsvLasting innlasting = new CsvLasting();
         String lokaleString = null;
-        try {
-            lokaleString = innlasting.leser("arrangement");
-        } catch (IOException e){
-            e.printStackTrace();
-        }catch (FeilFilFormatException e) {
-
-        }
+        lokaleString = innlasting.leser("arrangement");
         return lokaleString;
     }
 }
