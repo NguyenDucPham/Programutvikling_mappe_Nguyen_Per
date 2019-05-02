@@ -7,35 +7,16 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.stage.Window;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
-import sun.util.calendar.LocalGregorianCalendar;
-
-import javax.xml.stream.FactoryConfigurationError;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.attribute.UserDefinedFileAttributeView;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.ResourceBundle;
-
-import static java.lang.String.valueOf;
-import static java.lang.System.out;
 
 public class Kontroller {
 
@@ -102,7 +83,9 @@ public class Kontroller {
                 arrTidspunktListe.add(arrDArray[i][3]);
             }
             arrInnlastingList = FXCollections.observableArrayList(arrListe);
-        }catch(Exception e){}
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
 
         if(arrDArray != null) {
@@ -160,7 +143,7 @@ public class Kontroller {
                 }
             }
         }catch(Exception e){
-
+            e.printStackTrace();
         }
 
     }
@@ -220,59 +203,59 @@ public class Kontroller {
 
     @FXML
     protected void arrReg(ActionEvent event) {
-        Window eier = arrRegistrerKnapp.getScene().getWindow();
+        Window registrer = arrRegistrerKnapp.getScene().getWindow();
 
         if (arrNavn.getText().isEmpty()||arrNavn.getText().matches("[0-9,;]*")) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn riktig format");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn riktig format");
             return;
         }
         if (arrProgram.getText().isEmpty()||testSemi(arrProgram.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn Program");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn Program");
             return;
         }
         if (arrArtist.getText().isEmpty()||testSemi(arrArtist.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn artist");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn artist");
             return;
         }
         if (arrTidspunkt.getText().isEmpty()||testSemi(arrTidspunkt.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn tidspunkt");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn tidspunkt");
             return;
         }
 
         if (arrPris.getText().isEmpty()||testSemi(arrPris.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn pris");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn pris");
             return;
         }
         if (konNavn.getText().isEmpty()||testSemi(konNavn.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn navn");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn navn");
             return;
         }
         if (konTelefonnummer.getText().isEmpty()||testSemi(konTelefonnummer.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn telefonnummer");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn telefonnummer");
             return;
         }
         if (konEkstraopplysning.getText().isEmpty()||testSemi(konEkstraopplysning.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn ekstraopplysning");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn ekstraopplysning");
             return;
         }
         if (konNettside.getText().isEmpty()||testSemi(konNettside.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn nettside");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn nettside");
             return;
         }
         if (konFirma.getText().isEmpty()||testSemi(konFirma.getText())) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn firmanavn");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn firmanavn");
             return;
         }
         if (lokNavn.getText().isEmpty()||testSemi(lokNavn.getText())){
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn lokalet");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn lokalet");
             return;
         }
         if (lokType.getText().isEmpty()||lokType.getText().matches("[;]*")) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Fyll inn type");
             return;
         }
         if (lokAntallplasser.getText().isEmpty()||lokAntallplasser.getText().matches("[a-z,;,A-Z]*")) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Feil input, kunn Tall");
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Feil input, kunn Tall");
             return;
         }
         ComboBox<Object> arrComboBox= new ComboBox<Object>();
@@ -280,17 +263,20 @@ public class Kontroller {
             Arrangement arrangement = new Arrangement(arrNavn.getText(), arrArtist.getText(), arrProgram.getText(), arrTidspunkt.getText(),
                     arrPris.getText(), konNavn.getText(), konTelefonnummer.getText(), konEmail.getText(), konEkstraopplysning.getText(),
                     konNettside.getText(), konFirma.getText(), lokNavn.getText(), lokType.getText(), lokAntallplasser.getText(), lokAntallplasser.getText());
-                    Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
+                    Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, registrer, "Vellykket", "Arrangement er registrert");
             CsvLagring csvLagring = new CsvLagring();
             csvLagring.skriver(arrangement,"arrangement");
-            try{
+            try {
                 arrListe.clear();
                 initialize();
             }catch (Exception e){
-
+                Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Problemer med å " +
+                        "relaste siden");
+                return;
             }
-        } catch (Exception e) {
-
+        } catch (IOException e){
+            Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Form Error!", "Problemer med å laste/lagre");
+            return;
         }
     }
     public boolean testSemi(String text){
@@ -317,14 +303,17 @@ public class Kontroller {
                 }
             }
         }catch (Exception e){
-
+            Beskjed.visVarsel(Alert.AlertType.ERROR, salg, "Form Error!", "Noe gikk galt");
+            return;
         }
         try {
             endreBillett.billettSolgt("csv", x);
         } catch (IOException e) {
-            e.printStackTrace();
+            Beskjed.visVarsel(Alert.AlertType.ERROR, salg, "Form Error!", "Problemer med å laste/lagre");
+            return;
         } catch (FeilFilFormatException e) {
-            e.printStackTrace();
+            Beskjed.visVarsel(Alert.AlertType.ERROR, salg, "Form Error!", "Filen har feil format");
+            return;
         }catch (Exception e){
             Beskjed.visVarsel(Alert.AlertType.ERROR, salg, "Form Error!", "Det er tomt for billetter til " +
                     "dette arrangementet");
@@ -334,7 +323,9 @@ public class Kontroller {
             arrListe.clear();
             initialize();
         }catch (Exception e){
-
+            Beskjed.visVarsel(Alert.AlertType.ERROR, salg, "Form Error!", "Problemer med å " +
+                    "relaste siden");
+            return;
         }
 
         Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, salg, "Vellykket", "Billett registrert på telefonnummer");
@@ -366,9 +357,11 @@ public class Kontroller {
         try{
             csvSletting.sletter("arrangement",indeks);
         }catch (IOException e){
-
+            Beskjed.visVarsel(Alert.AlertType.ERROR, slett, "Form Error!", "Problemer med å laste/lagre");
+            return;
         }catch (FeilFilFormatException e){
-
+            Beskjed.visVarsel(Alert.AlertType.ERROR, slett, "Form Error!", "Filen har feil format");
+            return;
         }
 
         Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, slett, "Vellykket", "Arrangementet er slettet");
