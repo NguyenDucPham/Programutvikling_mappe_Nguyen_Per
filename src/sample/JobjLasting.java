@@ -15,9 +15,9 @@ public class JobjLasting extends FilLasting{
             strengBygger.append(objekt.toString());
             strengBygger.append("\n");
         }
-        if(for(int i = 0;i < objekter.size();i++){
-            
-        }) throw new FeilFilFormatException("Filen har feil format");
+        /*if(for(int i = 0;i < objekter.size();i++){
+
+        }) throw new FeilFilFormatException("Filen har feil format");*/
         return strengBygger.toString();
     }
 }
