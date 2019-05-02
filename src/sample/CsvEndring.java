@@ -10,6 +10,8 @@ public class CsvEndring extends FilEndring{
     public void elementEndrer(String fil, int indeks) throws IOException, FeilFilFormatException {
         int elementer = 0;
         String ut = null;
+        System.out.println(fil);
+        System.out.println(indeks);
         CsvLasting csvLasting = new CsvLasting();
         String[] rekke = Splittere.linjeSplitter(csvLasting.leser(fil+".csv"));
         String[][] matrise = Splittere.objectSplitter(rekke);

@@ -13,7 +13,7 @@ public class Billett implements Serializable {
     private String dato;
     private String klokkeslett;
     private String arrangementNavn;
-
+    public Billett(){}
 
     public Billett(String plassNummer, String lokaleNavn, String pris, String tlfNummer, String dato, String klokkeslett,
                    String arrangementNavn) {

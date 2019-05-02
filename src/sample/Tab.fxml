@@ -77,9 +77,9 @@
                                     <RowConstraints minHeight="20.0" prefHeight="30.0" />
                                     <RowConstraints />
                                     <RowConstraints />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                                    <RowConstraints />
-                                    <RowConstraints />
+                                    <RowConstraints maxHeight="38.000030517578125" minHeight="10.0" prefHeight="38.000030517578125" />
+                                    <RowConstraints maxHeight="39.3333740234375" minHeight="31.999969482421847" prefHeight="38.0" />
+                                    <RowConstraints maxHeight="35.33331298828125" minHeight="32.6666259765625" prefHeight="34.0" />
                                     <RowConstraints />
                                  </rowConstraints>
                                  <children>
@@ -95,7 +95,7 @@
                                     <TextField id="konFirma" fx:id="konFirma" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                                     <Label text="Kontaktperson" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <Label text="Email : " GridPane.rowIndex="5" />
-                                    <TextField id="konEmail" fx:id="konEmail" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField id="konEmail" fx:id="konEmail" prefHeight="38.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                  </children>
                               </GridPane>
                               <Separator layoutX="-9.0" layoutY="-190.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="15.0" />
@@ -187,28 +187,30 @@
 
 
                             <!-- Knapp for lagring -->
-                            <Button id="regSalg" fx:id="regSalg" defaultButton="true" prefHeight="40" prefWidth="100" text="Registrer salg" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.rowSpan="1">
-                            <!-- onAction="#handleSubmitButtonAction"-->
+                            <Button id="regSalg" fx:id="regSalg" defaultButton="true" onAction="#registrerSalg" prefHeight="40" prefWidth="100" text="Registrer salg" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.rowSpan="1">
                             <GridPane.margin>
                                 <Insets bottom="20" left="0" right="0" top="20" />
                             </GridPane.margin>
                         </Button>
-                     <ComboBox id="billettbox" fx:id="billettComboBox" onMouseClicked="#updateValues" prefHeight="28.0" prefWidth="577.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <ComboBox id="billettbox" fx:id="billettComboBox" onAction="#updateValues" prefHeight="28.0" prefWidth="577.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      <Label text="Lokal :" GridPane.rowIndex="2" />
                      <Label text="Tidspunkt" GridPane.rowIndex="3" />
                      <Label text="Pris :" GridPane.rowIndex="4" />
-                     <Label text="Kjøperens telefonnummer" GridPane.rowIndex="5" />
-                     <TextField id="kjoperensTlf" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     <Label text="Kjøperens telefonnummer" GridPane.rowIndex="6" />
+                     <TextField id="kjoperensTlf" fx:id="kjoperensTlf" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      <Text id="hentetPris" fx:id="billettPris" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="464.64980125427246" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      <Text id="hentetTidspunkt" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="465.9831123352051" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      <Text id="hentetLokal" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="465.9831123352051" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      <Text id="hentetTidspunkt" fx:id="billettTidspunkt" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="577.9830207824707" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      <Text fx:id="billettLokal" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="577.3163795471191" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     <Label text="Antall ledige billetter :" GridPane.rowIndex="5" />
+                     <Text fx:id="billettLedig" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="581.9831275939941" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      <rowConstraints>
                         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
                         <RowConstraints maxHeight="67.99999999999997" minHeight="0.0" prefHeight="42.666656494140625" />
                         <RowConstraints maxHeight="67.99999999999997" minHeight="25.0" prefHeight="25.333343505859347" />
                         <RowConstraints maxHeight="51.333333333333286" minHeight="25.0" prefHeight="25.333333333333314" />
+                        <RowConstraints maxHeight="51.333333333333286" minHeight="25.0" prefHeight="30.0" />
                         <RowConstraints maxHeight="51.333333333333286" minHeight="25.0" prefHeight="30.0" />
                         <RowConstraints maxHeight="51.333333333333286" minHeight="25.0" prefHeight="30.0" />
                         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
