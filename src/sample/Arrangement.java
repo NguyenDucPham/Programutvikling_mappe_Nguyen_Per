@@ -23,6 +23,14 @@ public class Arrangement implements Serializable {
     private String antallLedigeBilletter;
 
 
+    public Arrangement(String navn, String lokaleType, String pris, String tidspunkt){
+        this.navn = navn;
+        this.lokaleType = lokaleType;
+        this.pris = pris;
+        this.tidspunkt = tidspunkt;
+
+    }
+
     public Arrangement(String navn, String artister, String program, String tidspunkt, String pris,
                        String kontaktPerson, String kontaktTelefon, String ePost, String opplysninger, String nettSide,
                        String firma, String lokale, String lokaleType, String antallPlasser, String antallLedigeBilletter) {

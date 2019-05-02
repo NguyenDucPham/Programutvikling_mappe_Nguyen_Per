@@ -31,17 +31,17 @@ public class Kontroller {
 
     private final ObservableList<String> data = FXCollections.observableArrayList();
     @FXML
-    private TableView<Person> table = new TableView<Person>();
+    private TableView<Tabell> table = new TableView<Tabell>();
     @FXML
-    private TableView<Person> tabellVisning= table;
+    private TableView<Tabell> tabellVisning= table;
     @FXML
-    private TableColumn<Person, String> visningNavn;
+    private TableColumn<Tabell, String> visningNavn;
     @FXML
-    private TableColumn<Person, String> visningType;
+    private TableColumn<Tabell, String> visningType;
     @FXML
-    private TableColumn<Person, String> visningPris;
+    private TableColumn<Tabell, String> visningPris;
     @FXML
-    private TableColumn<Person, String> visningDato;
+    private TableColumn<Tabell, String> visningDato;
     @FXML
     private ComboBox billettComboBox;
     @FXML
@@ -64,15 +64,19 @@ public class Kontroller {
     private ArrayList<String> arrListe = new ArrayList<>();
     private String[] arrArray;
     private String[][] arrDArray;
-    ObservableList<Person> dataa =
+
+
+
+  /*  ObservableList<Tabell> dataa =
             FXCollections.observableArrayList(
                     new Person("Jacob", "Smith", "jacob.smith@example.com"),
                     new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
                     new Person("Ethan", "Williams", "ethan.williams@example.com"),
                     new Person("Emma", "Jones", "emma.jones@example.com"),
-                    new Person("Michael", "Brown", "michael.brown@example.com"));
+                    new Person("Michael", "Brown", "michael.brown@example.com"));*/
     @FXML
     private void initialize() {
+        tabellVisning.setEditable(true);
         String last = null;
         InnlastingThread test= new InnlastingThread();
         try {
@@ -83,7 +87,7 @@ public class Kontroller {
         arrArray = Splittere.linjeSplitter(last);
         arrDArray = Splittere.objectSplitter(arrArray);
         ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
-        ObservableList<String> nyListe=FXCollections.observableArrayList();
+
 
 
         try {
@@ -97,11 +101,7 @@ public class Kontroller {
             arrInnlastingList = FXCollections.observableArrayList(arrListe);
         }catch(Exception e){}
 
-        try{
-            for(int i=0; i< arrArray.length;i++){
-                nyListe.add(arrDArray[i][0] +", "+arrDArray[i][12]+", "+arrDArray[i][4]+ ", "+arrDArray[i][3]);
-            }
-        }catch(Exception e){}
+
         if(arrDArray != null) {
             billettComboBox.setItems(arrInnlastingList);
             billettComboBox.setValue(arrDArray[0][0]);
@@ -110,10 +110,12 @@ public class Kontroller {
             billettTidspunkt.setText(arrDArray[0][3]);
             billettLedig.setText(arrDArray[0][14]);
 
-            visningNavn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-            visningType.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-            visningPris.setCellValueFactory(new PropertyValueFactory<>("email"));
-            visningDato.setCellValueFactory(new PropertyValueFactory<>("Dato"));
+
+            ObservableList<Tabell> dataa = FXCollections.observableArrayList(Metoder.tabellListe(arrArray));
+            visningNavn.setCellValueFactory(new PropertyValueFactory<>("navn"));
+            visningType.setCellValueFactory(new PropertyValueFactory<>("lokaleType"));
+            visningPris.setCellValueFactory(new PropertyValueFactory<>("pris"));
+            visningDato.setCellValueFactory(new PropertyValueFactory<>("tidspunkt"));
 
             tabellVisning.setItems(dataa);
             tabellVisning.getColumns().setAll(visningNavn, visningType,visningPris,visningDato);
