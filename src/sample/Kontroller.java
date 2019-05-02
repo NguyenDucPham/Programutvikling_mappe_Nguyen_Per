@@ -22,15 +22,20 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
+import sun.util.calendar.LocalGregorianCalendar;
 
 import javax.xml.stream.FactoryConfigurationError;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import static java.lang.String.valueOf;
+import static java.lang.System.out;
 
 public class Kontroller {
 
@@ -217,56 +222,57 @@ public class Kontroller {
     protected void arrReg(ActionEvent event) {
         Window eier = arrRegistrerKnapp.getScene().getWindow();
 
-        if (arrNavn.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type navn");
+        if (arrNavn.getText().isEmpty()||arrNavn.getText().matches("[0-9,;]*")) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn riktig format");
             return;
         }
-        if (arrProgram.getText().isEmpty()) {
+        if (arrProgram.getText().isEmpty()||testSemi(arrProgram.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn Program");
             return;
         }
-        if (arrArtist.getText().isEmpty()) {
+        if (arrArtist.getText().isEmpty()||testSemi(arrArtist.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn artist");
             return;
         }
-        if (arrTidspunkt.getText().isEmpty()) {
+        if (arrTidspunkt.getText().isEmpty()||testSemi(arrTidspunkt.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn tidspunkt");
             return;
         }
-        if (arrPris.getText().isEmpty()) {
+
+        if (arrPris.getText().isEmpty()||testSemi(arrPris.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn pris");
             return;
         }
-        if (konNavn.getText().isEmpty()) {
+        if (konNavn.getText().isEmpty()||testSemi(konNavn.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn navn");
             return;
         }
-        if (konTelefonnummer.getText().isEmpty()) {
+        if (konTelefonnummer.getText().isEmpty()||testSemi(konTelefonnummer.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn telefonnummer");
             return;
         }
-        if (konEkstraopplysning.getText().isEmpty()) {
+        if (konEkstraopplysning.getText().isEmpty()||testSemi(konEkstraopplysning.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn ekstraopplysning");
             return;
         }
-        if (konNettside.getText().isEmpty()) {
+        if (konNettside.getText().isEmpty()||testSemi(konNettside.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn nettside");
             return;
         }
-        if (konFirma.getText().isEmpty()) {
+        if (konFirma.getText().isEmpty()||testSemi(konFirma.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn firmanavn");
             return;
         }
-        if (lokNavn.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn navn");
+        if (lokNavn.getText().isEmpty()||testSemi(lokNavn.getText())){
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn lokalet");
             return;
         }
-        if (lokType.getText().isEmpty()) {
+        if (lokType.getText().isEmpty()||lokType.getText().matches("[;]*")) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type");
             return;
         }
-        if (lokAntallplasser.getText().isEmpty()) {
-            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn antall plasser");
+        if (lokAntallplasser.getText().isEmpty()||lokAntallplasser.getText().matches("[a-z,;,A-Z]*")) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Feil input, kunn Tall");
             return;
         }
         ComboBox<Object> arrComboBox= new ComboBox<Object>();
@@ -287,7 +293,11 @@ public class Kontroller {
 
         }
     }
+    public boolean testSemi(String text){
+            if(text.matches("[;]*")) return false;
+            else return true;
 
+    }
 
     @FXML
     protected void registrerSalg(ActionEvent event){
