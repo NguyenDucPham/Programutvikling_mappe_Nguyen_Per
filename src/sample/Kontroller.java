@@ -50,8 +50,10 @@ public class Kontroller{
             arrInnlastingList = FXCollections.observableArrayList(arrListe);
         }catch(Exception e){}
 
-        billettComboBox.setItems(arrInnlastingList);
-        billettComboBox.setValue(arrDArray[0][0]);
+        if(arrDArray != null) {
+            billettComboBox.setItems(arrInnlastingList);
+            billettComboBox.setValue(arrDArray[0][0]);
+        }
 
 
     }
