@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.xml.internal.fastinfoset.util.StringArray;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -17,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import javax.xml.stream.FactoryConfigurationError;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
@@ -28,17 +30,18 @@ import static java.lang.String.valueOf;
 public class Kontroller {
 
     private final ObservableList<String> data = FXCollections.observableArrayList();
-
     @FXML
-    private TableView<String> tabellVisning;
+    private TableView<Person> table = new TableView<Person>();
     @FXML
-    private TableColumn<String, String> visningNavn;
+    private TableView<Person> tabellVisning= table;
     @FXML
-    private TableColumn<String, String> visningType;
+    private TableColumn<Person, String> visningNavn;
     @FXML
-    private TableColumn<String, String> visningPris;
+    private TableColumn<Person, String> visningType;
     @FXML
-    private TableColumn<String, String> visningDato;
+    private TableColumn<Person, String> visningPris;
+    @FXML
+    private TableColumn<Person, String> visningDato;
     @FXML
     private ComboBox billettComboBox;
     @FXML
@@ -61,11 +64,22 @@ public class Kontroller {
     private ArrayList<String> arrListe = new ArrayList<>();
     private String[] arrArray;
     private String[][] arrDArray;
+    ObservableList<Person> dataa =
+            FXCollections.observableArrayList(
+                    new Person("Jacob", "Smith", "jacob.smith@example.com"),
+                    new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
+                    new Person("Ethan", "Williams", "ethan.williams@example.com"),
+                    new Person("Emma", "Jones", "emma.jones@example.com"),
+                    new Person("Michael", "Brown", "michael.brown@example.com"));
     @FXML
-    private void initialize() throws Exception {
-        String last;
+    private void initialize() {
+        String last = null;
         InnlastingThread test= new InnlastingThread();
-        last=test.call();
+        try {
+            last=test.call();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         arrArray = Splittere.linjeSplitter(last);
         arrDArray = Splittere.objectSplitter(arrArray);
         ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
@@ -86,7 +100,6 @@ public class Kontroller {
         try{
             for(int i=0; i< arrArray.length;i++){
                 nyListe.add(arrDArray[i][0] +", "+arrDArray[i][12]+", "+arrDArray[i][4]+ ", "+arrDArray[i][3]);
-                System.out.println(nyListe+"tsest");
             }
         }catch(Exception e){}
         if(arrDArray != null) {
@@ -97,12 +110,14 @@ public class Kontroller {
             billettTidspunkt.setText(arrDArray[0][3]);
             billettLedig.setText(arrDArray[0][14]);
 
-            ObservableList<String> data = FXCollections.observableArrayList(arrArray);
+            visningNavn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+            visningType.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+            visningPris.setCellValueFactory(new PropertyValueFactory<>("email"));
+            visningDato.setCellValueFactory(new PropertyValueFactory<>("Dato"));
 
-            tabellVisning.setItems(data);
-           // visningNavn.getColumns().addAll(arrListe);
+            tabellVisning.setItems(dataa);
+            tabellVisning.getColumns().setAll(visningNavn, visningType,visningPris,visningDato);
 
-            tabellVisning.getColumns().setAll(visningNavn, visningType, visningPris, visningDato);
         }
 
 

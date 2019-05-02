@@ -33,10 +33,10 @@
                                             <children>
                                                 <TableView fx:id="tabellVisning" layoutX="5.0" layoutY="8.0" prefHeight="491.0" prefWidth="340.0">
                                                     <columns>
-                                                        <TableColumn id="visningName" fx:id="visningNavn" prefWidth="134.00001001358032" text="Arrangement" />
-                                                        <TableColumn fx:id="visningType" prefWidth="65.33334350585938" text="Type" />
-                                                        <TableColumn fx:id="visningPris" prefWidth="47.99998474121094" text="Pris" />
-                                                        <TableColumn fx:id="visningDato" prefWidth="90.00001525878906" text="Dato" />
+                                                        <TableColumn id="visningNavn" fx:id="visningNavn" prefWidth="134.00001001358032" text="Arrangement" />
+                                                        <TableColumn id="visningType" fx:id="visningType" prefWidth="65.33334350585938" text="Type" />
+                                                        <TableColumn id="visningPris" fx:id="visningPris" prefWidth="47.99998474121094" text="Pris" />
+                                                        <TableColumn id="visningDato" fx:id="visningDato" prefWidth="90.00001525878906" text="Dato" />
                                                     </columns>
                                                 </TableView>
                                             </children>
