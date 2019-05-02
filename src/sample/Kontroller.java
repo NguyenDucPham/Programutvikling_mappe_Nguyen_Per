@@ -188,7 +188,8 @@ public class Kontroller{
                     arrPris.getText(), konNavn.getText(), konTelefonnummer.getText(), konEmail.getText(), konEkstraopplysning.getText(),
                     konNettside.getText(), konFirma.getText(), lokNavn.getText(), lokType.getText(), lokAntallplasser.getText(), lokAntallplasser.getText());
                     Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
-
+            CsvLagring csvLagring = new CsvLagring();
+            csvLagring.skriver(arrangement,"arrangement");
         } catch (Exception e) {
 
         }

@@ -45,7 +45,7 @@ public class Arrangement implements Serializable {
 
     @Override
     public String toString() {
-        return navn + ";" + artister + ";" + program + ";" + tidspunkt + ";" + pris + kontaktPerson + ";"
+        return navn + ";" + artister + ";" + program + ";" + tidspunkt + ";" + pris + ";" + kontaktPerson + ";"
                 + kontaktTelefon + ";" + ePost + ";" + opplysninger + ";" + nettSide + ";" + firma + ";" + lokale + ";"
                 + lokaleType + ";" + antallPlasser + ";" + antallLedigeBilletter;
     }
