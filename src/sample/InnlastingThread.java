@@ -16,7 +16,7 @@ public class InnlastingThread extends Task {
         CsvLasting innlasting = new CsvLasting();
         String lokaleString = null;
         try {
-            lokaleString = innlasting.leser("lokale");
+            lokaleString = innlasting.leser("arrangement");
         } catch (IOException e){
             e.printStackTrace();
         }catch (FeilFilFormatException e) {
