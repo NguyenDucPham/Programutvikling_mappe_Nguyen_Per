@@ -14,10 +14,8 @@ public class JobjLasting extends FilLasting{
         for (Object objekt : objekter) {
             strengBygger.append(objekt.toString());
             strengBygger.append("\n");
+            if(!objekt.equals(Arrangement.class) || !objekt.equals(Billett.class)) throw new FeilFilFormatException("Filen har feil format");
         }
-        /*if(for(int i = 0;i < objekter.size();i++){
-
-        }) throw new FeilFilFormatException("Filen har feil format");*/
         return strengBygger.toString();
     }
 }
