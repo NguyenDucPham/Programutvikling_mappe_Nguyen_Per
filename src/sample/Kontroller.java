@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static java.lang.String.valueOf;
@@ -27,6 +28,8 @@ public class Kontroller{
     private Text billettLokal;
     @FXML
     private Text billettPris;
+    @FXML
+    private Text billettLedig;
     private ArrayList <String> arrPrisListe = new ArrayList<>();
     private ArrayList<String> arrTidspunktListe = new ArrayList<>();
     private ArrayList <String> arrLokalListe= new ArrayList<>();
@@ -64,6 +67,9 @@ public class Kontroller{
             for (int i = 0; i < arrArray.length; i++) {
                 if (arrDArray[i][0] == hentetArr){
                     billettPris.setText(arrDArray[i][4]);
+                    billettLokal.setText(arrDArray[i][11]);
+                    billettTidspunkt.setText(arrDArray[i][3]);
+                    billettLedig.setText(arrDArray[i][14]);
 
                 }
             }
@@ -222,14 +228,35 @@ public class Kontroller{
      * */
 
     @FXML
-    protected void regSalg(ActionEvent event){
+    protected void registrerSalg(ActionEvent event){
         Window salg = regSalg.getScene().getWindow();
         if (kjoperensTlf.getText().isEmpty()) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, salg, "Form Error!", "Fyll inn telefonnummer");
             return;
         }
-        ComboBox<Object> salgBox = new ComboBox<Object>();
+        Billett endreBillett = new Billett();
+        int x=0;
+        try {
+            String hentetArr = (String) billettComboBox.getValue();
+            for (int i = 0; i < arrArray.length; i++) {
+                if (arrDArray[i][0] == hentetArr){
+                    x=i;
 
+                }
+            }
+        }catch(Exception e){
+
+        }
+        try {
+            endreBillett.billettSolgt("csv", x);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (FeilFilFormatException e) {
+            e.printStackTrace();
+        }
+
+        Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, salg, "Vellykket", "Billett registrert på telefonnummer");
+        ComboBox<Object> salgBox = new ComboBox<Object>();
 
     }
 }
