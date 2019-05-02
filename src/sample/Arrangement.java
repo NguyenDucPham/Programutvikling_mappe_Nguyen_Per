@@ -45,13 +45,6 @@ public class Arrangement implements Serializable {
         this.antallLedigeBilletter=antallLedigeBilletter;
     }
 
-  /*  public void lagBillett(int antallSeter, String ArrangementNavn) {
-        for (int i = 0; i < antallSeter; i++) {
-            String enbillett = ArrangementNavn + (i);
-            billettArray[i] = enbillett;
-        }
-    }*/
-
     @Override
     public String toString() {
         return navn + ";" + artister + ";" + program + ";" + tidspunkt + ";" + pris + kontaktperson + ";"

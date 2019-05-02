@@ -8,82 +8,66 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
 
+import java.util.ArrayList;
+
 import static java.lang.String.valueOf;
 
 public class Kontroller{
-   private ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
+   private ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
 
-@FXML
-        private ComboBox billettComboBox;
-    String[] lokaleArray;
-    String[][] lokaleDArray;
-   // ArrayList<String> lokaleListe=new ArrayList<>();
-
-
-
+    @FXML
+    private ComboBox billettComboBox;
+    @FXML
+    private TextField kjoperensTlf;
+    @FXML
+    private Button regSalg;
+    @FXML
+    private Text billettTidspunkt;
+    @FXML
+    private Text billettLokal;
+    @FXML
+    private Text billettPris;
+    private ArrayList <String> arrPrisListe = new ArrayList<>();
+    private ArrayList<String> arrTidspunktListe = new ArrayList<>();
+    private ArrayList <String> arrLokalListe= new ArrayList<>();
 
     @FXML
     private void initialize() throws Exception {
-        ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList("test1","test2");
-
+        String last;
         InnlastingThread test= new InnlastingThread();
-        lokaleInnlastingList=test.call();
-        System.out.println(lokaleInnlastingList);
-        billettComboBox.setItems(lokaleInnlastingList);
-        String x = String.valueOf(lokaleInnlastingList[0]);
-        billettComboBox.setValue(x);
-       // addItems();
+        last=test.call();
+        String[] arrArray = Splittere.linjeSplitter(last);
+        String[][] arrDArray = Splittere.objectSplitter(arrArray);
+        ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
+
+        try {
+            ArrayList<String> arrListe = new ArrayList<>();
+            for (int i = 0; i < arrArray.length; i++) {
+                arrListe.add(arrDArray[i][0]);
+                arrPrisListe.add(arrDArray[i][4]);
+                arrTidspunktListe.add(arrDArray[i][3]);
+                arrLokalListe.add(arrDArray[i][11]);
+            }
+            arrInnlastingList = FXCollections.observableArrayList(arrListe);
+        }catch(Exception e){}
+
+        billettComboBox.setItems(arrInnlastingList);
+        billettComboBox.setValue(arrDArray[0][0]);
+
 
     }
 
-/*
-        CsvLasting innlasting = new CsvLasting();
-        String lokaleString = innlasting.leser("lokale");
-        String[] lokaleArray = Splittere.linjeSplitter(lokaleString);
-        String[][] lokaleDArray = Splittere.objectSplitter(lokaleArray);
-        ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
+    public void updateValues(){
         try {
-            ArrayList<String> lokaleListe=new ArrayList<>();
-            for (int i = 0; i < lokaleArray.length; i++) {
-                lokaleListe.add(lokaleDArray[i][0]);
+            String hentetArr =
+            for (int i = 0; i < arrArray.length; i++) {
+                if (arrArray)
             }
-            lokaleInnlastingList = FXCollections.observableArrayList(lokaleListe);
-            lokaleComboBox.setValue(lokaleDArray[0][0]);
-            lokaleComboBox.setItems(lokaleInnlastingList);
-        }catch(Exception e){}
+        }catch(Exception e){
 
-
-        CsvLasting kontaktInnlasting = new CsvLasting();
-        String kontaktString = kontaktInnlasting.leser("kontakt");
-        String[] kontaktArray = Splittere.linjeSplitter(kontaktString);
-        String[][] kontaktDArray = Splittere.objectSplitter(kontaktArray);
-        ObservableList<String> kontaktInnlastingList = FXCollections.observableArrayList();
-        try {
-            ArrayList<String> kontaktListe=new ArrayList<>();
-            for (int i = 0; i < kontaktArray.length; i++) {
-                kontaktListe.add(kontaktDArray[i][0]);
-            }
-            kontaktInnlastingList = FXCollections.observableArrayList(kontaktListe);
-            kontaktComboBox.setValue(kontaktDArray[0][0]);
-            kontaktComboBox.setItems(kontaktInnlastingList);
-        }catch(Exception e){}
-
-*/
-
-
-public void setLokaleInnlastingList(ObservableList<String> lokaleInnlastingList){
-    this.lokaleInnlastingList=lokaleInnlastingList;
-
-}
-    public void init(String[][] lokaleDArray, String[] lokaleArray,ObservableList<String> lokaleInnlastingList){
-       // this.lokaleArray=lokaleArray;
-       // this.lokaleDArray=lokaleDArray;
-       // this.lokaleInnlastingList=lokaleInnlastingList;
-        setLokaleInnlastingList(lokaleInnlastingList);
-    System.out.println(lokaleInnlastingList);
+        }
 
     }
-
 
     /*
     *
@@ -226,26 +210,11 @@ public void setLokaleInnlastingList(ObservableList<String> lokaleInnlastingList)
     @FXML
     private TableColumn visningDato;
 
-
-
-
-
-
     /*
      *
      * Kontroller for billett************************************************************************'***
      *
      * */
-    @FXML
-    private TextField kjoperensTlf;
-    @FXML
-    private Button regSalg;
-    @FXML
-    private Text hentetPris;
-    @FXML
-    private Text hentetTidspunkt;
-    @FXML
-    private Text hentetLokal;
 
     @FXML
     protected void regSalg(ActionEvent event){

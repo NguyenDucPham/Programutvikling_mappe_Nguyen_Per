@@ -15,7 +15,7 @@ public class InnlastingThread extends Task {
     private ComboBox lokaleComboBox;
     private ObservableList<String>javel;
     @Override
-    protected ObservableList<String> call() throws Exception {
+    protected String call() throws Exception {
         CsvLasting innlasting = new CsvLasting();
         String lokaleString = null;
         try {
@@ -25,32 +25,8 @@ public class InnlastingThread extends Task {
         }catch (InvalidFileFormatException e) {
 
         }
+        return lokaleString;
 
-        String[] lokaleArray = Splittere.linjeSplitter(lokaleString);
-        String[][] lokaleDArray = Splittere.objectSplitter(lokaleArray);
-        ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
-
-
-        try {
-            ArrayList<String> lokaleListe = new ArrayList<>();
-            for (int i = 0; i < lokaleArray.length; i++) {
-                lokaleListe.add(lokaleDArray[i][0]);
-            }
-            lokaleInnlastingList = FXCollections.observableArrayList(lokaleListe);
-
-            Kontroller Kon = new Kontroller();
-            Kon.setLokaleInnlastingList(lokaleInnlastingList);
-            System.out.println("denne ble først kjørt");
-
-
-            //Kon.init(lokaleDArray, lokaleArray, lokaleInnlastingList);
-            System.out.println(lokaleInnlastingList);
-            javel=lokaleInnlastingList;
-            System.out.println(javel+"for faen");
-
-        }catch(Exception e){}
-        return lokaleInnlastingList;
     }
-
 
 }
