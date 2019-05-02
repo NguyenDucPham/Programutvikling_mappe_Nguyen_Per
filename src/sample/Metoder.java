@@ -32,5 +32,10 @@ public class Metoder {
 
         return arrangementListe;
     }
+    public static String opplysning(){
+        return "Velkommen til Kulturhuset" +"\n"+
+                "Her er det oversikt over arrangementer til kulturhuset" +"\n"+
+                "kommuner har fått et nytt kulturhus med kinosal, teatersal og forsamlingssal.\n";
+    }
 
 }

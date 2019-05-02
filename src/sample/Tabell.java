@@ -17,6 +17,9 @@ public class Tabell {
 
     }
 
+    public void setNavn(String navn){
+        this.navn.set(navn);
+    }
     public SimpleStringProperty navnProperty() {
         return navn;
     }

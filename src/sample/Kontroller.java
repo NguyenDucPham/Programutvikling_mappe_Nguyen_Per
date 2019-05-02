@@ -6,6 +6,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -30,6 +32,8 @@ import static java.lang.String.valueOf;
 public class Kontroller {
 
     private final ObservableList<String> data = FXCollections.observableArrayList();
+    @FXML
+    private TextArea opplysningsVirksomhet;
     @FXML
     private TableView<Tabell> table = new TableView<Tabell>();
     @FXML
@@ -66,16 +70,9 @@ public class Kontroller {
     private String[][] arrDArray;
 
 
-
-  /*  ObservableList<Tabell> dataa =
-            FXCollections.observableArrayList(
-                    new Person("Jacob", "Smith", "jacob.smith@example.com"),
-                    new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
-                    new Person("Ethan", "Williams", "ethan.williams@example.com"),
-                    new Person("Emma", "Jones", "emma.jones@example.com"),
-                    new Person("Michael", "Brown", "michael.brown@example.com"));*/
     @FXML
     private void initialize() {
+        opplysningsVirksomhet.setText(Metoder.opplysning());
         tabellVisning.setEditable(true);
         String last = null;
         InnlastingThread test= new InnlastingThread();
@@ -87,8 +84,6 @@ public class Kontroller {
         arrArray = Splittere.linjeSplitter(last);
         arrDArray = Splittere.objectSplitter(arrArray);
         ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
-
-
 
         try {
 
@@ -121,8 +116,21 @@ public class Kontroller {
             tabellVisning.getColumns().setAll(visningNavn, visningType,visningPris,visningDato);
 
         }
+        visningNavn.setCellFactory(TextFieldTableCell.forTableColumn());
+        visningDato.setCellFactory(TextFieldTableCell.forTableColumn());
+        visningType.setCellFactory(TextFieldTableCell.forTableColumn());
+        visningPris.setCellFactory(TextFieldTableCell.forTableColumn());
 
-
+        /*visningNavn.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Tabell, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Tabell, String> t) {
+                        ((Tabell) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setNavn(t.getNewValue());
+                    }
+                }
+        );*/
     }
     @FXML
     public void updateValues(){
@@ -270,20 +278,7 @@ public class Kontroller {
 
         }
     }
-    /*
-    *
-    * *
-    *  Kontroller for Arrangement visning
-    *
-    *
-    */
 
-
-    /*
-     *
-     * Kontroller for billett************************************************************************'***
-     *
-     * */
 
     @FXML
     protected void registrerSalg(ActionEvent event){
