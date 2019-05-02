@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class JobjEndring extends FilEndring{
 
     @Override
-    public void elementEndrer(String fil, int indeks) throws IOException, FeilFilFormatException {
+    public void elementEndrer(String fil, int indeks) throws IOException, FeilFilFormatException,Exception {
         ArrayList<Object> objekter = new ArrayList<>();
         if (new File(fil + ".jobj").exists()) {
             ObjectInputStream objektInnputStroem = new ObjectInputStream(new FileInputStream(fil + ".jobj"));

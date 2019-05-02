@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class CsvEndring extends FilEndring{
     @Override
-    public void elementEndrer(String fil, int indeks) throws IOException, FeilFilFormatException {
+    public void elementEndrer(String fil, int indeks) throws IOException, FeilFilFormatException,Exception {
         int elementer = 0;
         String ut = null;
         CsvLasting csvLasting = new CsvLasting();

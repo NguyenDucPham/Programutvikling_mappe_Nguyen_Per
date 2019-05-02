@@ -6,20 +6,18 @@ import java.util.ArrayList;
 
 public class JobjLasting extends FilLasting{
     @Override
-    public String leser(String fil) throws IOException, FeilFilFormatException {
+    public String leser(String fil) throws IOException, FeilFilFormatException, ClassNotFoundException {
         StringBuilder strengBygger = new StringBuilder();
         ArrayList<Object> objekter = new ArrayList<>();
         ObjectInputStream objektInnputStroem = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
-        try {
-            objekter = (ArrayList<Object>) objektInnputStroem.readObject();
-        } catch (ClassNotFoundException e) {
-
-        }
+        objekter = (ArrayList<Object>) objektInnputStroem.readObject();
         for (Object objekt : objekter) {
             strengBygger.append(objekt.toString());
             strengBygger.append("\n");
         }
-        if(false) throw new FeilFilFormatException("Data er fra en utdatert versjon av klassen");
+        if(for(int i = 0;i < objekter.size();i++){
+            
+        }) throw new FeilFilFormatException("Filen har feil format");
         return strengBygger.toString();
     }
 }

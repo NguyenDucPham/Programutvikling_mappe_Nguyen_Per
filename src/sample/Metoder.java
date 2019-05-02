@@ -15,9 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Metoder {
-    public static String[][] billettTrekker(String[][] matrise, int indeks){
+    public static String[][] billettTrekker(String[][] matrise, int indeks) throws Exception {
         String antallBilett = matrise[indeks][14];
-        int tallBillett = Integer.parseInt(antallBilett) - 1;
+        int tallBillett = Integer.parseInt(antallBilett);
+        if(!(tallBillett == 0)){
+            tallBillett--;
+        }else{
+            throw new Exception();
+        }
         antallBilett = String.valueOf(tallBillett);
         matrise[indeks][14] = antallBilett;
         return matrise;

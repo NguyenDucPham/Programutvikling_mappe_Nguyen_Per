@@ -2,30 +2,20 @@ package sample;
 
 public class Splittere {
     public static String[] linjeSplitter(String streng){
-        try{
-            String[] objekt = streng.split("\n");
-
-            return objekt;
-        }catch(Exception e){
-
-        } return null;
+        String[] objekt = streng.split("\n");
+        return objekt;
     }
 
     public static String[][] objectSplitter(String[] object){
-        try {
-            String[] antElement = object[0].split(";");
-            String[][] element = new String[object.length][antElement.length];
-            for (int i = 0; i < object.length; i++) {
-                antElement = object[i].split(";");
-                for (int j = 0; j < antElement.length; j++) {
-                    element[i][j] = antElement[j];
-                }
+        String[] antElement = object[0].split(";");
+        String[][] element = new String[object.length][antElement.length];
+        for (int i = 0; i < object.length; i++) {
+            antElement = object[i].split(";");
+            for (int j = 0; j < antElement.length; j++) {
+                element[i][j] = antElement[j];
             }
-
-            return element;
-        }catch(Exception e) {
-
-        }return null;
+        }
+        return element;
 
     }
 }

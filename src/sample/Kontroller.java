@@ -1,6 +1,7 @@
 package sample;
 
 import com.sun.xml.internal.fastinfoset.util.StringArray;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -16,6 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -64,10 +67,10 @@ public class Kontroller {
     private ArrayList<String> arrTidspunktListe = new ArrayList<>();
     private ArrayList <String> arrLokalListe= new ArrayList<>();
     private ArrayList<String> arrType=new ArrayList<>();
-
     private ArrayList<String> arrListe = new ArrayList<>();
     private String[] arrArray;
     private String[][] arrDArray;
+    private int indeks = -1;
 
 
     @FXML
@@ -121,6 +124,12 @@ public class Kontroller {
         visningType.setCellFactory(TextFieldTableCell.forTableColumn());
         visningPris.setCellFactory(TextFieldTableCell.forTableColumn());
 
+
+        tabellVisning.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY)) {
+                indeks = tabellVisning.getSelectionModel().getSelectedIndex();
+            }
+        });
         /*visningNavn.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<Tabell, String>>() {
                     @Override
@@ -297,7 +306,7 @@ public class Kontroller {
 
                 }
             }
-        }catch(Exception e){
+        }catch (Exception e){
 
         }
         try {
@@ -306,6 +315,10 @@ public class Kontroller {
             e.printStackTrace();
         } catch (FeilFilFormatException e) {
             e.printStackTrace();
+        }catch (Exception e){
+            Beskjed.visVarsel(Alert.AlertType.ERROR, salg, "Form Error!", "Det er tomt for billetter til " +
+                    "dette arrangementet");
+            return;
         }
         try{
             arrListe.clear();
@@ -319,4 +332,38 @@ public class Kontroller {
 
     }
 
+    @FXML
+    protected void slettArrangement(ActionEvent event){
+        Window slett = regSalg.getScene().getWindow();
+        if (indeks==-1) {
+            Beskjed.visVarsel(Alert.AlertType.ERROR, slett, "Form Error!", "Velg et " +
+                    "arrangement du vil slette");
+            return;
+        }
+        /*
+        try {
+            String hentetArr = (String) billettComboBox.getValue();
+            for (int i = 0; i < arrArray.length; i++) {
+                if (arrDArray[i][0] == hentetArr){
+                    x=i;
+
+                }
+            }
+        }catch(Exception e){
+
+        }*/
+        CsvSletting csvSletting = new CsvSletting();
+        try{
+            csvSletting.sletter("arrangement",indeks);
+        }catch (IOException e){
+
+        }catch (FeilFilFormatException e){
+
+        }
+
+        Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, slett, "Vellykket", "Arrangementet er slettet");
+        ComboBox<Object> salgBox = new ComboBox<Object>();
+        arrListe.clear();
+        initialize();
+    }
 }
