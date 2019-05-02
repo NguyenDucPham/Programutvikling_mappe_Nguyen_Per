@@ -1,14 +1,11 @@
 package sample;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import javafx.concurrent.Task;
 
 public class InnlastingThread extends Task {
     @FXML
@@ -22,11 +19,9 @@ public class InnlastingThread extends Task {
             lokaleString = innlasting.leser("lokale");
         } catch (IOException e){
             e.printStackTrace();
-        }catch (InvalidFileFormatException e) {
+        }catch (FeilFilFormatException e) {
 
         }
         return lokaleString;
-
     }
-
 }
