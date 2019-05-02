@@ -42,16 +42,24 @@ public class OppstartKontroller {
             try {
                 rot = FXMLLoader.load(getClass().getResource("Tab.fxml"));
                 Stage stage = new Stage();
-                stage.setTitle("My New Stage Title");
+                stage.setTitle("Kulturhus");
                 stage.setScene(new Scene(rot, 900, 900));
                 stage.show();
-                // Hide this current window (if this is what you want)
                 ((Node) (event.getSource())).getScene().getWindow().hide();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else if (oppstartComboBox.getValue() == "Jobj") {
-
+            try {
+                rot = FXMLLoader.load(getClass().getResource("TabJobj.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Kulturhus");
+                stage.setScene(new Scene(rot, 900, 900));
+                stage.show();
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         } else Beskjed.visVarsel(Alert.AlertType.ERROR, denne, "Form Error!", "Noe galt med innput");
 
