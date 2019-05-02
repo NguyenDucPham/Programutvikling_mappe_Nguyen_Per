@@ -4,20 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.stage.Window;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 import static java.lang.String.valueOf;
 
-public class Kontroller extends InnlastingThread{
+public class Kontroller{
    private ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
 
 @FXML
@@ -30,29 +23,19 @@ public class Kontroller extends InnlastingThread{
 
 
     @FXML
-    private void initialize() {
+    private void initialize() throws Exception {
         ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList("test1","test2");
 
         InnlastingThread test= new InnlastingThread();
+        lokaleInnlastingList=test.call();
         System.out.println(lokaleInnlastingList);
         billettComboBox.setItems(lokaleInnlastingList);
-        billettComboBox.setValue("fuclk");
-        addItems();
+        String x = String.valueOf(lokaleInnlastingList[0]);
+        billettComboBox.setValue(x);
+       // addItems();
 
     }
 
-    public void addItems(){
-        lokaleInnlastingList.add("name3");
-        lokaleInnlastingList.add("name4");
-        lokaleInnlastingList.add("name4");
-
-
-
-        billettComboBox.setItems(lokaleInnlastingList); // this does not work. ComboBox items remain "name1" and "name2"
-    }
-
-
-    /*
 /*
         CsvLasting innlasting = new CsvLasting();
         String lokaleString = innlasting.leser("lokale");

@@ -2,25 +2,30 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import javafx.concurrent.Task;
 
-public class InnlastingThread implements Runnable{
+public class InnlastingThread extends Task {
     @FXML
     private ComboBox lokaleComboBox;
-private ObservableList<String>javel;
-
-    public void run(){
+    private ObservableList<String>javel;
+    @Override
+    protected ObservableList<String> call() throws Exception {
         CsvLasting innlasting = new CsvLasting();
         String lokaleString = null;
         try {
             lokaleString = innlasting.leser("lokale");
-        } catch (IOException e) {
+        } catch (IOException e){
             e.printStackTrace();
-        } catch(InvalidFileFormatException e){}
+        }catch (InvalidFileFormatException e) {
+
+        }
+
         String[] lokaleArray = Splittere.linjeSplitter(lokaleString);
         String[][] lokaleDArray = Splittere.objectSplitter(lokaleArray);
         ObservableList<String> lokaleInnlastingList = FXCollections.observableArrayList();
@@ -44,8 +49,8 @@ private ObservableList<String>javel;
             System.out.println(javel+"for faen");
 
         }catch(Exception e){}
+        return lokaleInnlastingList;
     }
-    public ObservableList<String> getJavel(){
-        return javel;
-    }
+
+
 }
