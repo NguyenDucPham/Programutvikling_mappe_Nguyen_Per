@@ -30,15 +30,15 @@ public class Kontroller {
     private final ObservableList<String> data = FXCollections.observableArrayList();
 
     @FXML
-    private TableView<String> tabellVisning;
+    private TableView<Tabell> tabellVisning;
     @FXML
-    private TableColumn<String, String> visningNavn;
+    private TableColumn<Tabell, String> visningNavn;
     @FXML
-    private TableColumn<String, String> visningType;
+    private TableColumn<Tabell, String> visningType;
     @FXML
-    private TableColumn<String, String> visningPris;
+    private TableColumn<Tabell, String> visningPris;
     @FXML
-    private TableColumn<String, String> visningDato;
+    private TableColumn<Tabell, String> visningDato;
     @FXML
     private ComboBox billettComboBox;
     @FXML
@@ -86,7 +86,7 @@ public class Kontroller {
         try{
             for(int i=0; i< arrArray.length;i++){
                 nyListe.add(arrDArray[i][0] +", "+arrDArray[i][12]+", "+arrDArray[i][4]+ ", "+arrDArray[i][3]);
-                System.out.println(nyListe+"tsest");
+                System.out.println(nyListe+"test");
             }
         }catch(Exception e){}
         if(arrDArray != null) {
@@ -97,12 +97,20 @@ public class Kontroller {
             billettTidspunkt.setText(arrDArray[0][3]);
             billettLedig.setText(arrDArray[0][14]);
 
-            ObservableList<String> data = FXCollections.observableArrayList(arrArray);
-
+            ObservableList<Tabell> data = FXCollections.observableArrayList(Metoder.tabellListe(arrArray));
+            for (Tabell a : data){
+                System.out.println(a.toString());
+            }
+            visningNavn.setCellValueFactory(new PropertyValueFactory<>("navn"));
+            visningType.setCellValueFactory(new PropertyValueFactory<>("lokaleType"));
+            visningPris.setCellValueFactory(new PropertyValueFactory<>("pris"));
+            visningDato.setCellValueFactory(new PropertyValueFactory<>("tidspunkt"));
             tabellVisning.setItems(data);
+            tabellVisning.getColumns().setAll(visningNavn,visningType,visningPris,visningDato);
+            //tabellVisning.setItems(data);
            // visningNavn.getColumns().addAll(arrListe);
 
-            tabellVisning.getColumns().setAll(visningNavn, visningType, visningPris, visningDato);
+            //tabellVisning.getColumns().addAll(visningNavn, visningType, visningPris, visningDato);
         }
 
 

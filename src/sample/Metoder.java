@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Metoder {
     public static String[][] billettTrekker(String[][] matrise, int indeks){
@@ -22,27 +23,14 @@ public class Metoder {
         return matrise;
     }
 
-    public ObservableList<String> fxmlLasting()throws Exception{
-        ArrayList<String> arrListe = new ArrayList<>();
-        String[] arrArray;
-        String[][] arrDArray;
-        String last;
-        ComboBox billettComboBox;
-        InnlastingThread test= new InnlastingThread();
-        last=test.call();
-        arrArray = Splittere.linjeSplitter(last);
-        arrDArray = Splittere.objectSplitter(arrArray);
-        ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
+    public static ArrayList<Tabell> tabellListe(String[] liste){
+        ArrayList<Tabell> arrangementListe = new ArrayList<>();
+        String[][] matrise = Splittere.objectSplitter(liste);
+        for(int i = 0; i < liste.length;i++){
+            arrangementListe.add(new Tabell(matrise[i][0],matrise[i][12],matrise[i][4],matrise[i][3]));
+        }
 
-        try {
-
-            for (int i = 0; i < arrArray.length; i++) {
-                arrListe.add(arrDArray[i][0]);
-            }
-            arrInnlastingList = FXCollections.observableArrayList(arrListe);
-        }catch(Exception e){}
-
-        return arrInnlastingList;
+        return arrangementListe;
     }
 
 }
