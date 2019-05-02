@@ -4,18 +4,32 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import static java.lang.String.valueOf;
 
-public class Kontroller{
-   private ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
+public class Kontroller implements Initializable {
 
+    private final ObservableList<String> data = FXCollections.observableArrayList();
+
+    @FXML
+    private TableView tabellVisning;
+    @FXML
+    private TableColumn visningNavn;
+    @FXML
+    private TableColumn visningType;
+    @FXML
+    private TableColumn visningPris;
+    @FXML
+    private TableColumn visningDato;
     @FXML
     private ComboBox billettComboBox;
     @FXML
@@ -33,6 +47,8 @@ public class Kontroller{
     private ArrayList <String> arrPrisListe = new ArrayList<>();
     private ArrayList<String> arrTidspunktListe = new ArrayList<>();
     private ArrayList <String> arrLokalListe= new ArrayList<>();
+    private ArrayList<String> arrType=new ArrayList<>();
+
     private ArrayList<String> arrListe = new ArrayList<>();
     private String[] arrArray;
     private String[][] arrDArray;
@@ -49,6 +65,9 @@ public class Kontroller{
 
             for (int i = 0; i < arrArray.length; i++) {
                 arrListe.add(arrDArray[i][0]);
+                arrType.add(arrDArray[i][12]);
+                arrPrisListe.add(arrDArray[i][4]);
+                arrTidspunktListe.add(arrDArray[i][3]);
             }
             arrInnlastingList = FXCollections.observableArrayList(arrListe);
         }catch(Exception e){}
@@ -56,10 +75,13 @@ public class Kontroller{
         if(arrDArray != null) {
             billettComboBox.setItems(arrInnlastingList);
             billettComboBox.setValue(arrDArray[0][0]);
+
+            visningNavn.s;
         }
 
 
     }
+
 
     public void updateValues(){
         try {
@@ -208,18 +230,8 @@ public class Kontroller{
     *
     */
 
-    private final ObservableList<String> data = FXCollections.observableArrayList();
 
-    @FXML
-    private TableView tabellVisning;
-    @FXML
-    private TableColumn visningNavn;
-    @FXML
-    private TableColumn visningType;
-    @FXML
-    private TableColumn visningPris;
-    @FXML
-    private TableColumn visningDato;
+
 
     /*
      *
@@ -257,6 +269,11 @@ public class Kontroller{
 
         Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, salg, "Vellykket", "Billett registrert på telefonnummer");
         ComboBox<Object> salgBox = new ComboBox<Object>();
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 }

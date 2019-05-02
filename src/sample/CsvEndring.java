@@ -15,7 +15,8 @@ public class CsvEndring extends FilEndring{
         CsvLasting csvLasting = new CsvLasting();
         String[] rekke = Splittere.linjeSplitter(csvLasting.leser(fil+".csv"));
         String[][] matrise = Splittere.objectSplitter(rekke);
-        matrise = Metoder.billettTrekker(matrise,indeks);
+        String[][] test = Metoder.billettTrekker(matrise,indeks);
+        matrise = test;
         if(fil.equals("arrangement")){
             elementer = 15;
         }else{
