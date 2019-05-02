@@ -30,23 +30,22 @@ public class Kontroller{
     private ArrayList <String> arrPrisListe = new ArrayList<>();
     private ArrayList<String> arrTidspunktListe = new ArrayList<>();
     private ArrayList <String> arrLokalListe= new ArrayList<>();
-
+    private ArrayList<String> arrListe = new ArrayList<>();
+    private String[] arrArray;
+    private String[][] arrDArray;
     @FXML
     private void initialize() throws Exception {
         String last;
         InnlastingThread test= new InnlastingThread();
         last=test.call();
-        String[] arrArray = Splittere.linjeSplitter(last);
-        String[][] arrDArray = Splittere.objectSplitter(arrArray);
+        arrArray = Splittere.linjeSplitter(last);
+        arrDArray = Splittere.objectSplitter(arrArray);
         ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
 
         try {
-            ArrayList<String> arrListe = new ArrayList<>();
+
             for (int i = 0; i < arrArray.length; i++) {
                 arrListe.add(arrDArray[i][0]);
-                arrPrisListe.add(arrDArray[i][4]);
-                arrTidspunktListe.add(arrDArray[i][3]);
-                arrLokalListe.add(arrDArray[i][11]);
             }
             arrInnlastingList = FXCollections.observableArrayList(arrListe);
         }catch(Exception e){}
@@ -59,9 +58,12 @@ public class Kontroller{
 
     public void updateValues(){
         try {
-            String hentetArr =
+            String hentetArr = (String) billettComboBox.getValue();
             for (int i = 0; i < arrArray.length; i++) {
-                if (arrArray)
+                if (arrDArray[i][0] == hentetArr){
+                    billettPris.setText(arrDArray[i][4]);
+
+                }
             }
         }catch(Exception e){
 
