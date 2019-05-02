@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.org.apache.xpath.internal.operations.Number;
 import com.sun.xml.internal.fastinfoset.util.StringArray;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -19,15 +20,19 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import sun.util.calendar.LocalGregorianCalendar;
 
 import javax.xml.stream.FactoryConfigurationError;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import static java.lang.String.valueOf;
+import static java.lang.System.out;
 
 public class Kontroller {
 
@@ -207,7 +212,7 @@ public class Kontroller {
     @FXML
     protected void arrReg(ActionEvent event) {
         Window eier = arrRegistrerKnapp.getScene().getWindow();
-
+int parsedValue;
         if (arrNavn.getText().isEmpty()) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn type navn");
             return;
@@ -224,6 +229,7 @@ public class Kontroller {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn tidspunkt");
             return;
         }
+
         if (arrPris.getText().isEmpty()) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, eier, "Form Error!", "Fyll inn pris");
             return;
