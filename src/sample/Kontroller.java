@@ -1,41 +1,22 @@
 package sample;
 
-import com.sun.xml.internal.fastinfoset.util.StringArray;
-import javafx.beans.Observable;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.stage.Window;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
-import sun.util.calendar.LocalGregorianCalendar;
-
-import javax.xml.stream.FactoryConfigurationError;
+import sample.CsvLagring;
+import sample.CsvSletting;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.attribute.UserDefinedFileAttributeView;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.ResourceBundle;
 
-import static java.lang.String.valueOf;
-import static java.lang.System.out;
+
 
 public class Kontroller {
 
@@ -135,16 +116,7 @@ public class Kontroller {
                 indeks = tabellVisning.getSelectionModel().getSelectedIndex();
             }
         });
-        /*visningNavn.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<Tabell, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<Tabell, String> t) {
-                        ((Tabell) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setNavn(t.getNewValue());
-                    }
-                }
-        );*/
+
     }
     @FXML
     public void updateValues(){

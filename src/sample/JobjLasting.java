@@ -1,10 +1,12 @@
 package sample;
 
 
+import sample.FilLasting;
+
 import java.io.*;
 import java.util.ArrayList;
 
-public class JobjLasting extends FilLasting{
+public class JobjLasting extends FilLasting {
     @Override
     public String leser(String fil) throws IOException, FeilFilFormatException, ClassNotFoundException {
         StringBuilder strengBygger = new StringBuilder();

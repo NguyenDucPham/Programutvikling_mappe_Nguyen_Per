@@ -1,5 +1,7 @@
 package sample;
 
+import sample.FilLagring;
+
 import java.io.*;
 import java.util.ArrayList;
 

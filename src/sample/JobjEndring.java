@@ -1,9 +1,11 @@
 package sample;
 
+import sample.FilEndring;
+
 import java.io.*;
 import java.util.ArrayList;
 
-public class JobjEndring extends FilEndring{
+public class JobjEndring extends FilEndring {
 
     @Override
     public void elementEndrer(String fil, int indeks) throws IOException, FeilFilFormatException,Exception {

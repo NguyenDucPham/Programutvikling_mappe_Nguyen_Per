@@ -1,9 +1,11 @@
 package sample;
 
+import sample.FilSletting;
+
 import java.io.*;
 import java.util.ArrayList;
 
-public class JobjSletting extends FilSletting{
+public class JobjSletting extends FilSletting {
     @Override
     public void sletter(String fil, int indeks) throws FeilFilFormatException, IOException,ClassNotFoundException {
         ArrayList<Object> objekter = new ArrayList<>();

@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import sample.CsvLasting;
 
 import java.io.IOException;
 
