@@ -1,14 +1,11 @@
 package sample;
 
-import java.util.ArrayList;
-
-import static java.lang.Integer.parseInt;
 
 public class Metoder {
-    public static String[][] billettTrekker(String[][] dArray, int index){
-        String antallBilett = String.valueOf(Integer.parseInt(dArray[index][14])-1);
-        dArray[index][14] = antallBilett;
-        return dArray;
+    public static String[][] billettTrekker(String[][] matrise, int indeks){
+        String antallBilett = String.valueOf(Integer.parseInt(matrise[indeks][14])-1);
+        matrise[indeks][14] = antallBilett;
+        return matrise;
     }
 
 }

@@ -36,14 +36,14 @@ public class OppstartKontroller {
     @FXML
     public void startBekreft(ActionEvent event) {
 
-        Parent root;
+        Parent rot;
         Window denne = oppstartBekreft.getScene().getWindow();
         if (oppstartComboBox.getValue() == "Csv") {
             try {
-                root = FXMLLoader.load(getClass().getResource("Tab.fxml"));
+                rot = FXMLLoader.load(getClass().getResource("Tab.fxml"));
                 Stage stage = new Stage();
                 stage.setTitle("My New Stage Title");
-                stage.setScene(new Scene(root, 900, 900));
+                stage.setScene(new Scene(rot, 900, 900));
                 stage.show();
                 // Hide this current window (if this is what you want)
                 ((Node) (event.getSource())).getScene().getWindow().hide();

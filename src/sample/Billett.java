@@ -26,7 +26,7 @@ public class Billett implements Serializable {
         this.arrangementNavn = arrangementNavn;
     }
 
-    public void billettSolgt(String format, int index) throws IOException, InvalidFileFormatException {
+    public void billettSolgt(String format, int index) throws IOException, FeilFilFormatException {
         FilEndring filEndring;
         if (format.equals("csv")) {
             filEndring = new CsvEndring();

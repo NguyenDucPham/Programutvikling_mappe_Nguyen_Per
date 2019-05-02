@@ -1,12 +1,11 @@
 package sample;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public class CsvLasting extends FilLasting{
     @Override
-    public String leser(String fil) throws InvalidFileFormatException,IOException {
+    public String leser(String fil) throws FeilFilFormatException,IOException {
         String data = null;
         String s;
         RandomAccessFile leser = new RandomAccessFile(fil+".csv","r" );
@@ -17,7 +16,7 @@ public class CsvLasting extends FilLasting{
                 data = data + s + "\n";
             }
         }
-        if(false) throw new InvalidFileFormatException("Filen er ikke separert med semikolon");
+        if(false) throw new FeilFilFormatException("Filen er ikke separert med semikolon");
         return data;
     }
 }

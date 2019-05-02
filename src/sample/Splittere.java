@@ -1,11 +1,11 @@
 package sample;
 
 public class Splittere {
-    public static String[] linjeSplitter(String string){
+    public static String[] linjeSplitter(String streng){
         try{
-            String[] object = string.split("\n");
+            String[] objekt = streng.split("\n");
 
-            return object;
+            return objekt;
         }catch(Exception e){
 
         } return null;

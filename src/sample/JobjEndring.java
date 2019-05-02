@@ -6,32 +6,32 @@ import java.util.ArrayList;
 public class JobjEndring extends FilEndring{
 
     @Override
-    public void elementEndrer(String fil, int index) throws IOException, InvalidFileFormatException {
-        ArrayList<Object> objects = new ArrayList<>();
+    public void elementEndrer(String fil, int indeks) throws IOException, FeilFilFormatException {
+        ArrayList<Object> objekter = new ArrayList<>();
         if (new File(fil + ".jobj").exists()) {
-            ObjectInputStream oin = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
+            ObjectInputStream objektInnputStroem = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
             try {
-                objects = (ArrayList<Object>) oin.readObject();
+                objekter = (ArrayList<Object>) objektInnputStroem.readObject();
             } catch (ClassNotFoundException e) {
 
             }
         }
-        Object object;
-        objects.remove(index);
+        Object objekt;
+        objekter.remove(indeks);
         JobjLasting jobjLasting = new JobjLasting();
-        String[] array = Splittere.linjeSplitter(jobjLasting.leser(fil+".jobj"));
-        String[][] dArray = Splittere.objectSplitter(array);
-        dArray = Metoder.billettTrekker(dArray,index);
+        String[] rekke = Splittere.linjeSplitter(jobjLasting.leser(fil+".jobj"));
+        String[][] matrise = Splittere.objectSplitter(rekke);
+        matrise = Metoder.billettTrekker(matrise,indeks);
         if(fil.equals("arrangement")){
-            object = new Arrangement(dArray[index][0],dArray[index][1],dArray[index][2],dArray[index][3],dArray[index][4],
-                    dArray[index][5],dArray[index][6],dArray[index][7],dArray[index][8],dArray[index][9],dArray[index][10],
-                    dArray[index][11],dArray[index][12],dArray[index][13],dArray[index][14]);
+            objekt = new Arrangement(matrise[indeks][0],matrise[indeks][1],matrise[indeks][2],matrise[indeks][3],matrise[indeks][4],
+                    matrise[indeks][5],matrise[indeks][6],matrise[indeks][7],matrise[indeks][8],matrise[indeks][9],matrise[indeks][10],
+                    matrise[indeks][11],matrise[indeks][12],matrise[indeks][13],matrise[indeks][14]);
         }else{
-            object = new Billett(dArray[index][0],dArray[index][1],dArray[index][2],dArray[index][3],dArray[index][4],
-                    dArray[index][5],dArray[index][6]);
+            objekt = new Billett(matrise[indeks][0],matrise[indeks][1],matrise[indeks][2],matrise[indeks][3],matrise[indeks][4],
+                    matrise[indeks][5],matrise[indeks][6]);
         }
-        objects.add(index,object);
+        objekter.add(indeks,objekt);
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fil + ".jobj"));
-        out.writeObject(objects);
+        out.writeObject(objekter);
     }
 }

@@ -5,19 +5,19 @@ import java.util.ArrayList;
 
 public class JobjLagring extends FilLagring implements Serializable {
     @Override
-    public void skriver(Object object, String filPlassering) throws IOException {
-        ObjectOutputStream out;
-        ArrayList<Object> objects = new ArrayList<>();
+    public void skriver(Object objekt, String filPlassering) throws IOException {
+        ObjectOutputStream objektUtStroem;
+        ArrayList<Object> objekter = new ArrayList<>();
         if (new File(filPlassering + ".jobj").exists()) {
-            ObjectInputStream oin = new ObjectInputStream(new FileInputStream(filPlassering + ".jobj"));
+            ObjectInputStream objektInnputStroem = new ObjectInputStream(new FileInputStream(filPlassering + ".jobj"));
             try {
-                objects = (ArrayList<Object>) oin.readObject();
+                objekter = (ArrayList<Object>) objektInnputStroem.readObject();
             } catch (ClassNotFoundException e) {
 
             }
         }
-        objects.add(object);
-        out = new ObjectOutputStream(new FileOutputStream(filPlassering + ".jobj"));
-        out.writeObject(objects);
+        objekter.add(objekt);
+        objektUtStroem = new ObjectOutputStream(new FileOutputStream(filPlassering + ".jobj"));
+        objektUtStroem.writeObject(objekter);
     }
 }

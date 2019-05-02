@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 public class CsvEndring extends FilEndring{
     @Override
-    public void elementEndrer(String fil, int indeks) throws IOException, InvalidFileFormatException {
+    public void elementEndrer(String fil, int indeks) throws IOException, FeilFilFormatException {
         int elementer = 0;
         String ut = null;
         CsvLasting csvLasting = new CsvLasting();

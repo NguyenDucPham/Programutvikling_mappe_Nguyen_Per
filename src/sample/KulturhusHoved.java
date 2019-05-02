@@ -28,11 +28,11 @@ public class KulturhusHoved extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Parent root;
+        Parent rot;
         try {
-            root = FXMLLoader.load(getClass().getResource("Oppstart.fxml"));
+            rot = FXMLLoader.load(getClass().getResource("Oppstart.fxml"));
             primaryStage.setTitle("Kulturhus");
-            Scene scene = new Scene(root, 600, 400);
+            Scene scene = new Scene(rot, 600, 400);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
