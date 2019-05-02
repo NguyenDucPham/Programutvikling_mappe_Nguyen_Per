@@ -1,35 +1,44 @@
 package sample;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static java.lang.String.valueOf;
 
-public class Kontroller implements Initializable {
+public class Kontroller {
 
     private final ObservableList<String> data = FXCollections.observableArrayList();
 
     @FXML
-    private TableView tabellVisning;
+    private TableView<String> tabellVisning;
     @FXML
-    private TableColumn visningNavn;
+    private TableColumn<String, String> visningNavn;
     @FXML
-    private TableColumn visningType;
+    private TableColumn<String, String> visningType;
     @FXML
-    private TableColumn visningPris;
+    private TableColumn<String, String> visningPris;
     @FXML
-    private TableColumn visningDato;
+    private TableColumn<String, String> visningDato;
     @FXML
     private ComboBox billettComboBox;
     @FXML
@@ -60,6 +69,8 @@ public class Kontroller implements Initializable {
         arrArray = Splittere.linjeSplitter(last);
         arrDArray = Splittere.objectSplitter(arrArray);
         ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
+        ObservableList<String> nyListe=FXCollections.observableArrayList();
+
 
         try {
 
@@ -72,17 +83,31 @@ public class Kontroller implements Initializable {
             arrInnlastingList = FXCollections.observableArrayList(arrListe);
         }catch(Exception e){}
 
+        try{
+            for(int i=0; i< arrArray.length;i++){
+                nyListe.add(arrDArray[i][0] +", "+arrDArray[i][12]+", "+arrDArray[i][4]+ ", "+arrDArray[i][3]);
+                System.out.println(nyListe+"tsest");
+            }
+        }catch(Exception e){}
         if(arrDArray != null) {
             billettComboBox.setItems(arrInnlastingList);
             billettComboBox.setValue(arrDArray[0][0]);
+            billettPris.setText(arrDArray[0][4]);
+            billettLokal.setText(arrDArray[0][11]);
+            billettTidspunkt.setText(arrDArray[0][3]);
+            billettLedig.setText(arrDArray[0][14]);
 
-            visningNavn.s;
+            ObservableList<String> data = FXCollections.observableArrayList(arrArray);
+
+            tabellVisning.setItems(data);
+           // visningNavn.getColumns().addAll(arrListe);
+
+            tabellVisning.getColumns().setAll(visningNavn, visningType, visningPris, visningDato);
         }
 
 
     }
-
-
+    @FXML
     public void updateValues(){
         try {
             String hentetArr = (String) billettComboBox.getValue();
@@ -218,6 +243,12 @@ public class Kontroller implements Initializable {
                     Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, eier, "Vellykket", "Arrangement er registrert");
             CsvLagring csvLagring = new CsvLagring();
             csvLagring.skriver(arrangement,"arrangement");
+            try{
+                arrListe.clear();
+                initialize();
+            }catch (Exception e){
+
+            }
         } catch (Exception e) {
 
         }
@@ -229,8 +260,6 @@ public class Kontroller implements Initializable {
     *
     *
     */
-
-
 
 
     /*
@@ -266,14 +295,16 @@ public class Kontroller implements Initializable {
         } catch (FeilFilFormatException e) {
             e.printStackTrace();
         }
+        try{
+            arrListe.clear();
+            initialize();
+        }catch (Exception e){
+
+        }
 
         Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, salg, "Vellykket", "Billett registrert på telefonnummer");
         ComboBox<Object> salgBox = new ComboBox<Object>();
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
 }
