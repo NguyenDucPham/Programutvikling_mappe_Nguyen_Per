@@ -27,7 +27,7 @@ public class Kontroller {
     @FXML
     private TextArea opplysningsVirksomhet;
     @FXML
-    private TableView<Tabell> table = new TableView<Tabell>();
+    private TableView<Tabell> table = new TableView<>();
     @FXML
     private TableView<Tabell> tabellVisning= table;
     @FXML
@@ -90,6 +90,7 @@ public class Kontroller {
             }
 
 
+
             if (arrDArray != null) {
                 billettComboBox.setItems(arrInnlastingList);
                 billettComboBox.setValue(arrDArray[0][0]);
@@ -127,7 +128,7 @@ public class Kontroller {
         try {
             String hentetArr = (String) billettComboBox.getValue();
             for (int i = 0; i < arrArray.length; i++) {
-                if (arrDArray[i][0] == hentetArr){
+                if (arrDArray[i][0].equals(hentetArr)){
                     billettPris.setText(arrDArray[i][4]);
                     billettLokal.setText(arrDArray[i][11]);
                     billettTidspunkt.setText(arrDArray[i][3]);
@@ -265,16 +266,13 @@ public class Kontroller {
             }catch (Exception e){
                 Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Feil!", "Problemer med å " +
                         "relaste siden");
-                return;
             }
         } catch (IOException e){
             Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Feil!", "Problemer med å laste/lagre");
-            return;
         }
     }
-    public boolean testSemi(String text){
-            if(text.matches("[;]*")) return true;
-            else return false;
+    private boolean testSemi(String text){
+        return text.matches("[;]*");
 
     }
 
@@ -290,7 +288,7 @@ public class Kontroller {
         try {
             String hentetArr = (String) billettComboBox.getValue();
             for (int i = 0; i < arrArray.length; i++) {
-                if (arrDArray[i][0] == hentetArr){
+                if (arrDArray[i][0].equals(hentetArr)){
                     x=i;
 
                 }
@@ -322,7 +320,7 @@ public class Kontroller {
         }
 
         Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, salg, "Vellykket", "Billett registrert på telefonnummer");
-        ComboBox<Object> salgBox = new ComboBox<Object>();
+        ComboBox<Object> salgBox = new ComboBox<>();
 
     }
 
@@ -347,7 +345,7 @@ public class Kontroller {
         }
 
         Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, slett, "Vellykket", "Arrangementet er slettet");
-        ComboBox<Object> salgBox = new ComboBox<Object>();
+        ComboBox<Object> salgBox = new ComboBox<>();
         arrListe.clear();
         initialize();
     }
