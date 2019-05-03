@@ -69,56 +69,84 @@ public class KontrollerJobj {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        arrArray = Splittere.linjeSplitter(last);
-        arrDArray = Splittere.objectSplitter(arrArray);
-        ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
+        if(last != null) {
+            arrArray = Splittere.linjeSplitter(last);
+            arrDArray = Splittere.objectSplitter(arrArray);
+            ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
 
-        try {
-
-            for (int i = 0; i < arrArray.length; i++) {
-                arrListe.add(arrDArray[i][0]);
-                arrType.add(arrDArray[i][12]);
-                arrPrisListe.add(arrDArray[i][4]);
-                arrTidspunktListe.add(arrDArray[i][3]);
+            try {
+                for (int i = 0; i < arrArray.length; i++) {
+                    arrListe.add(arrDArray[i][0]);
+                    arrType.add(arrDArray[i][12]);
+                    arrPrisListe.add(arrDArray[i][4]);
+                    arrTidspunktListe.add(arrDArray[i][3]);
+                }
+                arrInnlastingList = FXCollections.observableArrayList(arrListe);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            arrInnlastingList = FXCollections.observableArrayList(arrListe);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
 
 
-        if(arrDArray != null) {
-            billettComboBox.setItems(arrInnlastingList);
-            billettComboBox.setValue(arrDArray[0][0]);
-            billettPris.setText(arrDArray[0][4]);
-            billettLokal.setText(arrDArray[0][11]);
-            billettTidspunkt.setText(arrDArray[0][3]);
-            billettLedig.setText(arrDArray[0][14]);
+            if (arrDArray != null) {
+                billettComboBox.setItems(arrInnlastingList);
+                billettComboBox.setValue(arrDArray[0][0]);
+                billettPris.setText(arrDArray[0][4]);
+                billettLokal.setText(arrDArray[0][11]);
+                billettTidspunkt.setText(arrDArray[0][3]);
+                billettLedig.setText(arrDArray[0][14]);
 
 
-            ObservableList<Tabell> dataa = FXCollections.observableArrayList(Metoder.tabellListe(arrArray));
+                ObservableList<Tabell> dataa = FXCollections.observableArrayList(Metoder.tabellListe(arrArray));
+                visningNavn.setCellValueFactory(new PropertyValueFactory<>("navn"));
+                visningType.setCellValueFactory(new PropertyValueFactory<>("lokaleType"));
+                visningPris.setCellValueFactory(new PropertyValueFactory<>("pris"));
+                visningDato.setCellValueFactory(new PropertyValueFactory<>("tidspunkt"));
+
+                tabellVisning.setItems(dataa);
+                tabellVisning.getColumns().setAll(visningNavn, visningType, visningPris, visningDato);
+
+            }
+            visningNavn.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningDato.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningType.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningPris.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+            tabellVisning.setOnMouseClicked((MouseEvent event) -> {
+                if (event.getButton().equals(MouseButton.PRIMARY)) {
+                    indeks = tabellVisning.getSelectionModel().getSelectedIndex();
+                }
+            });
+        }else{
+            billettComboBox.setItems(null);
+            billettPris.setText(null);
+            billettLokal.setText(null);
+            billettTidspunkt.setText(null);
+            billettLedig.setText(null);
+
+            ObservableList<Tabell> dataa = FXCollections.observableArrayList();
             visningNavn.setCellValueFactory(new PropertyValueFactory<>("navn"));
             visningType.setCellValueFactory(new PropertyValueFactory<>("lokaleType"));
             visningPris.setCellValueFactory(new PropertyValueFactory<>("pris"));
             visningDato.setCellValueFactory(new PropertyValueFactory<>("tidspunkt"));
 
             tabellVisning.setItems(dataa);
-            tabellVisning.getColumns().setAll(visningNavn, visningType,visningPris,visningDato);
+            tabellVisning.getColumns().setAll(visningNavn, visningType, visningPris, visningDato);
 
+            visningNavn.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningDato.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningType.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningPris.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+            tabellVisning.setOnMouseClicked((MouseEvent event) -> {
+                if (event.getButton().equals(MouseButton.PRIMARY)) {
+                    indeks = tabellVisning.getSelectionModel().getSelectedIndex();
+                }
+            });
         }
-        visningNavn.setCellFactory(TextFieldTableCell.forTableColumn());
-        visningDato.setCellFactory(TextFieldTableCell.forTableColumn());
-        visningType.setCellFactory(TextFieldTableCell.forTableColumn());
-        visningPris.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
-        tabellVisning.setOnMouseClicked((MouseEvent event) -> {
-            if (event.getButton().equals(MouseButton.PRIMARY)) {
-                indeks = tabellVisning.getSelectionModel().getSelectedIndex();
-            }
-        });
-
     }
+
     @FXML
     public void updateValues(){
         try {
