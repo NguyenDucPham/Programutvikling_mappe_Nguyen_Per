@@ -72,6 +72,7 @@ public class Kontroller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if(last != null) {
             arrArray = Splittere.linjeSplitter(last);
             arrDArray = Splittere.objectSplitter(arrArray);
             ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
@@ -120,6 +121,7 @@ public class Kontroller {
                     indeks = tabellVisning.getSelectionModel().getSelectedIndex();
                 }
             });
+        }
 
     }
     @FXML

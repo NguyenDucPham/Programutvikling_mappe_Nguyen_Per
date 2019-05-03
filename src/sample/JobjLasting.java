@@ -11,7 +11,7 @@ public class JobjLasting extends FilLasting {
     public String leser(String fil) throws IOException, FeilFilFormatException, ClassNotFoundException {
         StringBuilder strengBygger = new StringBuilder();
         ArrayList<Object> objekter = new ArrayList<>();
-        if (new File(fil + ".csv").exists()) {
+        if (new File(fil + ".jobj").exists()) {
             ObjectInputStream objektInnputStroem = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
             objekter = (ArrayList<Object>) objektInnputStroem.readObject();
             for (Object objekt : objekter) {
