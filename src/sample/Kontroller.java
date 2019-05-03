@@ -91,7 +91,6 @@ public class Kontroller {
             }
 
 
-
             if (arrDArray != null) {
                 billettComboBox.setItems(arrInnlastingList);
                 billettComboBox.setValue(arrDArray[0][0]);
@@ -246,11 +245,11 @@ public class Kontroller {
             Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Feil!", "Fyll inn lokalet");
             return;
         }
-        if (lokType.getText().isEmpty()||lokType.getText().matches("[;]*")) {
+        if (lokType.getText().isEmpty()||testSemi(lokType.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Feil!", "Fyll inn type");
             return;
         }
-        if (lokAntallplasser.getText().isEmpty()||lokAntallplasser.getText().matches("[a-z,;,A-Z]*")) {
+        if (lokAntallplasser.getText().isEmpty()||lokAntallplasser.getText().matches("[a-z,A-Z]*")||testSemi(lokAntallplasser.getText())) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, registrer, "Feil!", "Feil input, kunn Tall");
             return;
         }
