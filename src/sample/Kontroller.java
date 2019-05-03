@@ -286,9 +286,9 @@ public class Kontroller {
             Arrangement arrangement = new Arrangement(arrNavn.getText(), arrArtist.getText(), arrProgram.getText(), arrTidspunkt.getText(),
                     arrPris.getText(), konNavn.getText(), konTelefonnummer.getText(), konEmail.getText(), konEkstraopplysning.getText(),
                     konNettside.getText(), konFirma.getText(), lokNavn.getText(), lokType.getText(), lokAntallplasser.getText(), lokAntallplasser.getText());
-                    Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, registrer, "Vellykket", "Arrangement er registrert");
             CsvLagring csvLagring = new CsvLagring();
             csvLagring.skriver(arrangement,"arrangement");
+            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, registrer, "Vellykket", "Arrangement er registrert");
             try {
                 arrListe.clear();
                 initialize();
@@ -365,6 +365,7 @@ public class Kontroller {
         CsvSletting csvSletting = new CsvSletting();
         try{
             csvSletting.sletter("arrangement",indeks);
+            indeks = -1;
         }catch (IOException e){
             Beskjed.visVarsel(Alert.AlertType.ERROR, slett, "Feil!", "Problemer med å laste/lagre");
             return;

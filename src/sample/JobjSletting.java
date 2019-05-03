@@ -14,9 +14,14 @@ public class JobjSletting extends FilSletting {
             objekter = (ArrayList<Object>) objektInnputStroem.readObject();
         }
         objekter.remove(indeks);
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fil + ".jobj"));
-        if(objekter.size()!=0) {
-            out.writeObject(objekter);
+        Object objekt = null;
+        ObjectOutputStream objektUtStroem = new ObjectOutputStream(new FileOutputStream(fil + ".jobj"));
+        if(objekter.size() != 0) {
+            objektUtStroem.writeObject(objekter);
+        }else{
+            objekter.add(objekt);
+            objektUtStroem.writeObject(objekter);
         }
+        objektUtStroem.close();
     }
 }

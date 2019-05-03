@@ -13,13 +13,18 @@ public class JobjLasting extends FilLasting {
         ArrayList<Object> objekter = new ArrayList<>();
         if (new File(fil + ".jobj").exists()) {
             ObjectInputStream objektInnputStroem = new ObjectInputStream(new FileInputStream(fil + ".jobj"));
-            objekter = (ArrayList<Object>) objektInnputStroem.readObject();
-            for (Object objekt : objekter) {
-                strengBygger.append(objekt.toString());
-                strengBygger.append("\n");
-                //if (!objekt.equals(Arrangement.class) || !objekt.equals(Billett.class))
-                //   throw new FeilFilFormatException("Filen har feil format");
-            }
+                objekter = (ArrayList<Object>) objektInnputStroem.readObject();
+                if (objekter.get(0) != null) {
+                    if (objekter != null) {
+                        for (Object objekt : objekter) {
+                            strengBygger.append(objekt.toString());
+                            strengBygger.append("\n");
+                            //if (!objekt.equals(Arrangement.class) || !objekt.equals(Billett.class))
+                            // throw new FeilFilFormatException("Filen har feil format");
+                        }
+                    }
+                }
+            if(strengBygger.toString().equals("")) return null;
             return strengBygger.toString();
         }
         return null;
