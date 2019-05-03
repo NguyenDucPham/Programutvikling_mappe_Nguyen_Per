@@ -25,6 +25,9 @@ public class CsvSletting extends FilSletting{
             }
         }
         PrintWriter skriver = new PrintWriter(new BufferedWriter(new FileWriter(fil + ".csv")));
+        if(ut==null){
+            skriver.close();
+        }
         skriver.println(ut);
         skriver.close();
 

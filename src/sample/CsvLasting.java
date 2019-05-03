@@ -14,10 +14,10 @@ public class CsvLasting extends FilLasting{
             RandomAccessFile leser = new RandomAccessFile(fil + ".csv", "r");
 
             while ((s = (leser.readLine())) != null) {
-                formatTester = s.split(";");
-                if ((formatTester.length !=15 && fil.equals("arrangement")) ||
+                //formatTester = s.split(";");
+                /*if ((formatTester.length !=15 && fil.equals("arrangement")) ||
                         (formatTester.length !=7 && fil.equals("billett")))
-                        throw new FeilFilFormatException("Filen er ikke separert riktig");
+                        throw new FeilFilFormatException("Filen er ikke separert riktig");*/
                 if (data == null) {
                     data = s + "\n";
                 } else {
