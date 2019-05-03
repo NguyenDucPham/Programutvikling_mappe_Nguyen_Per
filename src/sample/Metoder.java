@@ -37,10 +37,23 @@ public class Metoder {
 
         return arrangementListe;
     }
+
     public static String opplysning(){
         return "Velkommen til Kulturhuset" +"\n"+
                 "Her er det oversikt over arrangementer til kulturhuset" +"\n"+
                 "kommuner har fått et nytt kulturhus med kinosal, teatersal og forsamlingssal.\n";
+    }
+
+    public static String jobjBillettTrekker(String billett)throws Exception{
+        String utBillett = billett;
+        int tallBillett = Integer.parseInt(utBillett);
+        if(!(tallBillett == 0)){
+            tallBillett--;
+        }else{
+            throw new Exception();
+        }
+        utBillett = String.valueOf(tallBillett);
+        return utBillett;
     }
 
 }

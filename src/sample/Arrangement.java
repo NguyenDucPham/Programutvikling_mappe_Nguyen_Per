@@ -58,4 +58,11 @@ public class Arrangement implements Serializable {
                 + lokaleType + ";" + antallPlasser + ";" + antallLedigeBilletter;
     }
 
+    public void setAntallLedigeBilletter(String antallLedigeBilletter) {
+        this.antallLedigeBilletter = antallLedigeBilletter;
+    }
+
+    public String getAntallLedigeBilletter() {
+        return antallLedigeBilletter;
+    }
 }

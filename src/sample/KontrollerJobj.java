@@ -69,7 +69,7 @@ public class KontrollerJobj {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(last != null) {
+        if((last != null)) {
             arrArray = Splittere.linjeSplitter(last);
             arrDArray = Splittere.objectSplitter(arrArray);
             ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
@@ -281,9 +281,9 @@ public class KontrollerJobj {
             Arrangement arrangement = new Arrangement(arrNavn.getText(), arrArtist.getText(), arrProgram.getText(), arrTidspunkt.getText(),
                     arrPris.getText(), konNavn.getText(), konTelefonnummer.getText(), konEmail.getText(), konEkstraopplysning.getText(),
                     konNettside.getText(), konFirma.getText(), lokNavn.getText(), lokType.getText(), lokAntallplasser.getText(), lokAntallplasser.getText());
-            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, registrer, "Vellykket", "Arrangement er registrert");
             JobjLagring jobjLagring = new JobjLagring();
             jobjLagring.skriver(arrangement,"arrangement");
+            Beskjed.visVarsel(Alert.AlertType.CONFIRMATION, registrer, "Vellykket", "Arrangement er registrert");
             try {
                 arrListe.clear();
                 initialize();
@@ -357,7 +357,7 @@ public class KontrollerJobj {
     @FXML
     protected void slettArrangement(ActionEvent event){
         Window slett = regSalg.getScene().getWindow();
-        if (indeks==-1) {
+        if (indeks == -1) {
             Beskjed.visVarsel(Alert.AlertType.ERROR, slett, "Feil!", "Velg et " +
                     "arrangement du vil slette");
             return;
@@ -366,6 +366,7 @@ public class KontrollerJobj {
         JobjSletting jobjSletting = new JobjSletting();
         try{
             jobjSletting.sletter("arrangement",indeks);
+            indeks = -1;
         }catch (IOException e){
             Beskjed.visVarsel(Alert.AlertType.ERROR, slett, "Feil!", "Problemer med å laste/lagre");
             return;
