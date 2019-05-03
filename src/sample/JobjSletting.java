@@ -15,6 +15,8 @@ public class JobjSletting extends FilSletting {
         }
         objekter.remove(indeks);
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fil + ".jobj"));
-        out.writeObject(objekter);
+        if(objekter.size()!=0) {
+            out.writeObject(objekter);
+        }
     }
 }

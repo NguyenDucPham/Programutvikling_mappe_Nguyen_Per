@@ -14,6 +14,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Window;
 import java.io.IOException;
 import java.util.ArrayList;
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 
 public class KontrollerJobj {
 
@@ -270,8 +273,8 @@ public class KontrollerJobj {
         }
     }
     public boolean testSemi(String text){
-        if(text.matches("[;]*")) return false;
-        else return true;
+        if(text.matches("[;]*")) return true;
+        else return false;
 
     }
 
