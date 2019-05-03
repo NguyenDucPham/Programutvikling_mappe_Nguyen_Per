@@ -75,7 +75,6 @@ public class KontrollerJobj {
             ObservableList<String> arrInnlastingList = FXCollections.observableArrayList();
 
             try {
-
                 for (int i = 0; i < arrArray.length; i++) {
                     arrListe.add(arrDArray[i][0]);
                     arrType.add(arrDArray[i][12]);
@@ -107,6 +106,33 @@ public class KontrollerJobj {
                 tabellVisning.getColumns().setAll(visningNavn, visningType, visningPris, visningDato);
 
             }
+            visningNavn.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningDato.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningType.setCellFactory(TextFieldTableCell.forTableColumn());
+            visningPris.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+            tabellVisning.setOnMouseClicked((MouseEvent event) -> {
+                if (event.getButton().equals(MouseButton.PRIMARY)) {
+                    indeks = tabellVisning.getSelectionModel().getSelectedIndex();
+                }
+            });
+        }else{
+            billettComboBox.setItems(null);
+            billettPris.setText(null);
+            billettLokal.setText(null);
+            billettTidspunkt.setText(null);
+            billettLedig.setText(null);
+
+            ObservableList<Tabell> dataa = FXCollections.observableArrayList();
+            visningNavn.setCellValueFactory(new PropertyValueFactory<>("navn"));
+            visningType.setCellValueFactory(new PropertyValueFactory<>("lokaleType"));
+            visningPris.setCellValueFactory(new PropertyValueFactory<>("pris"));
+            visningDato.setCellValueFactory(new PropertyValueFactory<>("tidspunkt"));
+
+            tabellVisning.setItems(dataa);
+            tabellVisning.getColumns().setAll(visningNavn, visningType, visningPris, visningDato);
+
             visningNavn.setCellFactory(TextFieldTableCell.forTableColumn());
             visningDato.setCellFactory(TextFieldTableCell.forTableColumn());
             visningType.setCellFactory(TextFieldTableCell.forTableColumn());
