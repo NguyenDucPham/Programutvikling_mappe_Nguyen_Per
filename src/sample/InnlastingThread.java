@@ -9,9 +9,7 @@ import sample.CsvLasting;
 import java.io.IOException;
 
 public class InnlastingThread extends Task {
-    @FXML
-    private ComboBox lokaleComboBox;
-    private ObservableList<String>javel;
+
     @Override
     protected String call() throws IOException, FeilFilFormatException {
         CsvLasting innlasting = new CsvLasting();

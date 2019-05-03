@@ -61,7 +61,7 @@ public class OppstartKontroller {
                 e.printStackTrace();
             }
 
-        } else Beskjed.visVarsel(Alert.AlertType.ERROR, denne, "Form Error!", "Noe galt med innput");
+        } else Beskjed.visVarsel(Alert.AlertType.ERROR, denne, "Feil Oppdaget!", "Noe galt med innput");
 
 
     }
